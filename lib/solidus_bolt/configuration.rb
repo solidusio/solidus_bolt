@@ -2,9 +2,7 @@
 
 module SolidusBolt
   class Configuration
-    # Define here the settings for this extension, e.g.:
-    #
-    # attr_accessor :my_setting
+    attr_accessor :bolt_api_key, :bolt_signing_secret
   end
 
   class << self
