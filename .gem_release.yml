@@ -1,0 +1,5 @@
+bump:
+  recurse: false
+  file: 'lib/solidus_bolt/version.rb'
+  message: Bump SolidusBolt to %{version}
+  tag: true
