@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module SolidusBolt
-  class Configuration
-    attr_accessor :bolt_api_key, :bolt_signing_secret
-  end
+  class Configuration; end
 
   class << self
     def configuration

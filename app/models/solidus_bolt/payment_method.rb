@@ -2,9 +2,6 @@
 
 module SolidusBolt
   class PaymentMethod < SolidusSupport.payment_method_parent_class
-    preference :bolt_api_key, :string
-    preference :bolt_signing_secret, :string
-
     def gateway_class
       ::SolidusBolt::Gateway
     end
@@ -15,6 +12,28 @@ module SolidusBolt
 
     def partial_name
       'bolt'
+    end
+
+    def preferred_api_key
+      configuration.api_key
+    end
+
+    def preferred_signing_secret
+      configuration.signing_secret
+    end
+
+    def preferred_publishable_key
+      configuration.publishable_key
+    end
+
+    def preferred_base_url
+      preferred_test_mode ? 'https://connect-sandbox.bolt.com' : 'https://connect.bolt.com'
+    end
+
+    private
+
+    def configuration
+      @configuration ||= SolidusBolt::BoltConfiguration.fetch
     end
   end
 end

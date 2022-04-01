@@ -13,13 +13,7 @@ module SolidusBolt
 
     initializer "solidus_bolt.add_static_preference", after: "spree.register.payment_methods" do |app|
       app.config.spree.payment_methods << SolidusBolt::PaymentMethod
-      Spree::Config.static_model_preferences.add(
-        SolidusBolt::PaymentMethod,
-        'bolt_credentials', {
-          bolt_api_key: ENV['BOLT_API_KEY'],
-          bolt_signing_secret: ENV['BOLT_SIGNING_SECRET']
-        }
-      )
+      Spree::Config.static_model_preferences.add(SolidusBolt::PaymentMethod, 'bolt_credentials', {})
     end
 
     # use rspec for tests
