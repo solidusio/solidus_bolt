@@ -1,0 +1,12 @@
+<div id="bolt-container" data-publishable-key="<%= payment_method.preferred_bolt_publishable_key %>"></div>
+<div id="payment-status-container" style="display: none;">
+  <button id="bolt-submit-button" type="button">Submit</button>
+</div>
+<button id="bolt-card-button" type="button">Pay</button>
+
+<script
+  id="bolt-embedded"
+  type="text/javascript"
+  src="<%= payment_method.preferred_base_url %>/embed-accounts.js"
+  >
+</script>
