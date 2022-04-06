@@ -1,4 +1,9 @@
-<div id="bolt-container" data-publishable-key="<%= payment_method.preferred_bolt_publishable_key %>"></div>
+<div id="bolt-container"
+  data-publishable-key="<%= payment_method.preferred_bolt_publishable_key %>"
+  data-order-number="<%= @order.number %>"
+  data-order-token="<%= @order.guest_token %>"
+  >
+</div>
 <div id="payment-status-container" style="display: none;">
   <button id="bolt-submit-button" type="button">Submit</button>
 </div>

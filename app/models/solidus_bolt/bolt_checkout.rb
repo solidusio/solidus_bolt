@@ -21,5 +21,9 @@ module SolidusBolt
     def preferred_base_url
       preferred_test_mode ? 'https://connect-sandbox.bolt.com' : 'https://connect.bolt.com'
     end
+
+    def preferred_api_url
+      preferred_test_mode ? 'https://api-sandbox.bolt.com' : 'https://api.bolt.com'
+    end
   end
 end
