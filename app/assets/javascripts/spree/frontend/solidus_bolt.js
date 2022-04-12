@@ -10,6 +10,23 @@ const createBoltPayment = async (boltContainer, creditCard) => {
   const userIdentifier = JSON.parse(boltContainer.dataset.userIdentifier)
   const userIdentity =   JSON.parse(boltContainer.dataset.userIdentity)
 
+  creditCard["billing_address"] = {
+    "street_address1": "888 main street",
+    "street_address2": "apt 3021",
+    "street_address3": null,
+    "street_address4": null,
+    "locality": "New York",
+    "region": "NY",
+    "postal_code": "10044",
+    "country_code": "US",
+    "country": "United States",
+    "name": "Alan Watts",
+    "first_name": "Alan",
+    "last_name": "Watts",
+    "company": "Bolt",
+    "phone": "1-867-5309",
+    "email": "alan.watts@bolt.com"
+    }
   let nonce = Math.floor(100000000000 + Math.random() * 900000000000) // random 12 digit number
   let boltBody = {
     'auto_capture': autoCapture,

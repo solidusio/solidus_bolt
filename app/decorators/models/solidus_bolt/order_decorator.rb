@@ -5,6 +5,7 @@ module SolidusBolt
     def bolt_cart
       {
         order_reference: number,
+        currency: currency,
         items: line_items.map do |line_item|
           {
             sku: line_item.sku,
