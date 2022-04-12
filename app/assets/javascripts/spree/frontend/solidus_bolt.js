@@ -1,22 +1,49 @@
 // Placeholder manifest file.
 // the installer will append this file to the app vendored assets here: vendor/assets/javascripts/spree/frontend/all.js"
 
-const createBoltPayment = async (boltContainer, token) => {
-  const orderNumber = boltContainer.dataset.orderNumber
-  const orderToken = boltContainer.dataset.orderToken
+const createBoltPayment = async (boltContainer, creditCard) => {
+  const publishableKey = boltContainer.dataset.publishableKey
+  const apiKey =         boltContainer.dataset.apiKey
+  const apiUrl =         boltContainer.dataset.apiUrl
+  const autoCapture =    boltContainer.dataset.autoCapture === 'true'
+  const cart =           JSON.parse(boltContainer.dataset.cart)
+  const userIdentifier = JSON.parse(boltContainer.dataset.userIdentifier)
+  const userIdentity =   JSON.parse(boltContainer.dataset.userIdentity)
 
+  let nonce = Math.floor(100000000000 + Math.random() * 900000000000) // random 12 digit number
+  let boltBody = {
+    'auto_capture': autoCapture,
+    'cart': cart,
+    'credit_card': creditCard,
+    'division_id': '',
+    'source': 'direct_payments',
+    'user_identifier': userIdentifier,
+    'user_identity': userIdentity,
+    'create_bolt_account': true // createBoltAccount
+  }
+  headers = {
+    'Content-Type': 'application/json',
+    'X-API-Key': apiKey,
+    'X-Nonce': nonce,
+    'X-Publishable-Key': publishableKey
+  }
+  console.log(headers)
+  console.log(JSON.stringify(boltBody))
   // api call to bolt
-  await fetch('https://api-sandbox.bolt.com/v1/merchant/transactions/authorize', {
+  await fetch(`${apiUrl}/v1/merchant/transactions/authorize`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Nonce': token,
-      'X-Publishable-Key': publishableKey
-    },
-    boltBody,
+    headers: headers,
+    body: JSON.stringify(boltBody)
+  })
+  .then((response) => {
+    // api call to update order
+    console.log('success')
+    console.log(response)
+  })
+  .catch((response) => {
+    console.log('error')
+    console.log(response)
   });
-  // then api call to update order
-  return resp
 }
 
 const displayBoltInput = (paymentField, boltContainer) => {
@@ -25,8 +52,17 @@ const displayBoltInput = (paymentField, boltContainer) => {
   statusContainer.style.display = "block";
 }
 
-const tokenize = async (paymentField) => {
-  await paymentField.tokenize();
+const tokenize = async (paymentField, boltContainer) => {
+  await paymentField.tokenize()
+  .then((result) => {
+    console.log(result)
+    if (result["token"]) {
+      // Submit a Payment Authorization POST Request
+      createBoltPayment(boltContainer, result)
+    } else {
+      console.log(`error ${result["type"]}: ${result["message"]}`);
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -38,13 +74,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     displayBoltInput(paymentField, boltContainer);
 
     document.getElementById("bolt-submit-button").addEventListener("click", () => {
-      let result = tokenize(paymentField);
-      if (result["token"]) {
-        // Submit a Payment Authorization POST Request
-        // createBoltPayment(boltContainer)
-      } else {
-        console.log(`error ${result["type"]}: ${result["message"]}`);
-      }
+      tokenize(paymentField, boltContainer);
     })
   })
 })

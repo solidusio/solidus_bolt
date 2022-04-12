@@ -1,7 +1,13 @@
 <div id="bolt-container"
   data-publishable-key="<%= payment_method.preferred_bolt_publishable_key %>"
+  data-api-key="<%= payment_method.preferred_bolt_api_key %>"
   data-order-number="<%= @order.number %>"
   data-order-token="<%= @order.guest_token %>"
+  data-api-url="<%= payment_method.preferred_api_url %>"
+  data-auto-capture="<%= payment_method.auto_capture.present? %>"
+  data-cart="<%= @order.bolt_cart %>"
+  data-user-identifier="<%= @order.bolt_user_identifier %>"
+  data-user-identity="<%= @order.bolt_user_identity %>"
   >
 </div>
 <div id="payment-status-container" style="display: none;">
