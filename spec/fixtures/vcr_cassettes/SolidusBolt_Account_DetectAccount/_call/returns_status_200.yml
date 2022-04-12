@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account/exists?email=bolt@bolt.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 25 Apr 2022 08:41:37 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '26'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=f46fab92-2ef0-4ca4-9703-c7a2382cb61b; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62665ec1-09ecf436048bf92e0fd530bf
+      X-Device-Id:
+      - f64f683ec8c2857432a9531e07a218b51549b4c77651f3197af610b40f12b291
+      X-Envoy-Upstream-Service-Time:
+      - '6'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"has_bolt_account":false}'
+  recorded_at: Mon, 25 Apr 2022 08:41:36 GMT
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account/exists?email=bolt@bolt.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 25 Apr 2022 08:41:40 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '26'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=7f49c5b1-355f-45ea-9b60-fd4ab351bee1; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62665ec4-1dee65f077e94490190047d0
+      X-Device-Id:
+      - 0b96bf83ba6c034a28d61f7a3109f2e7961d259970b8201a7fe58c940150fa6c
+      X-Envoy-Upstream-Service-Time:
+      - '14'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"has_bolt_account":false}'
+  recorded_at: Mon, 25 Apr 2022 08:41:40 GMT
+recorded_with: VCR 6.0.0
