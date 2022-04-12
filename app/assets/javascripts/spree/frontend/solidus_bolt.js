@@ -9,11 +9,7 @@ const createBoltPayment = async (boltContainer, creditCard) => {
   const cart =           JSON.parse(boltContainer.dataset.cart)
   const userIdentifier = JSON.parse(boltContainer.dataset.userIdentifier)
   const userIdentity =   JSON.parse(boltContainer.dataset.userIdentity)
-  const billingAddress = JSON.parse(boltContainer.dataset.billingAddress)
 
-  if (creditCard["billing_address"] == null) {
-    creditCard["billing_address"] = billingAddress
-  }
   let nonce = Math.floor(100000000000 + Math.random() * 900000000000) // random 12 digit number
   let boltBody = {
     'auto_capture': autoCapture,
