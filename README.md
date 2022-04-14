@@ -21,7 +21,23 @@ bin/rails generate solidus_bolt:install
 
 ## Usage
 
-<!-- Explain how to use your extension once it's been installed. -->
+### How to set the webhooks
+
+(For latest up to date guide check [Bolt's Documentation](https://help.bolt.com/developers/guides/webhooks/))
+
+1. Login to your [Bolt Merchant Dashboard](https://merchant.bolt.com/).
+
+2. Navigate to **Developers**.
+
+3. Scroll to **Merchant API**.
+
+4. Add your webhook endpoints.
+
+Important use cases include:
+
+- Notifying your e-commerce store when a transaction has been approved or rejected by Bolt.
+- Sending your e-commerce store with the `transaction_id`, which is necessary for back-office operations.
+- Sending your e-commerce store more information about a transaction such as credit card details.
 
 ## Development
 
