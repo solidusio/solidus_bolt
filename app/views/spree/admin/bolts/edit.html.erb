@@ -1,0 +1,6 @@
+<fieldset class="no-border-bottom">
+  <legend align="center"><%= t('spree.admin.bolt.edit_configuration') %></legend>
+  <%= form_for @bolt_configuration, url: admin_bolt_path, method: :put do |f| %>
+    <%= render partial: 'form', locals: { f: f, submit_name: 'Update' } %>
+  <% end %>
+</fieldset>

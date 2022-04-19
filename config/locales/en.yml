@@ -8,5 +8,7 @@ en:
       bolt:
         configuration: 'Bolt Configuration'
         configuration_not_found: 'No Bolt Configuration found'
+        edit_configuration: 'Edit Bolt Configuration'
+        updated_successfully: 'Bolt Configuration Updated Successfully'
       tab:
         bolt: 'Bolt'
