@@ -3,3 +3,10 @@
 
 en:
   hello: Hello world
+  spree:
+    admin:
+      bolt:
+        configuration: 'Bolt Configuration'
+        configuration_not_found: 'No Bolt Configuration found'
+      tab:
+        bolt: 'Bolt'
