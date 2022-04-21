@@ -1,0 +1,6 @@
+<% admin_breadcrumb(plural_resource_name(SolidusBolt::BoltConfiguration)) %>
+
+<fieldset class="no-border-bottom">
+  <legend align="center"><%= t('spree.admin.bolt.configuration') %></legend>
+  <%= render partial: 'configuration', locals: { edit_btn: 'Edit' } %>
+</fieldset>

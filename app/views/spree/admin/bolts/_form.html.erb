@@ -1,0 +1,29 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @bolt_configuration } %>
+<fieldset class="form-group no-border-bottom no-border-top">
+  <div class="row">
+    <div id="general_fields" class="col-9">
+      <div class="row">
+        <div class="col-12">
+          <%= f.label :bearer_token %>
+          <%= f.text_field :bearer_token, class: 'fullwidth'%>
+          <%= f.label :environment_url %><br />
+          <%= f.text_field :environment_url, class: 'fullwidth' %>
+          <%= f.label 'Merchant Public Id' %><br />
+          <%= f.text_field :merchant_public_id, class: 'fullwidth' %>
+          <%= f.label 'Merchant ID' %><br />
+          <%= f.text_field :merchant_id, class: 'fullwidth' %>
+          <%= f.label :api_key %><br />
+          <%= f.text_field :api_key, class: 'fullwidth' %>
+          <%= f.label :signing_secret %><br />
+          <%= f.text_field :signing_secret, class: 'fullwidth' %>
+          <%= f.label :publishable_key %><br />
+          <%= f.text_field :publishable_key, class: 'fullwidth' %>
+        </div>
+      </div>
+      <div class="row p-2 justify-content-center">
+        <%= f.submit submit_name, class: 'btn btn-primary', data: { disable_with: 'Save' } %>
+        <%= link_to 'Cancel', admin_bolt_path, class: 'button' %>
+      </div>
+    </div>
+  </div>
+</fieldset>
