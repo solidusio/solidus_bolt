@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe SolidusBolt::BoltCheckout, type: :model do
+RSpec.describe SolidusBolt::PaymentMethod, type: :model do
   describe '#gateway_class' do
     it 'has correct gateway class' do
       expect(described_class.new.gateway_class).to eq SolidusBolt::Gateway
