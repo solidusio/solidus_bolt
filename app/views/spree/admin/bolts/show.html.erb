@@ -1,5 +1,16 @@
 <% admin_breadcrumb(plural_resource_name(SolidusBolt::BoltConfiguration)) %>
 
+<% content_for :page_actions do %>
+  <% if SolidusBolt::BoltConfiguration.config_empty? %>
+    <li>
+      <p>Don't have a <%= image_tag "bolt_logo_standard.png", alt: "Bolt", width: "40" %> Merchant account yet?</p>
+    </li>
+    <li>
+      <%= link_to t('spree.admin.bolt.create_merchant_account'), SolidusBolt::BoltConfiguration::REGISTER_URL, class: 'btn btn-primary', target: '_blank' %>
+    </li>
+  <% end %>
+<% end %>
+
 <fieldset class="no-border-bottom">
   <legend align="center"><%= t('spree.admin.bolt.configuration') %></legend>
   <%= render partial: 'configuration', locals: { edit_btn: 'Edit' } %>

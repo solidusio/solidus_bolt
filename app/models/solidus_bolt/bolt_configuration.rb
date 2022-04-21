@@ -4,6 +4,8 @@ require_dependency 'solidus_bolt'
 
 module SolidusBolt
   class BoltConfiguration < ApplicationRecord
+    REGISTER_URL = 'https://merchant.bolt.com/register'
+
     validate :config_can_be_created, on: :create
 
     def self.fetch
@@ -12,6 +14,14 @@ module SolidusBolt
 
     def self.can_create?
       count.zero?
+    end
+
+    def self.config_empty?
+      whitelist = %w[id created_at updated_at]
+
+      fetch.attributes.all? do |attr, val|
+        whitelist.include?(attr) || val.blank?
+      end
     end
 
     private

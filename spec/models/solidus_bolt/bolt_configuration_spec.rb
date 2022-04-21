@@ -38,6 +38,32 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
+  describe '#config_empty?' do
+    it 'is true for a new empty record' do
+      described_class.fetch
+      expect(described_class).to be_config_empty
+    end
+
+    it 'is true for a record with empty fields' do
+      create(
+        :bolt_configuration,
+        bearer_token: '',
+        environment_url: '',
+        merchant_public_id: '',
+        merchant_id: '',
+        api_key: '',
+        signing_secret: '',
+        publishable_key: ''
+      )
+      expect(described_class).to be_config_empty
+    end
+
+    it 'is false for a record with data' do
+      create(:bolt_configuration)
+      expect(described_class).not_to be_config_empty
+    end
+  end
+
   describe 'validations' do
     it 'raises an error when there is an existing record and a new record is created' do
       create(:bolt_configuration)
