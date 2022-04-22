@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/merchant/transactions/T6JB-MLHP-YZ38
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Nonce:
+      - d348938f262de0ff5c8c3e5abe2e48fe
+      X-Api-Key:
+      - db1bd1ff3631f9c3e30d3555ad2989fa7cbed58b2344aea911aa7e2d52dba3e3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 26 Apr 2022 05:13:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=0ed1040f-a393-42dc-9a7b-a6e6eba8e339; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62677f5c-5615913345b46976178b2078
+      X-Device-Id:
+      - 007544d8a89f3f89d36e852df6f7326bbe40c61aa2cb2575ef15f10477de34f6
+      X-Envoy-Upstream-Service-Time:
+      - '286'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"id":"TAftgvZApLaMM","type":"cc_payment","processor":"vantiv","date":1650658947266,"reference":"T6JB-MLHP-YZ38","status":"authorized","from_consumer":{"id":"CA946aLi8Lb4J","first_name":"asdasd","last_name":"fsfasdf","phones":[{"id":"","number":"+1
+        8316012769","country_code":"1","status":"","priority":""}],"emails":[{"id":"","address":"ryan.albert@bolt.com","status":"","priority":""}],"email_verified":false,"platform_account_status":"none"},"to_consumer":{"id":"CAgqtmLcWPErV","first_name":"Daniele","last_name":"Palombo","phones":[{"id":"PAkJjgMi179yV","number":"5555555555","country_code":"1","status":"pending","priority":"primary"}],"emails":[{"id":"EAmCbHaM6E7v8","address":"danielepalombo@nebulab.com","status":"active","priority":"primary"}],"email_verified":false,"platform_account_status":"none"},"from_credit_card":{"id":"CAkMr7CezEJa5","last4":"1111","bin":"411111","expiration":1669852800000,"network":"visa","token_type":"bolt","priority":"listed","display_network":"Visa","icon_asset_path":"img/issuer-logos/visa.png","status":"active"},"amount":{"amount":1000,"currency":"USD","currency_symbol":"$"},"authorization":{"auth":"83988859031316301","reason":"none","status":"succeeded"},"captures":null,"merchant_division":{"id":"MA9hYSVYJ12VA","merchant_id":"MA5Ho7ftc4HPz","public_id":"Rq4qB1QajYLn","description":"Daniele
+        Palombo (Nebulab)","display_name":"Solidus","logo":{"domain":"img-sandbox.bolt.com","resource":""},"platform":"none","hook_url":"https://918c9efe2fcf.ngrok.io/webhooks","hook_type":"bolt","is_universal_merchant_api":true,"is_webhooks_v2":true,"shipping_url":"","tax_url":"","universal_merchant_api_url":"https://918c9efe2fcf.ngrok.io/merchant","debug_url":"https://asdf.ngrok.com/webhooks","plugin_config_url":"https://918c9efe2fcf.ngrok.io/merchant","product_info_url":"https://918c9efe2fcf.ngrok.io/merchant","confirmation_redirect_url":""},"merchant":{"created_at":"2022-03-29T21:04:10.707458Z","description":"Solidus","processor":"vantiv","operational_processors":[{"processor":"vantiv","status":"primary"}],"public_id":"CB_FtfGdUP2e","time_zone":"America/Los_Angeles","onboarding_status":"LEGACY"},"transaction_properties":{"avs_result":"00","cvv_result":"M"},"indemnification_decision":"not_indemnified","indemnification_reason":"risk_assessment_only","splits":[{"amount":{"amount":1000,"currency":"USD","currency_symbol":"$"},"type":"net"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"processing_fee"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"bolt_fee"}],"review_ticket":{"request_deadline":1650946947266},"adjust_transactions":[],"auth_verification_status":"","void_cause":"","chargeback_details":{"reason":"","reason_code":"","chargeback_amt":{"amount":0,"currency":"","currency_symbol":""},"chargeback_fee":{"amount":0,"currency":"","currency_symbol":""},"net_amt":{"amount":0,"currency":"","currency_symbol":""},"representment_result":""},"order":{"token":"181f27d3fc9a4283678ade279a35440405270315716c126831168e69f8ebe32f","cart":{"order_reference":"R387090343","display_id":"R387090343","currency":{"currency":"USD","currency_symbol":"$"},"subtotal_amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"total_amount":{"amount":1000,"currency":"USD","currency_symbol":"$"},"discount_amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"items":[{"reference":"","name":"Solidus
+        T-Shirt","total_amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"unit_price":{"amount":1999,"currency":"USD","currency_symbol":"$"},"quantity":1,"sku":"SOL-00003","type":"unknown","taxable":true,"properties":[],"shipment_type":"door_delivery"}]},"external_data":{}},"refunded_amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"refund_transactions":[],"refund_transaction_ids":[],"source_transaction":null,"timeline":[{"date":1650658950866,"type":"note","note":"Bolt
+        Approved Order","visibility":"merchant"},{"date":1650658948682,"type":"note","note":"Authorized
+        Order","consumer":{"id":"CAcexxJhHoS4P","first_name":"asdasd","last_name":"fsfasdf"},"visibility":"merchant"},{"date":1650658947276,"type":"note","note":"Created
+        Order","consumer":{"id":"CAcexxJhHoS4P","first_name":"asdasd","last_name":"fsfasdf"},"visibility":"merchant"}],"customer_list_status":{"auto_approved":false,"block_listed":true},"address_change_request_metadata":{"can_change_shipping_address":true}}'
+  recorded_at: Tue, 26 Apr 2022 05:13:00 GMT
+recorded_with: VCR 6.0.0
