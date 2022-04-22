@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SolidusBolt
-  class BoltCheckout < SolidusSupport.payment_method_parent_class
+  class PaymentMethod < SolidusSupport.payment_method_parent_class
     preference :bolt_api_key, :string
     preference :bolt_signing_secret, :string
 
