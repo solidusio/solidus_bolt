@@ -3,6 +3,19 @@
 
 let createBoltAccount = false;
 
+const createBoltPayment = async (creditCard) => {
+  return Spree.ajax({
+    url: '/transactions/authorize',
+    method: 'POST',
+    data: {
+      order_token: Spree.current_order_token,
+      order_id: Spree.current_order_id,
+      create_bolt_account: createBoltAccount,
+      credit_card: creditCard
+    }
+  })
+}
+
 const displayBoltInput = (paymentField, boltContainer, accountCheckbox) => {
   paymentField.mount(boltContainer);
   const statusContainer = document.getElementById("payment-status-container");
@@ -14,7 +27,9 @@ const tokenize = async (paymentField) => {
   await paymentField.tokenize()
   .then((result) => {
     if (result["token"]) {
-      // Submit a Payment Authorization POST Request
+      createBoltPayment(result)
+      // then PATH /api/checkouts/order_number
+      // then update order state on Bolt's side (maybe via Gateway?)
     } else {
       console.log(`error ${result["type"]}: ${result["message"]}`);
     }
@@ -33,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     displayBoltInput(paymentField, boltContainer, accountCheckbox);
 
     document.getElementById("bolt-submit-button").addEventListener("click", () => {
-      tokenize(paymentField);
+      tokenize(paymentField, boltContainer);
     })
   })
 })
