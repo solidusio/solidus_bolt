@@ -6,4 +6,6 @@ Spree::Core::Engine.routes.draw do
   end
 
   post '/webhooks/bolt', to: '/solidus_bolt/webhooks#update'
+
+  post '/transactions/authorize', to: '/solidus_bolt/transactions#authorize'
 end
