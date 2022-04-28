@@ -27,6 +27,7 @@ SolidusDevSupport::TestingSupport::Factories.load_for(SolidusBolt::Engine)
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
+  config.include SolidusBolt::BoltHelper
 
   if Spree.solidus_gem_version < Gem::Version.new('2.11')
     config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
