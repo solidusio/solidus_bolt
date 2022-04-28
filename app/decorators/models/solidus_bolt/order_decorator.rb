@@ -4,6 +4,7 @@ module SolidusBolt
   module OrderDecorator
     def bolt_cart
       {
+        total_amount: display_total.cents,
         order_reference: number,
         currency: currency,
         items: line_items.map do |line_item|
