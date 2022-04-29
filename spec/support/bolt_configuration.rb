@@ -14,7 +14,7 @@ RSpec.configure do |config|
 
     solidus_bolt_configuration.save!
 
-    allow(SolidusBolt::Base).to receive(:generate_nonce).and_return('fakenonce')
+    allow(SolidusBolt::BaseService).to receive(:generate_nonce).and_return('fakenonce')
     allow(SolidusBolt::BoltHelper).to receive(:nonce).and_return('helpernonce')
     allow(TweetNaCl).to receive(:crypto_box_keypair).and_return(
       [

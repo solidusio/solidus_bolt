@@ -2,7 +2,7 @@
 
 module SolidusBolt
   module Transactions
-    class Capture < SolidusBolt::Base
+    class CaptureService < SolidusBolt::BaseService
       attr_reader :transaction_reference, :amount, :currency
 
       def initialize(transaction_reference:, amount:, currency:)

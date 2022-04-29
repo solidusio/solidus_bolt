@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe SolidusBolt::Base do
+RSpec.describe SolidusBolt::BaseService do
   let!(:bolt_configuration) { create(:bolt_configuration) }
 
   describe '#call' do
