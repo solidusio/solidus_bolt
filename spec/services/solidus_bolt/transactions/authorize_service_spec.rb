@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe SolidusBolt::Transactions::Authorize, :vcr, :bolt_configuration do
+RSpec.describe SolidusBolt::Transactions::AuthorizeService, :vcr, :bolt_configuration do
   subject(:authorize) do
     described_class.call(
       order: order, credit_card: credit_card_payload, create_bolt_account: false

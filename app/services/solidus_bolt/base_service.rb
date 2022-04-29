@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SolidusBolt
-  class Base
+  class BaseService
     def initialize(*)
       @config = SolidusBolt::BoltConfiguration.fetch
     end
