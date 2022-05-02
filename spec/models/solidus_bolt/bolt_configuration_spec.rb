@@ -16,7 +16,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     ]
   }
 
-  describe '#fetch' do
+  describe '.fetch' do
     it 'fetches the correct record' do
       bolt_configuration = create(:bolt_configuration)
       expect(described_class.fetch).to eq(bolt_configuration)
@@ -27,7 +27,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
-  describe '#can_create?' do
+  describe '.can_create?' do
     it 'returns true when no records are present' do
       expect(described_class).to be_can_create
     end
@@ -38,7 +38,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
-  describe '#config_empty?' do
+  describe '.config_empty?' do
     it 'is true for a new empty record' do
       described_class.fetch
       expect(described_class).to be_config_empty
