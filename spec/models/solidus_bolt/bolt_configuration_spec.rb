@@ -5,7 +5,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     [
       'id',
       'bearer_token',
-      'environment_url',
+      'environment',
       'merchant_public_id',
       'merchant_id',
       'api_key',
@@ -16,7 +16,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     ]
   }
 
-  describe '#fetch' do
+  describe '.fetch' do
     it 'fetches the correct record' do
       bolt_configuration = create(:bolt_configuration)
       expect(described_class.fetch).to eq(bolt_configuration)
@@ -27,7 +27,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
-  describe '#can_create?' do
+  describe '.can_create?' do
     it 'returns true when no records are present' do
       expect(described_class).to be_can_create
     end
@@ -38,7 +38,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
-  describe '#config_empty?' do
+  describe '.config_empty?' do
     it 'is true for a new empty record' do
       described_class.fetch
       expect(described_class).to be_config_empty
@@ -48,7 +48,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
       create(
         :bolt_configuration,
         bearer_token: '',
-        environment_url: '',
+        environment: nil,
         merchant_public_id: '',
         merchant_id: '',
         api_key: '',
@@ -61,6 +61,26 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     it 'is false for a record with data' do
       create(:bolt_configuration)
       expect(described_class).not_to be_config_empty
+    end
+  end
+
+  describe '#environment_url' do
+    context 'when production envornment' do
+      let(:config) { create(:bolt_configuration, environment: 'production') }
+
+      it { expect(config.environment_url).to eq('https://api.bolt.com') }
+    end
+
+    context 'when sandbox envornment' do
+      let(:config) { create(:bolt_configuration) }
+
+      it { expect(config.environment_url).to eq('https://api-sandbox.bolt.com') }
+    end
+
+    context 'when staging envornment' do
+      let(:config) { create(:bolt_configuration, environment: 'staging') }
+
+      it { expect(config.environment_url).to eq('https://api-staging.bolt.com') }
     end
   end
 

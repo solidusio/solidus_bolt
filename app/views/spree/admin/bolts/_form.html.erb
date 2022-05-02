@@ -4,10 +4,10 @@
     <div id="general_fields" class="col-9">
       <div class="row">
         <div class="col-12">
+          <%= f.label :environment %>
+          <%= f.select :environment, %w[production sandbox staging] %><br />
           <%= f.label :bearer_token %>
           <%= f.text_field :bearer_token, class: 'fullwidth'%>
-          <%= f.label :environment_url %><br />
-          <%= f.text_field :environment_url, class: 'fullwidth' %>
           <%= f.label 'Merchant Public Id' %><br />
           <%= f.text_field :merchant_public_id, class: 'fullwidth' %>
           <%= f.label 'Merchant ID' %><br />

@@ -6,6 +6,8 @@ module SolidusBolt
   class BoltConfiguration < ApplicationRecord
     REGISTER_URL = 'https://merchant.bolt.com/register'
 
+    enum environment: { production: 0, sandbox: 1, staging: 2 }
+
     validate :config_can_be_created, on: :create
 
     def self.fetch
@@ -21,6 +23,14 @@ module SolidusBolt
 
       fetch.attributes.all? do |attr, val|
         whitelist.include?(attr) || val.blank?
+      end
+    end
+
+    def environment_url
+      case BoltConfiguration.environments[environment]
+      when 0 then 'https://api.bolt.com'
+      when 1 then 'https://api-sandbox.bolt.com'
+      when 2 then 'https://api-staging.bolt.com'
       end
     end
 

@@ -5,7 +5,7 @@ RSpec.configure do |config|
     solidus_bolt_configuration = SolidusBolt::BoltConfiguration.fetch
 
     solidus_bolt_configuration.bearer_token = ENV['BOLT_BEARER_TOKEN']
-    solidus_bolt_configuration.environment_url = 'https://api-sandbox.bolt.com'
+    solidus_bolt_configuration.environment = 'sandbox'
     solidus_bolt_configuration.merchant_public_id = ENV['BOLT_MERCHANT_PUBLIC_ID']
     solidus_bolt_configuration.merchant_id = ENV['BOLT_MERCHANT_ID']
     solidus_bolt_configuration.api_key = ENV['BOLT_API_KEY']

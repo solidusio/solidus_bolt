@@ -6,7 +6,7 @@ RSpec.describe "Spree::Admin::Bolts", type: :request do
   let(:bolt_configuration_params) {
     {
       bearer_token: SecureRandom.hex,
-      environment_url: SecureRandom.hex,
+      environment: 'sandbox',
       merchant_public_id: SecureRandom.hex,
       merchant_id: SecureRandom.hex,
       api_key: SecureRandom.hex,
@@ -57,7 +57,7 @@ RSpec.describe "Spree::Admin::Bolts", type: :request do
 
       updated_attributes = SolidusBolt::BoltConfiguration.fetch.attributes.slice(
         'bearer_token',
-        'environment_url',
+        'environment',
         'merchant_public_id',
         'merchant_id',
         'api_key',

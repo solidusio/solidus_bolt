@@ -30,7 +30,7 @@ module Spree
           .require(:solidus_bolt_bolt_configuration)
           .permit(
             :bearer_token,
-            :environment_url,
+            :environment,
             :merchant_public_id,
             :merchant_id,
             :api_key,
