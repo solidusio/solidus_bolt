@@ -32,6 +32,11 @@ module SolidusBolt
           puts 'Skipping bin/rails db:migrate, don\'t forget to run it!' # rubocop:disable Rails/Output
         end
       end
+
+      def populate_seed_data
+        say_status :loading, 'bolt seed data'
+        rake('db:seed:solidus_bolt')
+      end
     end
   end
 end
