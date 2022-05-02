@@ -3,7 +3,7 @@
     <thead>
       <tr>
         <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:merchant_public_id) %></th>
-        <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:environment_url) %></th>
+        <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:environment) %></th>
         <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:created_at) %></th>
         <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:updated_at) %></th>
         <th class="actions"></th>
@@ -12,7 +12,7 @@
     <tbody>
       <tr>
         <td><%= @bolt_configuration.merchant_public_id %></td>
-        <td><%= @bolt_configuration.environment_url %></td>
+        <td><%= @bolt_configuration.environment %></td>
         <td>
           <%= @bolt_configuration.created_at.to_s(:long) %>
         </td>

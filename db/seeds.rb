@@ -3,7 +3,7 @@
 solidus_bolt_configuration = SolidusBolt::BoltConfiguration.fetch
 
 solidus_bolt_configuration.bearer_token = ENV['BOLT_BEARER_TOKEN']
-solidus_bolt_configuration.environment_url = ENV['BOLT_ENVIRONMENT_URL']
+solidus_bolt_configuration.environment = ENV['BOLT_ENVIRONMENT']
 solidus_bolt_configuration.merchant_public_id = ENV['BOLT_MERCHANT_PUBLIC_ID']
 solidus_bolt_configuration.merchant_id = ENV['BOLT_MERCHANT_ID']
 solidus_bolt_configuration.api_key = ENV['BOLT_API_KEY']
