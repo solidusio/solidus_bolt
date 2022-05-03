@@ -30,10 +30,8 @@ RSpec.describe SolidusBolt::Transactions::RefundService, :vcr, :bolt_configurati
 
     it 'makes the API call' do
       response = api.call
-      body = JSON.parse(response.body)
 
-      expect(response.code).to eq 200
-      expect(body['credit']['status']).to eq 'succeeded'
+      expect(response['credit']['status']).to eq 'succeeded'
     end
   end
 end

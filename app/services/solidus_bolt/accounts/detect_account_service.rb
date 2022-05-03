@@ -18,9 +18,11 @@ module SolidusBolt
 
       def detect_account
         options = build_options
-        HTTParty.get(
-          "#{api_base_url}/#{api_version}/account/exists",
-          options
+        handle_result(
+          HTTParty.get(
+            "#{api_base_url}/#{api_version}/account/exists",
+            options
+          )
         )
       end
 

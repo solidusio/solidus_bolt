@@ -20,9 +20,11 @@ module SolidusBolt
 
       def capture
         options = build_options
-        HTTParty.post(
-          "#{api_base_url}/#{api_version}/merchant/transactions/capture",
-          options
+        handle_result(
+          HTTParty.post(
+            "#{api_base_url}/#{api_version}/merchant/transactions/capture",
+            options
+          )
         )
       end
 

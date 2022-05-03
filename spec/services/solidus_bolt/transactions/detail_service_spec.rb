@@ -22,11 +22,9 @@ RSpec.describe SolidusBolt::Transactions::DetailService, :vcr, :bolt_configurati
   describe '#call', vcr: true do
     it 'makes the API call' do
       response = api.call
-      body = JSON.parse(response.body)
 
-      expect(response.code).to eq 200
-      expect(body['reference']).to eq reference
-      expect(body['status']).to eq 'authorized'
+      expect(response['reference']).to eq reference
+      expect(response['status']).to eq 'authorized'
     end
   end
 end

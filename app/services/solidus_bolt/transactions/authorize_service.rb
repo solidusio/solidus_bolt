@@ -20,7 +20,7 @@ module SolidusBolt
 
       def authorize
         url = "#{api_base_url}/#{api_version}/merchant/transactions/authorize"
-        HTTParty.post(url, headers: headers, body: body.to_json)
+        handle_result(HTTParty.post(url, headers: headers, body: body.to_json))
       end
 
       def body

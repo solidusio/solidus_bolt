@@ -23,12 +23,10 @@ RSpec.describe SolidusBolt::Transactions::VoidService, :vcr, :bolt_configuration
   describe '#call', vcr: true do
     it 'makes the API call' do
       response = api.call
-      body = JSON.parse(response.body)
 
-      expect(response.code).to eq 200
-      expect(body['id']).to eq transaction_id
-      expect(body['reference']).to eq reference
-      expect(body['status']).to eq 'cancelled'
+      expect(response['id']).to eq transaction_id
+      expect(response['reference']).to eq reference
+      expect(response['status']).to eq 'cancelled'
     end
   end
 end

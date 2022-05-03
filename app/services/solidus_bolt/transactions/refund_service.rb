@@ -20,9 +20,11 @@ module SolidusBolt
 
       def refund
         options = build_options
-        HTTParty.post(
-          "#{api_base_url}/#{api_version}/merchant/transactions/credit",
-          options
+        handle_result(
+          HTTParty.post(
+            "#{api_base_url}/#{api_version}/merchant/transactions/credit",
+            options
+          )
         )
       end
 
@@ -36,8 +38,8 @@ module SolidusBolt
           headers: {
             'X-Nonce' => generate_nonce,
             'Content-Type' => 'application/json'
-          }
-        }.merge(authentication_header)
+          }.merge(authentication_header)
+        }
       end
     end
   end

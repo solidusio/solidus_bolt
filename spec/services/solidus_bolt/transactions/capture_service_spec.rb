@@ -22,17 +22,10 @@ RSpec.describe SolidusBolt::Transactions::CaptureService, :vcr, :bolt_configurat
   let(:currency) { 'USD' }
 
   describe '#call', vcr: true do
-    it 'returns status 200' do
-      expect(api.call.code).to eq 200
-    end
+    it 'makes the API call' do
+      response = api.call
 
-    it 'receives the correct response' do
-      response = JSON.parse(api.call.body)
       expect(response['reference']).to eq(reference)
-    end
-
-    it 'receives the correct capture status' do
-      response = JSON.parse(api.call.body)
       expect(response['capture']['status']).to eq 'succeeded'
     end
   end

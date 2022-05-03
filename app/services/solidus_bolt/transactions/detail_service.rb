@@ -18,9 +18,11 @@ module SolidusBolt
 
       def detail
         options = build_options
-        HTTParty.get(
-          "#{api_base_url}/#{api_version}/merchant/transactions/#{transaction_reference}",
-          options
+        handle_result(
+          HTTParty.get(
+            "#{api_base_url}/#{api_version}/merchant/transactions/#{transaction_reference}",
+            options
+          )
         )
       end
 
@@ -28,8 +30,8 @@ module SolidusBolt
         {
           headers: {
             'X-Nonce' => generate_nonce
-          }
-        }.merge(authentication_header)
+          }.merge(authentication_header)
+        }
       end
     end
   end
