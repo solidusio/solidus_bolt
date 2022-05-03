@@ -8,12 +8,8 @@ RSpec.describe SolidusBolt::Accounts::DetectAccountService, :vcr, :bolt_configur
   let(:email) { 'bolt@bolt.com' }
 
   describe '#call', vcr: true do
-    it 'returns status 200' do
-      expect(api.call.code).to eq 200
-    end
-
     it 'receives the correct response' do
-      expect(api.call.body).to eq "{\"has_bolt_account\":false}"
+      expect(api.call).to eq({ "has_bolt_account" => false })
     end
   end
 end

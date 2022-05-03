@@ -16,6 +16,12 @@ module SolidusBolt
 
     private
 
+    def handle_result(result)
+      return result.parsed_response if result.success?
+
+      raise ServerError, result['errors'].map { |e| e['message'] }.join(', ')
+    end
+
     def api_base_url
       @config.environment_url
     end
