@@ -51,6 +51,8 @@ cd ./sandbox
 cat <<RUBY >> Gemfile
 gem 'solidus', github: 'solidusio/solidus', branch: '$BRANCH'
 gem 'solidus_auth_devise', '>= 2.1.0'
+gem 'omniauth-bolt', github: 'nebulab/omniauth-bolt'
+gem 'solidus_social'
 gem 'rails-i18n'
 gem 'solidus_i18n'
 
