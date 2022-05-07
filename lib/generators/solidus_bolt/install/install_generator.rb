@@ -36,6 +36,22 @@ module SolidusBolt
         run 'bin/rails railties:install:migrations FROM=solidus_bolt'
       end
 
+      def add_bolt_omniauth_provider
+        matcher = /amazon: {\n\s*api_key:\sENV\['AMAZON_API_KEY'\],\n\s*api_secret:\sENV\['AMAZON_API_SECRET'\],\n\s*}/m
+        a = <<~BOLT_PROVIDER
+          amazon: {
+                api_key: ENV['AMAZON_API_KEY'],
+                api_secret: ENV['AMAZON_API_SECRET'],
+              },
+              bolt: {
+                api_key: SolidusBolt::BoltConfiguration.fetch.publishable_key,
+                api_secret: SolidusBolt::BoltConfiguration.fetch.api_key,
+              }
+        BOLT_PROVIDER
+
+        gsub_file 'config/initializers/solidus_social.rb', matcher, a
+      end
+
       def run_migrations
         run_migrations = options[:auto_run_migrations] || ['', 'y', 'Y'].include?(ask('Would you like to run the migrations now? [Y/n]')) # rubocop:disable Layout/LineLength
         if run_migrations
