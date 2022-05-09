@@ -21,6 +21,9 @@ module SolidusBolt
           bolt_publishable_key: ENV['BOLT_PUBLISHABLE_KEY']
         }
       )
+      Spree::PermittedAttributes.source_attributes.concat(%i[
+        card_token card_last4 card_bin card_number card_expiration card_postal_code
+      ])
     end
 
     # use rspec for tests
