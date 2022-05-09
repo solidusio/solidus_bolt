@@ -84,6 +84,26 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
+  describe '#base_url' do
+    context 'when production envornment' do
+      let(:config) { create(:bolt_configuration, environment: 'production') }
+
+      it { expect(config.base_url).to eq('https://connect.bolt.com') }
+    end
+
+    context 'when sandbox envornment' do
+      let(:config) { create(:bolt_configuration) }
+
+      it { expect(config.base_url).to eq('https://connect-sandbox.bolt.com') }
+    end
+
+    context 'when staging envornment' do
+      let(:config) { create(:bolt_configuration, environment: 'staging') }
+
+      it { expect(config.base_url).to eq('https://connect-sandbox.bolt.com') }
+    end
+  end
+
   describe 'validations' do
     it 'raises an error when there is an existing record and a new record is created' do
       create(:bolt_configuration)

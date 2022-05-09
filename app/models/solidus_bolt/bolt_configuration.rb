@@ -34,6 +34,14 @@ module SolidusBolt
       end
     end
 
+    def base_url
+      if BoltConfiguration.environments[environment].zero?
+        'https://connect.bolt.com'
+      else
+        'https://connect-sandbox.bolt.com'
+      end
+    end
+
     private
 
     def config_can_be_created
