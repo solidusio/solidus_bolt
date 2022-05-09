@@ -19,7 +19,9 @@ class AuthorizeAccount {
       if(responseAsJson.has_bolt_account) {
         // SHOW THE SIGN IN WITH BOLT BUTTON
         const boltButton = this.createBoltLoginButton();
-        boltButton.addEventListener('click', async () => {
+        boltButton.addEventListener('click', async (e) => {
+          e.preventDefault();
+
           this.emailField.parentNode.setAttribute("class", "email-div")
           let authorizationComponent = boltEmbedded.create("authorization_component", {style: "callout"});
           await authorizationComponent.mount(".email-div");
