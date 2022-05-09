@@ -17,7 +17,9 @@ module SolidusBolt
         SolidusBolt::PaymentMethod,
         'bolt_credentials', {
           bolt_api_key: ENV['BOLT_API_KEY'],
-          bolt_signing_secret: ENV['BOLT_SIGNING_SECRET']
+          bolt_signing_secret: ENV['BOLT_SIGNING_SECRET'],
+          bolt_publishable_key: ENV['BOLT_PUBLISHABLE_KEY'],
+          bolt_environment: ENV['BOLT_ENVIRONMENT'],
         }
       )
     end
