@@ -84,6 +84,26 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
+  describe '#embed_js' do
+    context 'when production envornment' do
+      let(:config) { create(:bolt_configuration, environment: 'production') }
+
+      it { expect(config.embed_js).to eq('https://connect.bolt.com/embed.js') }
+    end
+
+    context 'when sandbox envornment' do
+      let(:config) { create(:bolt_configuration) }
+
+      it { expect(config.embed_js).to eq('https://connect-sandbox.bolt.com/embed.js') }
+    end
+
+    context 'when staging envornment' do
+      let(:config) { create(:bolt_configuration, environment: 'staging') }
+
+      it { expect(config.embed_js).to eq('https://connect-sandbox.bolt.com/embed.js') }
+    end
+  end
+
   describe 'validations' do
     it 'raises an error when there is an existing record and a new record is created' do
       create(:bolt_configuration)
