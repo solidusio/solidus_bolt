@@ -10,4 +10,11 @@ FactoryBot.define do
     signing_secret { SecureRandom.hex }
     publishable_key { SecureRandom.hex }
   end
+
+  factory :bolt_payment_method, class: SolidusBolt::PaymentMethod do
+    name               { 'Bolt' }
+    preferences        { { bolt_environment: 'sandbox' } }
+    available_to_admin { true }
+    available_to_users { true }
+  end
 end
