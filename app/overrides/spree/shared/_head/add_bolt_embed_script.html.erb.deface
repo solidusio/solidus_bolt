@@ -1,0 +1,5 @@
+<!-- insert_after 'meta[name="viewport"]' -->
+
+<meta name="bolt-publishable-key" content="<%= SolidusBolt::BoltConfiguration.fetch.publishable_key %>" />
+<meta name="bolt-domain" content="<%= SolidusBolt::BoltConfiguration.fetch.environment_url%>" />
+<script id="bolt-embedded" type="text/javascript" src="<%= SolidusBolt::BoltConfiguration.fetch.embed_js %>"></script>

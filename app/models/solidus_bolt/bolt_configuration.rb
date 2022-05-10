@@ -34,6 +34,14 @@ module SolidusBolt
       end
     end
 
+    def embed_js
+      if BoltConfiguration.environments[environment].zero?
+        'https://connect.bolt.com/embed.js'
+      else
+        'https://connect-sandbox.bolt.com/embed.js'
+      end
+    end
+
     private
 
     def config_can_be_created
