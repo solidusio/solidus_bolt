@@ -30,6 +30,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'deface'
   spec.add_dependency 'httparty'
+  spec.add_dependency 'rails', ['>0.a', '< 7.a']
+  spec.add_dependency 'solidus_auth_devise'
   spec.add_dependency 'solidus_core', ['>= 2.0.0', '< 4']
   spec.add_dependency 'solidus_social'
   spec.add_dependency 'solidus_support', '~> 0.5'
