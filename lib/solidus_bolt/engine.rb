@@ -22,7 +22,7 @@ module SolidusBolt
         }
       )
       Spree::PermittedAttributes.source_attributes.concat(%i[
-        card_token card_last4 card_bin card_number card_expiration card_postal_code
+        card_token card_last4 card_bin card_number card_expiration card_postal_code create_bolt_account
       ])
     end
 

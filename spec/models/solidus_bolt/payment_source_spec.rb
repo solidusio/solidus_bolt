@@ -12,6 +12,7 @@ RSpec.describe SolidusBolt::PaymentSource, type: :model do
       'card_expiration',
       'card_postal_code',
       'card_id',
+      'create_bolt_account',
       'created_at',
       'updated_at'
     ]
