@@ -11,3 +11,11 @@ solidus_bolt_configuration.signing_secret = ENV['BOLT_SIGNIN_SECRET']
 solidus_bolt_configuration.publishable_key = ENV['BOLT_PUBLISHABLE_KEY']
 
 solidus_bolt_configuration.save
+
+Spree::AuthenticationMethod.find_or_create_by(provider: :bolt) do |authentication_method|
+  authentication_method.environment = "development"
+  authentication_method.provider = "bolt"
+  authentication_method.api_key = SolidusBolt::BoltConfiguration.fetch.publishable_key
+  authentication_method.api_secret = SolidusBolt::BoltConfiguration.fetch.api_key
+  authentication_method.active = true
+end

@@ -6,6 +6,18 @@ module SolidusBolt
       class_option :auto_run_migrations, type: :boolean, default: false
       source_root File.expand_path('templates', __dir__)
 
+      def install_solidus_social
+        if File.exist? 'config/initializers/solidus_social.rb'
+          puts 'Skipping solidus_social:install' # rubocop:disable Rails/Output
+        else
+          say_status :install, 'solidus_social extension'
+          solidus_social_install_command = 'bin/rails generate solidus_social:install'
+          solidus_social_install_command += ' --auto-run-migrations' if options[:auto_run_migrations]
+
+          run solidus_social_install_command
+        end
+      end
+
       def copy_initializer
         template 'initializer.rb', 'config/initializers/solidus_bolt.rb'
       end
@@ -22,6 +34,22 @@ module SolidusBolt
 
       def add_migrations
         run 'bin/rails railties:install:migrations FROM=solidus_bolt'
+      end
+
+      def add_bolt_omniauth_provider
+        matcher = /amazon: {\n\s*api_key:\sENV\['AMAZON_API_KEY'\],\n\s*api_secret:\sENV\['AMAZON_API_SECRET'\],\n\s*}/m
+        a = <<~BOLT_PROVIDER
+          amazon: {
+                api_key: ENV['AMAZON_API_KEY'],
+                api_secret: ENV['AMAZON_API_SECRET'],
+              },
+              bolt: {
+                api_key: SolidusBolt::BoltConfiguration.fetch.publishable_key,
+                api_secret: SolidusBolt::BoltConfiguration.fetch.api_key,
+              }
+        BOLT_PROVIDER
+
+        gsub_file 'config/initializers/solidus_social.rb', matcher, a
       end
 
       def run_migrations
