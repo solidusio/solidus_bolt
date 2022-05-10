@@ -19,7 +19,13 @@ module SolidusBolt
     def handle_result(result)
       return result.parsed_response if result.success?
 
-      raise ServerError, result['errors'].map { |e| e['message'] }.join(', ')
+      raise ServerError, error_message(result)
+    end
+
+    def error_message(result)
+      return result['errors'].map { |e| e['message'] }.join(', ') if result['errors']
+
+      "#{result['error']}: #{result['error_description']}"
     end
 
     def api_base_url
@@ -40,6 +46,10 @@ module SolidusBolt
 
     def publishable_key
       @config.publishable_key
+    end
+
+    def api_key
+      @config.api_key
     end
   end
 end
