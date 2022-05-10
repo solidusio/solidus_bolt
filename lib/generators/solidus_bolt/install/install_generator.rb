@@ -37,16 +37,21 @@ module SolidusBolt
       end
 
       def add_bolt_omniauth_provider
-        matcher = /amazon: {\n\s*api_key:\sENV\['AMAZON_API_KEY'\],\n\s*api_secret:\sENV\['AMAZON_API_SECRET'\],\n\s*}/m
+        matcher = /amazon: {\n\s*api_key:\sENV\['AMAZON_API_KEY'\],\n\s*api_secret:\sENV\['AMAZON_API_SECRET'\],\n\s*}\n\s*}/m # rubocop:disable Layout/LineLength
         a = <<~BOLT_PROVIDER
           amazon: {
                 api_key: ENV['AMAZON_API_KEY'],
                 api_secret: ENV['AMAZON_API_SECRET'],
-              },
-              bolt: {
+              }
+            }
+
+            begin
+              config.providers[:bolt] = {
                 api_key: SolidusBolt::BoltConfiguration.fetch.publishable_key,
                 api_secret: SolidusBolt::BoltConfiguration.fetch.api_key,
               }
+            rescue StandardError
+            end
         BOLT_PROVIDER
 
         gsub_file 'config/initializers/solidus_social.rb', matcher, a
