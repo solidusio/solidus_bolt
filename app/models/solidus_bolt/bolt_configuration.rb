@@ -4,6 +4,8 @@ require_dependency 'solidus_bolt'
 
 module SolidusBolt
   class BoltConfiguration < ApplicationRecord
+    after_commit :update_bolt_config_credentials
+
     REGISTER_URL = 'https://merchant.bolt.com/register'
 
     enum environment: { production: 0, sandbox: 1, staging: 2 }
@@ -43,6 +45,18 @@ module SolidusBolt
     end
 
     private
+
+    def update_bolt_config_credentials
+      bolt_config_credentials = Spree::Config
+                                .static_model_preferences
+                                .for_class(SolidusBolt::PaymentMethod)['bolt_config_credentials']
+                                &.preferences
+      return unless bolt_config_credentials
+
+      bolt_config_credentials[:bolt_api_key] = api_key
+      bolt_config_credentials[:bolt_signing_secret] = signing_secret
+      bolt_config_credentials[:bolt_publishable_key] = publishable_key
+    end
 
     def config_can_be_created
       errors.add(:base, 'Can create only one record for this Model') unless SolidusBolt::BoltConfiguration.can_create?
