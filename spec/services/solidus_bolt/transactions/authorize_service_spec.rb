@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe SolidusBolt::Transactions::AuthorizeService, :vcr, :bolt_configuration do
   subject(:authorize) do
     described_class.call(
-      order: order, credit_card: credit_card_payload, create_bolt_account: false
+      order: order, credit_card: credit_card_payload, create_bolt_account: false, payment_method: payment_method
     )
   end
 
@@ -16,6 +16,7 @@ RSpec.describe SolidusBolt::Transactions::AuthorizeService, :vcr, :bolt_configur
     )
   end
   let(:order) { create(:order_with_line_items) }
+  let(:payment_method) { create(:bolt_payment_method) }
 
   describe '#call' do
     it 'makes the API call' do

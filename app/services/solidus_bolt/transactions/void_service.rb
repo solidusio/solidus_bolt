@@ -2,10 +2,10 @@
 
 module SolidusBolt
   module Transactions
-    class VoidService < SolidusBolt::BaseService
+    class VoidService < SolidusBolt::Transactions::BaseService
       attr_reader :transaction_reference, :credit_card_transaction_id
 
-      def initialize(transaction_reference:, credit_card_transaction_id:)
+      def initialize(transaction_reference:, credit_card_transaction_id:, payment_method:)
         @transaction_reference = transaction_reference
         @credit_card_transaction_id = credit_card_transaction_id
         super

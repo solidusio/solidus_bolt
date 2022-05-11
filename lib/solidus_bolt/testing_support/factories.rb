@@ -13,7 +13,7 @@ FactoryBot.define do
 
   factory :bolt_payment_method, class: SolidusBolt::PaymentMethod do
     name               { 'Bolt' }
-    preferences        { { bolt_environment: 'sandbox' } }
+    preference_source  { 'bolt_credentials' }
     available_to_admin { true }
     available_to_users { true }
   end
