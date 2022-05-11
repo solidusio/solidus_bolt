@@ -17,4 +17,9 @@ FactoryBot.define do
     available_to_admin { true }
     available_to_users { true }
   end
+
+  factory :bolt_payment_source, class: SolidusBolt::PaymentSource do
+    create_bolt_account { false }
+    payment_method
+  end
 end

@@ -4,8 +4,21 @@ module SolidusBolt
   class Gateway
     def initialize(options = {}); end
 
-    def authorize(_amount, _payment_source, _gateway_options)
-      raise NotImplementedError, 'authorize method has not been implemented in SolidusBolt::Gateway class'
+    def authorize(_amount, payment_source, gateway_options)
+      order_number = gateway_options[:order_id].split('-').first
+      order = Spree::Order.find_by(number: order_number)
+
+      authorization_response = ::SolidusBolt::Transactions::AuthorizeService.call(
+        order: order,
+        create_bolt_account: payment_source.create_bolt_account,
+        credit_card: credit_card_params(payment_source),
+        payment_method: payment_source.payment_method
+      )
+
+      ActiveMerchant::Billing::Response.new(true, 'Transaction approved', payment_source.attributes,
+        authorization: authorization_response['transaction']['reference'])
+    rescue ServerError => e
+      ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
     def capture(_float_amount, _response_code, _gateway_options)
@@ -22,6 +35,20 @@ module SolidusBolt
 
     def purchase(_float_amount, _response_code, _gateway_options)
       raise NotImplementedError, 'purchase method has not been implemented in SolidusBolt::Gateway class'
+    end
+
+    private
+
+    def credit_card_params(payment_source)
+      card_params = { token_type: 'bolt' }
+
+      payment_source.attributes.each do |k, v|
+        next unless k.include?('card_')
+
+        card_params[k.gsub('card_', '').to_sym] = v unless v.nil?
+      end
+
+      card_params
     end
   end
 end
