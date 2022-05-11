@@ -2,10 +2,10 @@
 
 module SolidusBolt
   module Transactions
-    class DetailService < SolidusBolt::BaseService
+    class DetailService < SolidusBolt::Transactions::BaseService
       attr_reader :transaction_reference
 
-      def initialize(transaction_reference:)
+      def initialize(transaction_reference:, payment_method:)
         @transaction_reference = transaction_reference
         super
       end

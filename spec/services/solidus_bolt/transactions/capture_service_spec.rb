@@ -3,11 +3,15 @@
 require 'spec_helper'
 
 RSpec.describe SolidusBolt::Transactions::CaptureService, :vcr, :bolt_configuration do
-  subject(:api) { described_class.new(transaction_reference: reference, amount: amount, currency: currency) }
+  subject(:api) do
+    described_class.new(
+      transaction_reference: reference, amount: amount, currency: currency, payment_method: payment_method
+    )
+  end
 
   let(:transaction) do
     SolidusBolt::Transactions::AuthorizeService.call(
-      order: order, credit_card: credit_card_payload, create_bolt_account: false
+      order: order, credit_card: credit_card_payload, create_bolt_account: false, payment_method: payment_method
     )
   end
   let(:credit_card_payload) do
@@ -20,6 +24,7 @@ RSpec.describe SolidusBolt::Transactions::CaptureService, :vcr, :bolt_configurat
   let(:reference) { transaction['transaction']['reference'] }
   let(:amount) { 10 }
   let(:currency) { 'USD' }
+  let(:payment_method) { create(:bolt_payment_method) }
 
   describe '#call', vcr: true do
     it 'makes the API call' do

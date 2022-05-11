@@ -17,9 +17,13 @@ module SolidusBolt
         SolidusBolt::PaymentMethod,
         'bolt_credentials', {
           bolt_api_key: ENV['BOLT_API_KEY'],
-          bolt_signing_secret: ENV['BOLT_SIGNING_SECRET']
+          bolt_signing_secret: ENV['BOLT_SIGNING_SECRET'],
+          bolt_publishable_key: ENV['BOLT_PUBLISHABLE_KEY']
         }
       )
+      Spree::PermittedAttributes.source_attributes.concat(%i[
+        card_token card_last4 card_bin card_number card_expiration card_postal_code create_bolt_account
+      ])
     end
 
     # use rspec for tests

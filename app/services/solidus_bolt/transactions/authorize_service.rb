@@ -2,10 +2,10 @@
 
 module SolidusBolt
   module Transactions
-    class AuthorizeService < SolidusBolt::BaseService
+    class AuthorizeService < SolidusBolt::Transactions::BaseService
       attr_reader :order, :create_bolt_account, :credit_card
 
-      def initialize(order:, create_bolt_account:, credit_card:)
+      def initialize(order:, create_bolt_account:, credit_card:, payment_method:)
         @order = order
         @create_bolt_account = create_bolt_account
         @credit_card = credit_card

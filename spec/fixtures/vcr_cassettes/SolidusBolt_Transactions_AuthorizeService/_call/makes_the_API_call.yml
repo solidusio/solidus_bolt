@@ -25,9 +25,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 28 Apr 2022 14:08:08 GMT
+      - Tue, 10 May 2022 17:38:08 GMT
       X-Amzn-Requestid:
-      - a8581c11-6cff-4b08-bea9-27fe21c9b2b6
+      - 51e02956-5d0f-4223-973f-977830dc54b7
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -37,42 +37,48 @@ http_interactions:
       X-Amzn-Remapped-Connection:
       - close
       X-Amz-Apigw-Id:
-      - RS3nZFItSK4FtuQ=
+      - R65oEGzKyK4FXWw=
       Cache-Control:
       - public, max-age=604800
-      Etag:
-      - W/"2c-qVZerSDDiabAHoqCi/o+02DcdQI"
       X-Powered-By:
       - Express
       X-Amzn-Trace-Id:
-      - Root=1-626a9fc8-06eae72f3cce55a0181a3879
+      - Root=1-627aa300-51e44b7762e7b6ab64c63f94
       X-Amzn-Remapped-Date:
-      - Thu, 28 Apr 2022 14:08:08 GMT
+      - Tue, 10 May 2022 17:38:08 GMT
       Via:
-      - 1.1 4a95385e61c9df8f5f8de6338a3fe59a.cloudfront.net (CloudFront), 1.1 55e61d4e9147510153e99564767a7d4a.cloudfront.net
+      - 1.1 925a9355525ad52853e1025fe231bef8.cloudfront.net (CloudFront), 1.1 1179ca7e54f3b83e85b867d95081e8ca.cloudfront.net
         (CloudFront)
       X-Amz-Cf-Pop:
-      - FRA56-P7
-      - MXP63-P2
+      - HIO50-C2
+      - LAX50-C3
+      Etag:
+      - W/"2c-qVZerSDDiabAHoqCi/o+02DcdQI"
       X-Cache:
       - Hit from cloudfront
       X-Amz-Cf-Id:
-      - 0EbrHNPUmBcsIwv6-R0zpdoBRpl6NnwohflQkONMHg1wDYl_8p01ag==
+      - Du0U7bKiZSqcpsHvh7AZLvjV3kZmBp6R5rticuK-T9SXGhV3OhnCeg==
       Age:
-      - '82082'
+      - '29345'
     body:
       encoding: UTF-8
       string: SnTw15miTFwqwPnqn95Xurm049JaNGWdKX38id7/Lik=
-  recorded_at: Fri, 29 Apr 2022 12:56:10 GMT
+  recorded_at: Wed, 11 May 2022 01:47:14 GMT
 - request:
     method: post
     uri: https://sandbox.bolttk.com/token
     body:
       encoding: UTF-8
-      string: '{"payload":"E7eNGZ+QcHoNpRkG4ZbsAthrUPk8JRArLw4YC96zlpQXg7yky8Y0uMrIeRwE\nfCrrkYBYI2w=\n","nonce":"NzU2Mzc2NzQ3NjQ2NjMxMzM1MTA5NTk2\n","public_key":"jOscXiiZCsn+nfXFetBF+3On0nAWgedP87ZbJUKizDw=\n"}'
+      string: '{"payload":"4W1lxuX4KeOruA3PSIPChckNImQDvCG877Fw3R2loKsplrowhbjdjTkHrYeC\nyjLetDqEWA0=\n","nonce":"NzE5NjkyOTk2MTA0NjM2NDA5NzI2Mjg0\n","public_key":"jOscXiiZCsn+nfXFetBF+3On0nAWgedP87ZbJUKizDw=\n"}'
     headers:
       Content-Type:
       - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
@@ -85,9 +91,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 29 Apr 2022 12:56:11 GMT
+      - Wed, 11 May 2022 01:47:14 GMT
       X-Amzn-Requestid:
-      - d34d711a-905c-4d0d-8be6-8bd35bead7ca
+      - e0656bc3-6e99-483c-afcb-c90f9847a01f
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -97,52 +103,58 @@ http_interactions:
       X-Amzn-Remapped-Connection:
       - close
       X-Amz-Apigw-Id:
-      - RWAA0ERHyK4FmzA=
+      - R8BRWHUTyK4FuWw=
       Etag:
-      - W/"111-YyWS6fnCyrOqZRE6cu2UnY/vfG0"
+      - W/"111-i7TQ2uLMRTLJPuaj85O47n3TMeI"
       X-Powered-By:
       - Express
       X-Amzn-Trace-Id:
-      - Root=1-626be06b-292c9da71516b3634bc3b4cc
+      - Root=1-627b15a2-453f1e8d01993b38698bde18
       X-Amzn-Remapped-Date:
-      - Fri, 29 Apr 2022 12:56:11 GMT
+      - Wed, 11 May 2022 01:47:14 GMT
       Via:
-      - 1.1 99cbca0951645f2779e512baf9721780.cloudfront.net (CloudFront), 1.1 b96e53b7b2901838d15d932e5dee1b2e.cloudfront.net
+      - 1.1 1cc54b4fe0d62c2eb8b264f37ef2aa5c.cloudfront.net (CloudFront), 1.1 64e24cad8b52037c4c824ec57b5995be.cloudfront.net
         (CloudFront)
       X-Amz-Cf-Pop:
-      - MXP63-P1
-      - MXP63-P2
+      - LAX50-C2
+      - LAX50-C3
       X-Cache:
       - Miss from cloudfront
       X-Amz-Cf-Id:
-      - llYhYUQhOK7eLL_pePjAb-3lz3qYxZcU296ZMwn-bSCi_l0xT8KsFw==
+      - HriTaoUadbHCPcNqRCBMHhazSj4Jwi8eANbHxMXyY9xBRoOjMd0djA==
     body:
       encoding: UTF-8
-      string: '{"payload":"NfhR3qaZWLdx6gXZwVlgreijHaJulVXFtv2UM4BmWT90zMDNN+WuS5ISPGFK9mvnXyHFWC1sIcuBPXP4NoYyuwRLo7ARTyrEQToz5udOuigHmJBudFgfFvyjgyiCR7Ax3IyGBnCwMgnWY9J0W4cKGMj17uNWiI2ulX0byEok1qMR4wecrjebjO3pibzkXmGa8rqqeg+UIgPG/JjkY/FL1Rp/","nonce":"0aPRlcSBL6IgVbyTST3WQnptMiASSBLh"}'
-  recorded_at: Fri, 29 Apr 2022 12:56:11 GMT
+      string: '{"payload":"kQSl5v8lrGuLmCXbiHEmxEu3H3vAmjvm1i0sj+ZcMuuapUwN6sdwxDdMKNFjJORfXwMFu/PAKxbFyY9CIxeVOoxzaemraDL7+Db/a0SqSHARnsG7GRfGYGf9FUdpl2GAqchKhuRkL4kenWAoco5jkAXNt1T2QWo3UR9f68bg/MxK/7TUH7i5fts7WVcI1CTt8JV987POArelQdrbgZ7C1UNT","nonce":"jdbyzAZTYGSjV6uB4zrURHWqndAhzrh+"}'
+  recorded_at: Wed, 11 May 2022 01:47:14 GMT
 - request:
     method: post
     uri: https://api-sandbox.bolt.com/v1/merchant/transactions/authorize
     body:
       encoding: UTF-8
-      string: '{"auto_capture":false,"cart":{"total_amount":11000,"order_reference":"R794075790","currency":"USD","items":[{"sku":"SKU-1","name":"Product
-        #1 - 7593","unit_price":1000,"quantity":1}]},"credit_card":{"token":"e6454d1d687bb532c0de4f3ed0c4fa8aa084860e391e54aac3c6a4a9ebbc71db","expiry":1651237871473,"last4":"1004","bin":"411111","network":"visa","expiration":"2023-04","token_type":"bolt"},"division_id":"","source":"direct_payments","user_identifier":{"email":"email1@example.com","phone":"555-555-0199"},"user_identity":{"first_name":"John","last_name":"Doe"},"create_bolt_account":false}'
+      string: '{"auto_capture":false,"cart":{"total_amount":11000,"order_reference":"R259062157","currency":"USD","items":[{"sku":"SKU-5","name":"Product
+        #5 - 4692","unit_price":1000,"quantity":1}]},"credit_card":{"token":"faa6ad5cfa4d979e0cc5e74e76d35d19d246909a017f4bc2cbd80f9ba6821960","expiry":1652234534084,"last4":"1004","bin":"411111","network":"visa","expiration":"2023-05","token_type":"bolt"},"division_id":"","source":"direct_payments","user_identifier":{"email":"email5@example.com","phone":"555-555-0199"},"user_identity":{"first_name":"John","last_name":"Doe"},"create_bolt_account":false}'
     headers:
       Content-Type:
       - application/json
       X-Nonce:
-      - a824537a862de92a8f34f029c9b6163c
+      - 2836adf0403236a80aab0d0b4591849a
       X-Publishable-Key:
       - "<PUBLISHABLE_KEY>"
       X-Api-Key:
       - db1bd1ff3631f9c3e30d3555ad2989fa7cbed58b2344aea911aa7e2d52dba3e3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Fri, 29 Apr 2022 12:56:13 GMT
+      - Wed, 11 May 2022 01:47:15 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -152,24 +164,24 @@ http_interactions:
       Public-Key-Pins-Report-Only:
       - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
       Set-Cookie:
-      - trk=2247db0c-6db8-4f57-bc4d-c3b1456ed3da; Path=/; Max-Age=31536000; HttpOnly;
+      - trk=dcd88b2f-bc6c-4dac-92db-bcf6af530b02; Path=/; Max-Age=31536000; HttpOnly;
         Secure; SameSite=None
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Bolt-Api-Version:
       - '2022-01-01'
       X-Bolt-Trace-Id:
-      - Root=1-626be06c-715b72aa50322bf029c59767
+      - Root=1-627b15a2-63012d3f1562cce45a496270
       X-Device-Id:
-      - 74124d748360ac732d7360354328f175b6dfe7a1630d287ac2d282f12a79ea5e
+      - b7abc8a6f8df73439479826f6d332b2f9bec39871ef18a20740cdceb98204b7b
       X-Envoy-Upstream-Service-Time:
-      - '1174'
+      - '1264'
       Server:
       - envoy
     body:
       encoding: UTF-8
-      string: '{"transaction":{"id":"TA3q6crJH6rs8","type":"cc_payment","processor":"vantiv","date":1651236972387,"reference":"JMHQ-HNDM-3TQQ","status":"pending","from_consumer":{"id":"CAebUnsBKX56j","first_name":"John","last_name":"Doe","phones":[{"id":"","number":"+1
-        5555550199","country_code":"1","status":"","priority":""}],"emails":[{"id":"","address":"email1@example.com","status":"","priority":""}],"email_verified":false,"platform_account_status":"none"},"to_consumer":{"id":"CAgqtmLcWPErV","first_name":"Daniele","last_name":"Palombo","phones":[{"id":"PAkJjgMi179yV","number":"5555555555","country_code":"1","status":"pending","priority":"primary"}],"emails":[{"id":"EAmCbHaM6E7v8","address":"danielepalombo@nebulab.com","status":"active","priority":"primary"}],"email_verified":false,"platform_account_status":"none"},"from_credit_card":{"id":"CA4EYFtCs9F5w","last4":"1004","bin":"411111","expiration":1680307200000,"network":"visa","token_type":"bolt","priority":"listed","display_network":"Visa","icon_asset_path":"img/issuer-logos/visa.png","status":"active"},"amount":{"amount":11000,"currency":"USD","currency_symbol":"$"},"authorization":{"auth":"83988908213091222","reason":"none","status":"succeeded"},"captures":null,"merchant_division":{"id":"MA9hYSVYJ12VA","merchant_id":"MA5Ho7ftc4HPz","public_id":"Rq4qB1QajYLn","description":"Daniele
-        Palombo (Nebulab)","display_name":"Solidus","logo":{"domain":"img-sandbox.bolt.com","resource":""},"platform":"none","hook_url":"https://918c9efe2fcf.ngrok.io/webhooks","hook_type":"bolt","is_universal_merchant_api":true,"is_webhooks_v2":true,"shipping_url":"","tax_url":"","universal_merchant_api_url":"https://918c9efe2fcf.ngrok.io/merchant","debug_url":"https://asdf.ngrok.com/webhooks","plugin_config_url":"https://918c9efe2fcf.ngrok.io/merchant","product_info_url":"https://918c9efe2fcf.ngrok.io/merchant","confirmation_redirect_url":""},"transaction_properties":{"avs_result":"34","cvv_result":"M"},"indemnification_decision":"not_indemnified","indemnification_reason":"direct_payments","splits":[{"amount":{"amount":11000,"currency":"USD","currency_symbol":"$"},"type":"net"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"processing_fee"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"bolt_fee"}],"review_ticket":{"request_deadline":1651524972387}},"did_create_bolt_account":false}'
-  recorded_at: Fri, 29 Apr 2022 12:56:13 GMT
-recorded_with: VCR 6.0.0
+      string: '{"transaction":{"id":"TA8x1uyfCnjgT","type":"cc_payment","processor":"vantiv","date":1652233634778,"reference":"9DRF-YMNM-M9DB","status":"pending","from_consumer":{"id":"CA97E1FAbXT1T","first_name":"John","last_name":"Doe","phones":[{"id":"","number":"+1
+        5555550199","country_code":"1","status":"","priority":""}],"emails":[{"id":"","address":"email5@example.com","status":"","priority":""}],"email_verified":false,"platform_account_status":"none"},"to_consumer":{"id":"CAgqtmLcWPErV","first_name":"Daniele","last_name":"Palombo","phones":[{"id":"PAkJjgMi179yV","number":"5555555555","country_code":"1","status":"pending","priority":"primary"}],"emails":[{"id":"EAmCbHaM6E7v8","address":"danielepalombo@nebulab.com","status":"active","priority":"primary"}],"email_verified":false,"platform_account_status":"none"},"from_credit_card":{"id":"CA5K5c4YE2tCi","last4":"1004","bin":"411111","expiration":1682899200000,"network":"visa","token_type":"bolt","priority":"listed","display_network":"Visa","icon_asset_path":"img/issuer-logos/visa.png","status":"active"},"amount":{"amount":11000,"currency":"USD","currency_symbol":"$"},"authorization":{"auth":"83988997087016712","reason":"none","status":"succeeded"},"captures":null,"merchant_division":{"id":"MA9hYSVYJ12VA","merchant_id":"MA5Ho7ftc4HPz","public_id":"Rq4qB1QajYLn","description":"Daniele
+        Palombo (Nebulab)","display_name":"Solidus","logo":{"domain":"img-sandbox.bolt.com","resource":""},"platform":"none","hook_url":"https://918c9efe2fcf.ngrok.io/webhooks","hook_type":"bolt","is_universal_merchant_api":true,"is_webhooks_v2":true,"shipping_url":"","tax_url":"","debug_url":"https://asdf.ngrok.com/webhooks","confirmation_redirect_url":""},"transaction_properties":{"avs_result":"34","cvv_result":"M"},"indemnification_decision":"not_indemnified","indemnification_reason":"direct_payments","splits":[{"amount":{"amount":11000,"currency":"USD","currency_symbol":"$"},"type":"net"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"processing_fee"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"bolt_fee"}],"review_ticket":{"request_deadline":1652521634778}},"did_create_bolt_account":false}'
+  recorded_at: Wed, 11 May 2022 01:47:16 GMT
+recorded_with: VCR 6.1.0

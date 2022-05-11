@@ -3,11 +3,15 @@
 require 'spec_helper'
 
 RSpec.describe SolidusBolt::Transactions::RefundService, :vcr, :bolt_configuration do
-  subject(:api) { described_class.new(transaction_reference: reference, amount: amount, currency: currency) }
+  subject(:api) do
+    described_class.new(
+      transaction_reference: reference, amount: amount, currency: currency, payment_method: payment_method
+    )
+  end
 
   let(:transaction) do
     SolidusBolt::Transactions::AuthorizeService.call(
-      order: order, credit_card: credit_card_payload, create_bolt_account: false
+      order: order, credit_card: credit_card_payload, create_bolt_account: false, payment_method: payment_method
     )
   end
   let(:credit_card_payload) do
@@ -20,11 +24,12 @@ RSpec.describe SolidusBolt::Transactions::RefundService, :vcr, :bolt_configurati
   let(:reference) { transaction['transaction']['reference'] }
   let(:amount) { transaction['transaction']['amount']['amount'] }
   let(:currency) { 'USD' }
+  let(:payment_method) { create(:bolt_payment_method) }
 
   describe '#call', vcr: true do
     before do
       SolidusBolt::Transactions::CaptureService.call(
-        transaction_reference: reference, amount: amount, currency: currency
+        transaction_reference: reference, amount: amount, currency: currency, payment_method: payment_method
       )
     end
 
