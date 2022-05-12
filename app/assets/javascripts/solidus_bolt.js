@@ -65,11 +65,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   const accountCheckbox = boltEmbedded.create("account_checkbox");
   const frontend = boltContainer.dataset.frontend == "true" ? true : false;
   const paymentMethodId = boltContainer.dataset.paymentMethodId
+  const cardButton = document.getElementById("bolt-card-button");
 
   accountCheckbox.on("change", checked => createBoltAccount = checked);
-  document.getElementById("bolt-card-button").addEventListener("click", () => {
+  cardButton.addEventListener("click", () => {
     const paymentField = boltEmbedded.create("payment_component");
     displayBoltInput(paymentField, boltContainer, accountCheckbox);
+    cardButton.style.display = 'none';
 
     document.getElementById("bolt-submit-button").addEventListener("click", () => {
       tokenize(paymentField, paymentMethodId, frontend);
