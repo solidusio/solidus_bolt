@@ -43,8 +43,30 @@ module SolidusBolt
       ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
-    def void(_response_code, _gateway_options)
-      raise NotImplementedError, 'void method has not been implemented in SolidusBolt::Gateway class'
+    def void(response_code, gateway_options)
+      payment = gateway_options[:originator]
+      payment_source = payment.source
+      payment_method = payment.payment_method
+
+      transaction_detail = SolidusBolt::Transactions::DetailService.call(
+        transaction_reference: response_code,
+        payment_method: payment_method
+      )
+      transaction_id = transaction_detail['id']
+
+      void_response = SolidusBolt::Transactions::VoidService.call(
+        transaction_reference: response_code,
+        credit_card_transaction_id: transaction_id,
+        payment_method: payment_method
+      )
+
+      ActiveMerchant::Billing::Response.new(
+        true,
+        'Transaction Void', payment_source.attributes,
+        authorization: void_response['reference']
+      )
+    rescue ServerError => e
+      ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
     def credit(_amount, _response_code, _gateway_options)
