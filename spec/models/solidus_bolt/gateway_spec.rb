@@ -54,8 +54,25 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
   end
 
   describe '#void' do
-    it 'raises NotImplementedError' do
-      expect { described_class.new.void(nil, nil) }.to raise_error(NotImplementedError)
+    subject(:void) { described_class.new.void(response_code, gateway_options) }
+
+    let(:response_code) { 'the_amazing_spiderman' }
+
+    let(:response) {
+      { 'id' => "id-#{response_code}", 'reference' => response_code }
+    }
+
+    before do
+      allow(SolidusBolt::Transactions::VoidService).to receive(:call).and_return(response)
+      allow(SolidusBolt::Transactions::DetailService).to receive(:call).and_return(response)
+    end
+
+    it 'returns an active merchant billing response' do
+      expect(void).to be_an_instance_of(ActiveMerchant::Billing::Response)
+    end
+
+    it 'stores the transaction reference as response code' do
+      expect(void.authorization).to eq response_code
     end
   end
 
