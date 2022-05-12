@@ -48,15 +48,8 @@ module SolidusBolt
       payment_source = payment.source
       payment_method = payment.payment_method
 
-      transaction_detail = SolidusBolt::Transactions::DetailService.call(
-        transaction_reference: response_code,
-        payment_method: payment_method
-      )
-      transaction_id = transaction_detail['id']
-
       void_response = SolidusBolt::Transactions::VoidService.call(
         transaction_reference: response_code,
-        credit_card_transaction_id: transaction_id,
         payment_method: payment_method
       )
 

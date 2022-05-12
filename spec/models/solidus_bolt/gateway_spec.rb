@@ -64,7 +64,6 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
 
     before do
       allow(SolidusBolt::Transactions::VoidService).to receive(:call).and_return(response)
-      allow(SolidusBolt::Transactions::DetailService).to receive(:call).and_return(response)
     end
 
     it 'returns an active merchant billing response' do
