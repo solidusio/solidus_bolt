@@ -3,12 +3,13 @@
 module SolidusBolt
   module Transactions
     class AuthorizeService < SolidusBolt::Transactions::BaseService
-      attr_reader :order, :create_bolt_account, :credit_card
+      attr_reader :order, :create_bolt_account, :credit_card, :auto_capture
 
-      def initialize(order:, create_bolt_account:, credit_card:, payment_method:)
+      def initialize(order:, create_bolt_account:, credit_card:, payment_method:, auto_capture: false)
         @order = order
         @create_bolt_account = create_bolt_account
         @credit_card = credit_card
+        @auto_capture = auto_capture
         super
       end
 
@@ -25,7 +26,7 @@ module SolidusBolt
 
       def body
         {
-          auto_capture: false,
+          auto_capture: auto_capture,
           cart: order.bolt_cart,
           credit_card: credit_card,
           division_id: '', # used to be defined, now needs to stay empty for call to work
