@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe SolidusBolt::Transactions::VoidService, :vcr, :bolt_configuration do
   subject(:api) do
     described_class.new(
-      transaction_reference: reference, credit_card_transaction_id: transaction_id, payment_method: payment_method
+      transaction_reference: reference, transaction_id: transaction_id, payment_method: payment_method
     )
   end
 
@@ -32,6 +32,39 @@ RSpec.describe SolidusBolt::Transactions::VoidService, :vcr, :bolt_configuration
       expect(response['id']).to eq transaction_id
       expect(response['reference']).to eq reference
       expect(response['status']).to eq 'cancelled'
+    end
+
+    context 'when transaction_id is missing' do
+      subject(:api) do
+        described_class.new(
+          transaction_reference: reference, payment_method: payment_method
+        )
+      end
+
+      it 'makes the API call' do
+        response = api.call
+
+        expect(response['id']).to eq transaction_id
+        expect(response['reference']).to eq reference
+        expect(response['status']).to eq 'cancelled'
+      end
+    end
+
+    context 'when transaction_reference is missing' do
+      subject(:api) do
+        described_class.new(
+          transaction_id: transaction_id,
+          payment_method: payment_method
+        )
+      end
+
+      it 'makes the API call' do
+        response = api.call
+
+        expect(response['id']).to eq transaction_id
+        expect(response['reference']).to eq reference
+        expect(response['status']).to eq 'cancelled'
+      end
     end
   end
 end
