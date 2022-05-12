@@ -21,8 +21,26 @@ module SolidusBolt
       ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
-    def capture(_float_amount, _response_code, _gateway_options)
-      raise NotImplementedError, 'capture method has not been implemented in SolidusBolt::Gateway class'
+    def capture(float_amount, response_code, gateway_options)
+      payment = gateway_options[:originator]
+      payment_source = payment.source
+      payment_method = payment.payment_method
+      currency = gateway_options[:currency]
+
+      capture_response = SolidusBolt::Transactions::CaptureService.call(
+        transaction_reference: response_code,
+        amount: float_amount,
+        currency: currency,
+        payment_method: payment_method
+      )
+
+      ActiveMerchant::Billing::Response.new(
+        true,
+        'Transaction Captured', payment_source.attributes,
+        authorization: capture_response['reference']
+      )
+    rescue ServerError => e
+      ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
     def void(_response_code, _gateway_options)
