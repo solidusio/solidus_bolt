@@ -130,4 +130,18 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
       expect { create(:bolt_configuration) }.to change(described_class, :count).by(1)
     end
   end
+
+  describe 'after commit actions' do
+    let(:config) {
+      Spree::Config.static_model_preferences.for_class(SolidusBolt::PaymentMethod)['bolt_config_credentials']
+    }
+
+    it 'updates the Static Preferences of SolidusBolt::PaymentMethod' do
+      create(:bolt_configuration)
+      expect(config.fetch(:bolt_api_key)).to eq described_class.fetch.api_key
+
+      described_class.fetch.update(environment: 'production')
+      expect(config.fetch(:bolt_api_key)).to eq described_class.fetch.api_key
+    end
+  end
 end
