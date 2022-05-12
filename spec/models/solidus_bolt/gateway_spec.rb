@@ -83,8 +83,18 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
   end
 
   describe '#purchase' do
-    it 'raises NotImplementedError' do
-      expect { described_class.new.purchase(nil, nil, nil) }.to raise_error(NotImplementedError)
+    subject(:purchase) { described_class.new.authorize(nil, payment_source, gateway_options) }
+
+    let(:response) { { 'transaction' => { 'reference' => 'fakereference' } } }
+
+    before { allow(SolidusBolt::Transactions::AuthorizeService).to receive(:call).and_return(response) }
+
+    it 'returns an active merchant billing response' do
+      expect(purchase).to be_an_instance_of(ActiveMerchant::Billing::Response)
+    end
+
+    it 'stores the transaction reference as response code' do
+      expect(purchase.authorization).to eq('fakereference')
     end
   end
 end

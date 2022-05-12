@@ -6,7 +6,7 @@ module SolidusBolt
 
     def authorize(_amount, payment_source, gateway_options)
       order_number = gateway_options[:order_id].split('-').first
-      order = Spree::Order.find_by(number: order_number)
+      order = fetch_spree_order(order_number)
 
       authorization_response = ::SolidusBolt::Transactions::AuthorizeService.call(
         order: order,
@@ -73,11 +73,29 @@ module SolidusBolt
       raise NotImplementedError, 'credit method has not been implemented in SolidusBolt::Gateway class'
     end
 
-    def purchase(_float_amount, _response_code, _gateway_options)
-      raise NotImplementedError, 'purchase method has not been implemented in SolidusBolt::Gateway class'
+    def purchase(_float_amount, payment_source, gateway_options)
+      order_number = gateway_options[:order_id].split('-').first
+      order = fetch_spree_order(order_number)
+
+      authorization_response = ::SolidusBolt::Transactions::AuthorizeService.call(
+        order: order,
+        create_bolt_account: payment_source.create_bolt_account,
+        credit_card: credit_card_params(payment_source),
+        payment_method: payment_source.payment_method,
+        auto_capture: true
+      )
+
+      ActiveMerchant::Billing::Response.new(true, 'Transaction approved and captured', payment_source.attributes,
+        authorization: authorization_response['transaction']['reference'])
+    rescue ServerError => e
+      ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
     private
+
+    def fetch_spree_order(order_number)
+      Spree::Order.find_by(number: order_number)
+    end
 
     def credit_card_params(payment_source)
       card_params = { token_type: 'bolt' }
