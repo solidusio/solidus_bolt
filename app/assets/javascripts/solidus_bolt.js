@@ -69,12 +69,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   accountCheckbox.on("change", checked => createBoltAccount = checked);
   cardButton.addEventListener("click", () => {
+    const submitButton = document.getElementById("bolt-submit-button")
     const paymentField = boltEmbedded.create("payment_component");
     displayBoltInput(paymentField, boltContainer, accountCheckbox);
     cardButton.style.display = 'none';
 
-    document.getElementById("bolt-submit-button").addEventListener("click", () => {
+    submitButton.addEventListener("click", () => {
       tokenize(paymentField, paymentMethodId, frontend);
+      submitButton.disabled = true;
     })
   })
 })
