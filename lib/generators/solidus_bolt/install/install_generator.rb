@@ -37,6 +37,9 @@ module SolidusBolt
       end
 
       def add_bolt_omniauth_provider
+        solidus_social_initializer_file = 'config/initializers/solidus_social.rb'
+        return if File.readlines(solidus_social_initializer_file).grep(/bolt/).any?
+
         matcher = /amazon: {\n\s*api_key:\sENV\['AMAZON_API_KEY'\],\n\s*api_secret:\sENV\['AMAZON_API_SECRET'\],\n\s*}\n\s*}/m # rubocop:disable Layout/LineLength
         a = <<~BOLT_PROVIDER
           amazon: {
@@ -54,7 +57,7 @@ module SolidusBolt
             end
         BOLT_PROVIDER
 
-        gsub_file 'config/initializers/solidus_social.rb', matcher, a
+        gsub_file solidus_social_initializer_file, matcher, a
       end
 
       def run_migrations
