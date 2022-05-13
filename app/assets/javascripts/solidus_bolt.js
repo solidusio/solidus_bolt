@@ -61,18 +61,25 @@ const updateOrder = async (card, paymentMethodId, frontend) => {
 
 document.addEventListener("DOMContentLoaded", async function () {
   const boltContainer = document.getElementById("bolt-container");
-  const boltEmbedded = Bolt(boltContainer.dataset.publishableKey);
-  const accountCheckbox = boltEmbedded.create("account_checkbox");
-  const frontend = boltContainer.dataset.frontend == "true" ? true : false;
-  const paymentMethodId = boltContainer.dataset.paymentMethodId
 
-  accountCheckbox.on("change", checked => createBoltAccount = checked);
-  document.getElementById("bolt-card-button").addEventListener("click", () => {
-    const paymentField = boltEmbedded.create("payment_component");
-    displayBoltInput(paymentField, boltContainer, accountCheckbox);
+  if (boltContainer) {
+    const boltEmbedded = Bolt(boltContainer.dataset.publishableKey);
+    const accountCheckbox = boltEmbedded.create("account_checkbox");
+    const frontend = boltContainer.dataset.frontend == "true" ? true : false;
+    const paymentMethodId = boltContainer.dataset.paymentMethodId
+    const cardButton = document.getElementById("bolt-card-button");
 
-    document.getElementById("bolt-submit-button").addEventListener("click", () => {
-      tokenize(paymentField, paymentMethodId, frontend);
+    accountCheckbox.on("change", checked => createBoltAccount = checked);
+    cardButton.addEventListener("click", () => {
+      const submitButton = document.getElementById("bolt-submit-button")
+      const paymentField = boltEmbedded.create("payment_component");
+      displayBoltInput(paymentField, boltContainer, accountCheckbox);
+      cardButton.style.display = 'none';
+
+      submitButton.addEventListener("click", () => {
+        tokenize(paymentField, paymentMethodId, frontend);
+        submitButton.disabled = true;
+      })
     })
-  })
+  }
 })
