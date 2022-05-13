@@ -49,6 +49,20 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
       end
     end
 
+    context 'when webhook type is `void`' do
+      let(:payment) { create(:bolt_payment, response_code: 'V2YW-NYNR-2MYM') }
+      let(:params) { { type: 'void', data: { reference: payment.response_code } } }
+
+      before do
+        allow(SolidusBolt::Payments::VoidSyncService).to receive(:call).with(payment: payment)
+        endpoint_call
+      end
+
+      it 'calls the Sorter, which calls the VoidHandler, which calls the VoidSyncService with params' do
+        expect(SolidusBolt::Payments::VoidSyncService).to have_received(:call).with(payment: payment)
+      end
+    end
+
     context 'when not valid' do
       before do
         allow(::SolidusBolt::Sorter).to receive(:call).and_raise(StandardError)
