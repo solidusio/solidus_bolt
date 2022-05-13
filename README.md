@@ -21,6 +21,45 @@ bin/rails generate solidus_bolt:install
 
 ## Usage
 
+### Setting up Bolt Configuration
+
+Many of the API calls handled by this gem use the variables set in Bolt Configuration. Since this extension's seeds automatically generate a Bolt Configuration, the easiest and safest way to configure it would be by setting the following environment variables:
+
+```
+BOLT_BEARER_TOKEN
+BOLT_ENVIRONMENT
+BOLT_MERCHANT_PUBLIC_ID
+BOLT_MERCHANT_ID
+BOLT_API_KEY
+BOLT_SIGNING_SECRET
+BOLT_PUBLISHABLE_KEY
+```
+
+Alternatively you can setup the Bolt Configuration manually by visiting `/admin/bolt`
+
+### Creating a new Payment Method
+
+Assuming you've used environment variables to configure your Bolt Configuration, creating a Bolt payment method is very easy:
+
+1. Visit `/admin/payment_methods/new`
+2. Set `provider` to SolidusBolt::PaymentMethod
+3. Click "Save"
+4. Choose `bolt_credentials` from the `Preference Source` select
+5. Click `Update` to save
+
+If you've instead decided to setup the Bolt Configuration manually, follow the same process mentioned above but at step 4 pick `bolt_config_credentials` instead of `bolt_credentials`.
+
+In both cases you can alternatively create a payment method from the Rails console with:
+
+```ruby
+SolidusBolt::PaymentMethod.create(
+  name: "Bolt",
+  preference_source: "bolt_credentials" # or "bolt_config_credentials"
+)
+```
+
+The final (not recommended) option is to not select any `Preference Source` at step 4 and instead fill up the inputs manually.
+
 ### How to set the webhooks
 
 (For latest up to date guide check [Bolt's Documentation](https://help.bolt.com/developers/guides/webhooks/))
