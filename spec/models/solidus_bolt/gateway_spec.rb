@@ -76,8 +76,29 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
   end
 
   describe '#credit' do
-    it 'raises NotImplementedError' do
-      expect { described_class.new.credit(nil, nil, nil) }.to raise_error(NotImplementedError)
+    subject(:credit) { described_class.new.credit(amount, response_code, gateway_options) }
+
+    let(:gateway_options) { { originator: Spree::Refund.new(payment_id: payment.id, amount: payment.amount) } }
+    let(:response_code) { 'the_amazing_spiderman' }
+
+    # Since reference returned by Refund API Call is different
+    # from the reference for the original transaction, the refernce has been
+    # randomised in the response here
+    let(:response) {
+      { 'reference' => SecureRandom.hex }
+    }
+
+    before do
+      allow(SolidusBolt::Transactions::RefundService).to receive(:call).and_return(response)
+      payment.update(response_code: response_code)
+    end
+
+    it 'returns an active merchant billing response' do
+      expect(credit).to be_an_instance_of(ActiveMerchant::Billing::Response)
+    end
+
+    it 'stores the transaction reference as response code' do
+      expect(credit.authorization).to eq response['reference']
     end
   end
 
