@@ -3,11 +3,11 @@
 module SolidusBolt
   module Transactions
     class VoidService < SolidusBolt::Transactions::BaseService
-      attr_reader :transaction_reference, :credit_card_transaction_id
+      attr_reader :transaction_reference, :transaction_id
 
-      def initialize(transaction_reference:, credit_card_transaction_id:, payment_method:)
+      def initialize(payment_method:, transaction_reference: nil, transaction_id: nil)
         @transaction_reference = transaction_reference
-        @credit_card_transaction_id = credit_card_transaction_id
+        @transaction_id = transaction_id
         super
       end
 
@@ -31,7 +31,7 @@ module SolidusBolt
         {
           body: {
             transaction_reference: transaction_reference,
-            credit_card_transaction_id: credit_card_transaction_id,
+            transaction_id: transaction_id,
           }.to_json,
           headers: {
             'X-Nonce' => generate_nonce,
