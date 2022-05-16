@@ -8,7 +8,7 @@ module SolidusBolt
     before_action :verify_bolt_request
 
     def update
-      ::SolidusBolt::Webhooks::Sorter.call(params)
+      ::SolidusBolt::Sorter.call(params)
 
       render json: {}, status: :ok
     rescue StandardError => e

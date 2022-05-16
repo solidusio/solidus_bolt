@@ -14,7 +14,7 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
       end
 
       before do
-        allow(::SolidusBolt::Webhooks::Sorter).to receive(:call)
+        allow(::SolidusBolt::Sorter).to receive(:call)
         endpoint_call
       end
 
@@ -23,13 +23,13 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
       end
 
       it 'calls the webhook sorter with the correct params' do
-        expect(SolidusBolt::Webhooks::Sorter).to have_received(:call).with(expected_params)
+        expect(SolidusBolt::Sorter).to have_received(:call).with(expected_params)
       end
     end
 
     context 'when not valid' do
       before do
-        allow(::SolidusBolt::Webhooks::Sorter).to receive(:call).and_raise(StandardError)
+        allow(::SolidusBolt::Sorter).to receive(:call).and_raise(StandardError)
         endpoint_call
       end
 

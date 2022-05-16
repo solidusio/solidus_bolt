@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe SolidusBolt::Webhooks::Sorter do
+RSpec.describe SolidusBolt::Sorter do
   subject(:do_call) { described_class.call(params) }
 
   let(:event_type) { 'EVENT.TYPE' }
@@ -24,10 +24,10 @@ RSpec.describe SolidusBolt::Webhooks::Sorter do
     context 'when the handler is defined' do
       let(:result) { 'result' }
       let(:event_type) { 'BASE' }
-      let(:handler) { instance_double(SolidusBolt::Webhooks::Handlers::Base) }
+      let(:handler) { instance_double(SolidusBolt::Handlers::BaseHandler) }
 
       before do
-        allow(SolidusBolt::Webhooks::Handlers::Base).to receive(:new).and_return(handler)
+        allow(SolidusBolt::Handlers::BaseHandler).to receive(:new).and_return(handler)
         allow(handler).to receive(:call).and_return(result)
       end
 
