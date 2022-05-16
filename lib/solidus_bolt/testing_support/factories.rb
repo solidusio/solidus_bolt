@@ -22,4 +22,11 @@ FactoryBot.define do
     create_bolt_account { false }
     payment_method
   end
+
+  factory :bolt_payment, class: Spree::Payment do
+    association(:payment_method, factory: :bolt_payment_method)
+    association(:source, factory: :bolt_payment_source)
+    order
+    state { 'checkout' }
+  end
 end
