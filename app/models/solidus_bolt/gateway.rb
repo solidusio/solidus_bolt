@@ -62,8 +62,26 @@ module SolidusBolt
       ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
-    def credit(_amount, _response_code, _gateway_options)
-      raise NotImplementedError, 'credit method has not been implemented in SolidusBolt::Gateway class'
+    def credit(amount, response_code, _gateway_options)
+      payment = Spree::Payment.find_by(response_code: response_code)
+      payment_source = payment.source
+      payment_method = payment.payment_method
+      currency = payment.currency
+
+      credit_response = SolidusBolt::Transactions::RefundService.call(
+        transaction_reference: response_code,
+        amount: amount,
+        currency: currency,
+        payment_method: payment_method
+      )
+
+      ActiveMerchant::Billing::Response.new(
+        true,
+        'Transaction Refunded', payment_source.attributes,
+        authorization: credit_response['reference']
+      )
+    rescue ServerError => e
+      ActiveMerchant::Billing::Response.new(false, e, {})
     end
 
     def purchase(_float_amount, payment_source, gateway_options)
