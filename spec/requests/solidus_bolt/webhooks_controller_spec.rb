@@ -6,7 +6,7 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
   describe '#update' do
     subject(:endpoint_call) { post '/webhooks/bolt', params: {}, headers: { 'X-Bolt-Hmac-Sha256' => bolt_hash } }
 
-    let(:bolt_hash) { "mhEaNOULKdxIJNd/MfwxkmIsC8GIgaHeMEe+UofWxbk=\n" }
+    let(:bolt_hash) { "yrjqA4qD4DoLUyH8aQZ1hVv75sJlCvULL7vI43PP8K4=" }
 
     context 'when valid' do
       let(:expected_params) do
