@@ -110,6 +110,18 @@ factories along with this extension's factories using this statement:
 SolidusDevSupport::TestingSupport::Factories.load_for(SolidusBolt::Engine)
 ```
 
+#### Special Tests
+
+A few tests in the test suite require some additional steps to execute successfully when they are modified. These are listed below along with the steps needed to execute these tests.
+
+- `/spec/services/solidus_bolt/accounts/detail_service_spec.rb`
+This test requires a valid `bolt_access_token` to execute successfully when modified.
+Follow the steps below to get a `bolt_access_token`.
+  1. Login as a User using a Bolt Account.
+  2. Put a `binding.pry` on any view.
+  3. Print `session['bolt_access_token']` in the pry console.
+  4. Copy the result and set the value of the environment variable `BOLT_ACCESS_TOKEN` to this result.
+
 ### Running the sandbox
 
 To run this extension in a sandboxed Solidus application, you can run `bin/sandbox`. The path for
