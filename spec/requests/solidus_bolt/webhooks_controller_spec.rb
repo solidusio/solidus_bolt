@@ -4,9 +4,10 @@ require 'spec_helper'
 
 RSpec.describe SolidusBolt::WebhooksController, type: :request do
   describe '#update' do
-    subject(:endpoint_call) { post '/webhooks/bolt', params: {}, headers: { 'X-Bolt-Hmac-Sha256' => bolt_hash } }
+    subject(:endpoint_call) { post '/webhooks/bolt', params: params, headers: { 'X-Bolt-Hmac-Sha256' => bolt_hash } }
 
-    let(:bolt_hash) { "mhEaNOULKdxIJNd/MfwxkmIsC8GIgaHeMEe+UofWxbk=\n" }
+    let(:bolt_hash) { "yrjqA4qD4DoLUyH8aQZ1hVv75sJlCvULL7vI43PP8K4=" }
+    let(:params) { {} }
 
     context 'when valid' do
       let(:expected_params) do
@@ -14,7 +15,7 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
       end
 
       before do
-        allow(::SolidusBolt::Webhooks::Sorter).to receive(:call)
+        allow(::SolidusBolt::Sorter).to receive(:call)
         endpoint_call
       end
 
@@ -23,13 +24,34 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
       end
 
       it 'calls the webhook sorter with the correct params' do
-        expect(SolidusBolt::Webhooks::Sorter).to have_received(:call).with(expected_params)
+        expect(SolidusBolt::Sorter).to have_received(:call).with(expected_params)
+      end
+    end
+
+    context 'when webhook type is `capture`' do
+      let(:payment) { create(:bolt_payment, response_code: 'V2YW-NYNR-2MYM') }
+      let(:params) do
+        {
+          type: 'capture',
+          data: { reference: payment.response_code, captures: [{ amount: { amount: 1000 } }] }
+        }
+      end
+
+      before do
+        allow(SolidusBolt::Payments::CaptureSyncService).to receive(:call).with(payment: payment, capture_amount: 1000)
+        endpoint_call
+      end
+
+      it 'calls the Sorter, which calls the CaptureHandler, which calls the CaptureSyncService with params' do
+        expect(SolidusBolt::Payments::CaptureSyncService).to have_received(:call).with(
+          payment: payment, capture_amount: 1000
+        )
       end
     end
 
     context 'when not valid' do
       before do
-        allow(::SolidusBolt::Webhooks::Sorter).to receive(:call).and_raise(StandardError)
+        allow(::SolidusBolt::Sorter).to receive(:call).and_raise(StandardError)
         endpoint_call
       end
 

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe SolidusBolt::Webhooks::Handlers::Base do
+RSpec.describe SolidusBolt::Handlers::BaseHandler do
   subject(:handler) { described_class.new({}) }
 
   it { expect(described_class).to respond_to(:call).with(1).arguments }
