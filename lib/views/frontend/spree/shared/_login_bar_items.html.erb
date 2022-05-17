@@ -1,0 +1,18 @@
+<% if spree_current_user %>
+  <li><%= link_to t('spree.my_account'), spree.account_path %></li>
+  <li><%= link_to t('spree.logout'), spree.logout_path, method: Devise.sign_out_via %></li>
+<% else %>
+  <li>
+    <div class="bolt-account-sso"></div>
+  </li>
+  <script>
+    function insertButtons() {
+      if (typeof BoltAccount === 'undefined') {
+          window.setTimeout(insertButtons, 100);
+          return;
+      }
+      BoltAccount.injectButtons();
+    }
+    insertButtons();
+  </script>
+<% end %>

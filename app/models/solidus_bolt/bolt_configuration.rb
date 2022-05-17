@@ -45,6 +45,14 @@ module SolidusBolt
       end
     end
 
+    def account_js
+      if BoltConfiguration.environments[environment].zero?
+        'https://connect.bolt.com/account.js'
+      else
+        'https://connect-sandbox.bolt.com/account.js'
+      end
+    end
+
     private
 
     def update_bolt_config_credentials

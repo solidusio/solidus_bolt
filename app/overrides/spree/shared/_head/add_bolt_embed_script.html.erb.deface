@@ -3,3 +3,4 @@
 <meta name="bolt-publishable-key" content="<%= SolidusBolt::BoltConfiguration.fetch.publishable_key %>" />
 <meta name="bolt-domain" content="<%= SolidusBolt::BoltConfiguration.fetch.environment_url%>" />
 <script id="bolt-embedded" type="text/javascript" src="<%= SolidusBolt::BoltConfiguration.fetch.embed_js %>"></script>
+<script id="bolt-account" type="text/javascript" async="" src="<%= SolidusBolt::BoltConfiguration.fetch.account_js %>" data-publishable-key="<%= SolidusBolt::BoltConfiguration.fetch.publishable_key %>"></script>

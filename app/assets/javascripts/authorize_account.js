@@ -32,7 +32,7 @@ class AuthorizeAccount {
             const authorizationCode = authorizationResponse.authorizationCode;
             const scope = authorizationResponse.scope ;
 
-            document.location.href = `/users/auth/bolt?authorization_code=${authorizationCode}&scope=${scope}`
+            document.location.href = `/users/auth/bolt/callback?authorization_code=${authorizationCode}&scope=${scope}`
           }
         });
       }
