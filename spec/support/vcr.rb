@@ -14,6 +14,10 @@ VCR.configure do |config|
     interaction.request.headers['X-Publishable-Key']&.first
   end
 
+  config.filter_sensitive_data('<BEARER AUTHORIZATION>') do |interaction|
+    interaction.request.headers['Authorization']&.first
+  end
+
   config.filter_sensitive_data('<PUBLISHABLE_KEY>') { SolidusBolt::BoltConfiguration.fetch.publishable_key }
   config.filter_sensitive_data('<API_KEY>') { SolidusBolt::BoltConfiguration.fetch.api_key }
 
