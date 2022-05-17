@@ -16,6 +16,12 @@ module SolidusBolt
       def call
         raise NotImplementedError, 'Missing #call method on class'
       end
+
+      private
+
+      def payment
+        Spree::Payment.find_by(response_code: params[:data][:reference])
+      end
     end
   end
 end
