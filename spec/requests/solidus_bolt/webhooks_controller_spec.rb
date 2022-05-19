@@ -8,6 +8,7 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
 
     let(:bolt_hash) { "yrjqA4qD4DoLUyH8aQZ1hVv75sJlCvULL7vI43PP8K4=" }
     let(:params) { {} }
+    let(:payment) { create(:bolt_payment, response_code: 'V2YW-NYNR-2MYM') }
 
     context 'when valid' do
       let(:expected_params) do
@@ -29,7 +30,6 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
     end
 
     context 'when webhook type is `capture`' do
-      let(:payment) { create(:bolt_payment, response_code: 'V2YW-NYNR-2MYM') }
       let(:params) do
         {
           type: 'capture',
@@ -50,7 +50,6 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
     end
 
     context 'when webhook type is `void`' do
-      let(:payment) { create(:bolt_payment, response_code: 'V2YW-NYNR-2MYM') }
       let(:params) { { type: 'void', data: { reference: payment.response_code } } }
 
       before do
@@ -60,6 +59,33 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
 
       it 'calls the Sorter, which calls the VoidHandler, which calls the VoidSyncService with params' do
         expect(SolidusBolt::Payments::VoidSyncService).to have_received(:call).with(payment: payment)
+      end
+    end
+
+    context 'when webhook type is `credit`' do
+      let(:transaction_id) { 'AAAA-BBBB-CCCC' }
+      let(:params) do
+        {
+          type: 'credit',
+          data: {
+            reference: transaction_id,
+            source_transaction: { reference: payment.response_code },
+            requested_refund_amount: { amount: 1000 }
+          }
+        }
+      end
+
+      before do
+        allow(SolidusBolt::Payments::CreditSyncService).to receive(:call).with(
+          payment: payment, amount: 1000, transaction_id: transaction_id
+        )
+        endpoint_call
+      end
+
+      it 'calls the Sorter, which calls the CreditHandler, which calls the CreditSyncService with params' do
+        expect(SolidusBolt::Payments::CreditSyncService).to have_received(:call).with(
+          payment: payment, amount: 1000, transaction_id: transaction_id
+        )
       end
     end
 
