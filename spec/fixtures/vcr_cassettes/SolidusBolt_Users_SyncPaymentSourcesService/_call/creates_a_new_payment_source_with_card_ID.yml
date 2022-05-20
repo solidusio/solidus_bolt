@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 May 2022 00:52:42 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '301'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=9f69895b-8b34-4f62-a508-f09650d5c4d2; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-6286e65a-60b62fbb00698d3507bec285
+      X-Device-Id:
+      - b14d37786ac06e9df121d6418689d1ee7f8472e4116cd32892f2e29ad103bc71
+      X-Envoy-Upstream-Service-Time:
+      - '73'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"profile":{"first_name":"asdasd","last_name":"fsfasdf","email":"paulodalberti@nebulab.com","phone":"","name":"asdasd
+        fsfasdf"},"addresses":[],"payment_methods":[{"id":"CAgP9uNSEZBNL","type":"card","last4":"1111","network":"visa","default":true,"exp_month":4,"exp_year":2098}],"has_bolt_account":true}'
+  recorded_at: Fri, 20 May 2022 00:52:44 GMT
+recorded_with: VCR 6.1.0
