@@ -4,13 +4,13 @@ require 'spec_helper'
 
 RSpec.describe SolidusBolt::Accounts::DetailService, :vcr, :bolt_configuration do
   describe '#call', vcr: true do
-    subject(:api) { described_class.new(access_token: access_token) }
+    subject(:detail) { described_class.call(access_token: access_token) }
 
     context 'with wrong access_token' do
       let(:access_token) { 'Bolt Access Token' }
 
       it 'gives an error' do
-        expect{ api.call }.to raise_error(SolidusBolt::ServerError, 'This action is forbidden.')
+        expect{ detail }.to raise_error(SolidusBolt::ServerError, 'This action is forbidden.')
       end
     end
 
@@ -18,9 +18,9 @@ RSpec.describe SolidusBolt::Accounts::DetailService, :vcr, :bolt_configuration d
       let(:access_token) { ENV['BOLT_ACCESS_TOKEN'] }
 
       it 'receives a successful response' do
-        expect(api.call).to match hash_including('profile')
-        expect(api.call).to match hash_including('addresses')
-        expect(api.call).to match hash_including('payment_methods')
+        expect(detail).to match hash_including('profile')
+        expect(detail).to match hash_including('addresses')
+        expect(detail).to match hash_including('payment_methods')
       end
     end
   end

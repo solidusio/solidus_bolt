@@ -23,137 +23,33 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 16 May 2022 11:37:30 GMT
+      - Fri, 20 May 2022 00:52:42 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
-      - '200'
+      - '301'
       Connection:
       - keep-alive
       Public-Key-Pins-Report-Only:
       - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
       Set-Cookie:
-      - trk=634156b0-0a32-48b3-9d33-cbac14c957e5; Path=/; Max-Age=31536000; HttpOnly;
+      - trk=9f69895b-8b34-4f62-a508-f09650d5c4d2; Path=/; Max-Age=31536000; HttpOnly;
         Secure; SameSite=None
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Bolt-Api-Version:
       - '2022-01-01'
       X-Bolt-Trace-Id:
-      - Root=1-6282377a-36a07b7a13d19ded15b028e2
+      - Root=1-6286e65a-60b62fbb00698d3507bec285
       X-Device-Id:
-      - 820897c02a7a1d3d2931f58c098dd0b2d39d65541f265f23b8f39b4f1573c3c2
+      - b14d37786ac06e9df121d6418689d1ee7f8472e4116cd32892f2e29ad103bc71
       X-Envoy-Upstream-Service-Time:
-      - '18'
+      - '73'
       Server:
       - envoy
     body:
       encoding: UTF-8
-      string: '{"profile":{"first_name":"Piyush","last_name":"Swain","email":"piyushswain+bolt@nebulab.com","phone":"+919668487987","name":"Piyush
-        Swain"},"addresses":[],"payment_methods":[],"has_bolt_account":true}'
-  recorded_at: Mon, 16 May 2022 11:37:30 GMT
-- request:
-    method: get
-    uri: https://api-sandbox.bolt.com/v1/account
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Authorization:
-      - "<BEARER AUTHORIZATION>"
-      X-Api-Key:
-      - "<API_KEY>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 16 May 2022 11:37:32 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      Content-Length:
-      - '200'
-      Connection:
-      - keep-alive
-      Public-Key-Pins-Report-Only:
-      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
-      Set-Cookie:
-      - trk=00cccd4a-e55b-42f7-aec4-c5505d7f9ea8; Path=/; Max-Age=31536000; HttpOnly;
-        Secure; SameSite=None
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      X-Bolt-Api-Version:
-      - '2022-01-01'
-      X-Bolt-Trace-Id:
-      - Root=1-6282377c-3e3afdfd4f35e7472e28fa49
-      X-Device-Id:
-      - 8380fe1a24237cc9dc98d4c9c000e04ce94c19bf9301bed7a389b01e6e62d3c5
-      X-Envoy-Upstream-Service-Time:
-      - '54'
-      Server:
-      - envoy
-    body:
-      encoding: UTF-8
-      string: '{"profile":{"first_name":"Piyush","last_name":"Swain","email":"piyushswain+bolt@nebulab.com","phone":"+919668487987","name":"Piyush
-        Swain"},"addresses":[],"payment_methods":[],"has_bolt_account":true}'
-  recorded_at: Mon, 16 May 2022 11:37:32 GMT
-- request:
-    method: get
-    uri: https://api-sandbox.bolt.com/v1/account
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Authorization:
-      - "<BEARER AUTHORIZATION>"
-      X-Api-Key:
-      - "<API_KEY>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 16 May 2022 11:37:33 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      Content-Length:
-      - '200'
-      Connection:
-      - keep-alive
-      Public-Key-Pins-Report-Only:
-      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
-      Set-Cookie:
-      - trk=9f0458e7-edae-4fa4-ac20-bf8a44f1dfae; Path=/; Max-Age=31536000; HttpOnly;
-        Secure; SameSite=None
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      X-Bolt-Api-Version:
-      - '2022-01-01'
-      X-Bolt-Trace-Id:
-      - Root=1-6282377d-5c4c52465481e9c10a25cfeb
-      X-Device-Id:
-      - e21efc8f82b9628132d556ce7033ae227bcb36a899e46868b297a983fa2fae2a
-      X-Envoy-Upstream-Service-Time:
-      - '54'
-      Server:
-      - envoy
-    body:
-      encoding: UTF-8
-      string: '{"profile":{"first_name":"Piyush","last_name":"Swain","email":"piyushswain+bolt@nebulab.com","phone":"+919668487987","name":"Piyush
-        Swain"},"addresses":[],"payment_methods":[],"has_bolt_account":true}'
-  recorded_at: Mon, 16 May 2022 11:37:33 GMT
-recorded_with: VCR 6.0.0
+      string: '{"profile":{"first_name":"asdasd","last_name":"fsfasdf","email":"paulodalberti@nebulab.com","phone":"","name":"asdasd
+        fsfasdf"},"addresses":[],"payment_methods":[{"id":"CAgP9uNSEZBNL","type":"card","last4":"1111","network":"visa","default":true,"exp_month":4,"exp_year":2098}],"has_bolt_account":true}'
+  recorded_at: Fri, 20 May 2022 00:52:44 GMT
+recorded_with: VCR 6.1.0
