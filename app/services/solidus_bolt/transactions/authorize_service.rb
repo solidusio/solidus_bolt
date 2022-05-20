@@ -33,8 +33,26 @@ module SolidusBolt
           source: 'direct_payments',
           user_identifier: order.bolt_user_identifier,
           user_identity: order.bolt_user_identity,
+          shipping_address: shipping_address,
           create_bolt_account: create_bolt_account
         }
+      end
+
+      def shipping_address
+        order.shipping_address.yield_self do |address|
+          {
+            street_address1: address.address1,
+            street_address2: address.address2,
+            locality: address.city,
+            region: address.state.abbr,
+            postal_code: address.zipcode,
+            country_code: address.country.iso,
+            first_name: Spree::Address::Name.new(address.name).first_name,
+            last_name: Spree::Address::Name.new(address.name).last_name,
+            phone: address.phone,
+            email: order.email
+          }
+        end
       end
 
       def headers
