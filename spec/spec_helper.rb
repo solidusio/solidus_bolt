@@ -21,6 +21,8 @@ require 'solidus_dev_support/rspec/feature_helper'
 # in spec/support/ and its subdirectories.
 Dir["#{__dir__}/support/**/*.rb"].sort.each { |f| require f }
 
+require 'spree/testing_support/order_walkthrough'
+
 # Requires factories defined in lib/solidus_bolt/testing_support/factories.rb
 SolidusDevSupport::TestingSupport::Factories.load_for(SolidusBolt::Engine)
 
