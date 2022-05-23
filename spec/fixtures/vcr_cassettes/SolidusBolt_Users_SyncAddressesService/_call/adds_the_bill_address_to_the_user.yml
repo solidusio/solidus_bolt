@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 May 2022 11:28:44 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '568'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=ff3064f5-423d-4ccb-8c69-c99d68d3b23f; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62877b6c-2c72312277f16ad84b61bcff
+      X-Device-Id:
+      - cf7850bbef6674a2a25c543def5ef025b040b2a183a73bf92ff61424a6a18c8e
+      X-Envoy-Upstream-Service-Time:
+      - '18'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"profile":{"first_name":"Daniele","last_name":"Palombo","email":"danielepalombo+bolt3@nebulab.com","phone":"+393337290394","name":"Daniele
+        Palombo"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
+        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Daniele
+        Palombo","first_name":"Daniele","last_name":"Palombo","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
+  recorded_at: Fri, 20 May 2022 11:28:44 GMT
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 May 2022 11:28:44 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '568'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=e9407ca6-d196-4a0f-b231-8d7f18b7aab8; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62877b6c-5457e743775ef6cd191e8eeb
+      X-Device-Id:
+      - 155c7a2627b119007862ae20807dc7fe544d7fef9eb7fca605d7f3ba700cad01
+      X-Envoy-Upstream-Service-Time:
+      - '17'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"profile":{"first_name":"Daniele","last_name":"Palombo","email":"danielepalombo+bolt3@nebulab.com","phone":"+393337290394","name":"Daniele
+        Palombo"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
+        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Daniele
+        Palombo","first_name":"Daniele","last_name":"Palombo","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
+  recorded_at: Fri, 20 May 2022 11:28:44 GMT
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 May 2022 11:28:45 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '568'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=8f88d13b-09f2-4c74-b24f-f9389bd84f26; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62877b6d-7867be48633b5ba967d700ce
+      X-Device-Id:
+      - 0a632543de2188e14fb97a37efcb5f6a031ac2e48bbda2ea88630b85368f2a43
+      X-Envoy-Upstream-Service-Time:
+      - '18'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"profile":{"first_name":"Daniele","last_name":"Palombo","email":"danielepalombo+bolt3@nebulab.com","phone":"+393337290394","name":"Daniele
+        Palombo"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
+        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Daniele
+        Palombo","first_name":"Daniele","last_name":"Palombo","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
+  recorded_at: Fri, 20 May 2022 11:28:45 GMT
+recorded_with: VCR 6.1.0
