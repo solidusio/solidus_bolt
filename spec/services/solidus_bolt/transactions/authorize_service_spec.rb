@@ -53,7 +53,7 @@ RSpec.describe SolidusBolt::Transactions::AuthorizeService, :vcr, :bolt_configur
         transaction_details = SolidusBolt::Transactions::DetailService.call(
           transaction_reference: reference, payment_method: payment_method
         )
-        expect(transaction_details['status']).to eq 'completed'
+        expect(transaction_details['order']['cart']['shipments'].first['shipping_address']).to be_present
       end
     end
   end
