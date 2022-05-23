@@ -15,6 +15,10 @@ module SolidusBolt
         payment_method: payment_source.payment_method
       )
 
+      unless payment_source.card_id
+        payment_source.update(card_id: authorization_response['transaction']['from_credit_card']['id'])
+      end
+
       ActiveMerchant::Billing::Response.new(true, 'Transaction approved', payment_source.attributes,
         authorization: authorization_response['transaction']['reference'])
     rescue ServerError => e
@@ -95,6 +99,10 @@ module SolidusBolt
         payment_method: payment_source.payment_method,
         auto_capture: true
       )
+
+      unless payment_source.card_id
+        payment_source.update(card_id: authorization_response['transaction']['from_credit_card']['id'])
+      end
 
       ActiveMerchant::Billing::Response.new(true, 'Transaction approved and captured', payment_source.attributes,
         authorization: authorization_response['transaction']['reference'])
