@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-sandbox.bolt.com/v1/account/addresses
+    body:
+      encoding: UTF-8
+      string: '{"street_address1":"PO Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","postal_code":"10003","country_code":"US","first_name":"John","last_name":"Von
+        Doe","phone":"555-555-0199","email":"email2@example.com"}'
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 27 May 2022 02:26:28 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '327'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=b007682d-f2ce-4b2b-986a-2f4b8acc8bac; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-629036d4-08cf1433169e778b1346d649
+      X-Device-Id:
+      - cc9daaa116250ddb4e346e2c192d494d708406a0870ffe62aa9a489709feac62
+      X-Envoy-Upstream-Service-Time:
+      - '65'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"id":"SA728NNovMq9H","street_address1":"PO Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10003","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com","default":false}'
+  recorded_at: Fri, 27 May 2022 02:26:30 GMT
+recorded_with: VCR 6.1.0
