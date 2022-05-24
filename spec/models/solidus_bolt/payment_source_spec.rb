@@ -14,7 +14,8 @@ RSpec.describe SolidusBolt::PaymentSource, type: :model do
       'card_id',
       'create_bolt_account',
       'created_at',
-      'updated_at'
+      'updated_at',
+      'user_id'
     ]
   }
 
