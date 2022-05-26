@@ -29,15 +29,19 @@ module SolidusBolt
         user_info['payment_methods']
       end
 
+      def spree_wallet
+        @spree_wallet ||= Spree::Wallet.new(user)
+      end
+
       def add_payment_source(payment_method)
         # format of card_expiration: '2022-04'
         card_expiration = "#{payment_method['exp_year']}-#{payment_method['exp_month'].to_s.rjust(2, '0')}"
-        SolidusBolt::PaymentSource.find_or_create_by!(
-          user_id: user.id,
+        payment_source = SolidusBolt::PaymentSource.find_or_create_by!(
           card_last4: payment_method['last4'],
           card_expiration: card_expiration,
           card_id: payment_method['id']
         )
+        spree_wallet.add(payment_source)
       end
     end
   end
