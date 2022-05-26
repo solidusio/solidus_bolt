@@ -1,0 +1,243 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.bolttk.com/public_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/text; charset=utf-8
+      Content-Length:
+      - '44'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 09 Jun 2022 01:07:08 GMT
+      X-Amzn-Requestid:
+      - d3a2938e-441c-4617-9575-662526f16a5d
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Amzn-Remapped-Content-Length:
+      - '44'
+      X-Amzn-Remapped-Connection:
+      - close
+      X-Amz-Apigw-Id:
+      - TbglhGAEyK4FjrQ=
+      Cache-Control:
+      - public, max-age=604800
+      X-Powered-By:
+      - Express
+      X-Amzn-Trace-Id:
+      - Root=1-62a147bc-1fdfc0d90702e2c44d5bb3c3
+      X-Amzn-Remapped-Date:
+      - Thu, 09 Jun 2022 01:07:08 GMT
+      Via:
+      - 1.1 03d509e8374e9f42668961b5e0201348.cloudfront.net (CloudFront), 1.1 d3dc7fce70a4cf01f01f6bf06755098c.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Pop:
+      - FRA2-C2
+      - MRS52-P2
+      Etag:
+      - W/"2c-qVZerSDDiabAHoqCi/o+02DcdQI"
+      X-Cache:
+      - Hit from cloudfront
+      X-Amz-Cf-Id:
+      - rRswu1u084brjE6Z0XQv5H9D7OSn2MR1FuzFW_exfKBBUxc9mra4HA==
+      Age:
+      - '19560'
+    body:
+      encoding: UTF-8
+      string: SnTw15miTFwqwPnqn95Xurm049JaNGWdKX38id7/Lik=
+  recorded_at: Thu, 09 Jun 2022 06:33:07 GMT
+- request:
+    method: post
+    uri: https://sandbox.bolttk.com/token
+    body:
+      encoding: UTF-8
+      string: '{"payload":"XwSzR76otbjLj4qa/H1gmV7/4c3fzJArCc5ZDgg6GK8ba1EWhBiaiT/jB0Dg\nv24C4HGjtlg=\n","nonce":"MjcyNzg3ODU3MjUwMTUzNDU3MzMxMzY2\n","public_key":"jOscXiiZCsn+nfXFetBF+3On0nAWgedP87ZbJUKizDw=\n"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '273'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 09 Jun 2022 06:33:09 GMT
+      X-Amzn-Requestid:
+      - 51c23bc2-35a7-4d93-b5f8-5bf45b265a72
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Amzn-Remapped-Content-Length:
+      - '273'
+      X-Amzn-Remapped-Connection:
+      - close
+      X-Amz-Apigw-Id:
+      - TcQVyHRAyK4Fk6Q=
+      Etag:
+      - W/"111-j+JhkMg/duRgqUdDBmiMYmE8irc"
+      X-Powered-By:
+      - Express
+      X-Amzn-Trace-Id:
+      - Root=1-62a19424-2bda421e5ba7b8b9658a3209
+      X-Amzn-Remapped-Date:
+      - Thu, 09 Jun 2022 06:33:09 GMT
+      Via:
+      - 1.1 90df5e49b328fddf16d1ea3adbbfca0e.cloudfront.net (CloudFront), 1.1 8f4e0ffdaf6aff45124ff701a42582e4.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Pop:
+      - MRS52-P1
+      - MRS52-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Id:
+      - hO2j_rr4-jgG6UHAlXJpu90xluM0a_bS8VPN8eZCTkyrtZJLiUImAw==
+    body:
+      encoding: UTF-8
+      string: '{"payload":"yEjx8+oDwykC7ty2FetESlkvCghATi/lWA5umiXkygP6E45QeawHHp+2gPTW8eoKKlfkZwG9MVQF+4+aGt1BEi4FQrzsDFJc8DU6sKpzHsOAHAXZCHy5T5t/HoaO6VjzFSngxiH+Q3/V7EbSrZdJvBruMelPWaN6HyPeIkhJGmu+gpXrkACZfMNvUXrYx6pjuga2iLg2YMUoJjAbYnTV/7vl","nonce":"x/inYfzaULmbWRauJw5oexcih2LCuNZ/"}'
+  recorded_at: Thu, 09 Jun 2022 06:33:08 GMT
+- request:
+    method: post
+    uri: https://api-sandbox.bolt.com/v1/merchant/transactions/authorize
+    body:
+      encoding: UTF-8
+      string: '{"auto_capture":false,"cart":{"total_amount":11000,"order_reference":"R486434405","currency":"USD","items":[{"sku":"SKU-1","name":"Product
+        #1 - 9917","unit_price":1000,"quantity":1}]},"source":"direct_payments","user_identifier":{"email":"email1@example.com","phone":"555-555-0199"},"user_identity":{"first_name":"John","last_name":"Doe"},"credit_card":{"token":"3bb4c4bbe2e1abdb6655ecba62b5dcdf23fe8652468bf94a2b5df86f907318c4","expiry":1654757288904,"last4":"1004","bin":"411111","network":"visa","expiration":"2023-06","token_type":"bolt"},"division_id":"","shipping_address":{"street_address1":"A
+        Different Road","street_address2":"Northwest","locality":"Herndon","region":"AL","postal_code":"10002","country_code":"US","first_name":"John","last_name":"Von
+        Doe","phone":"555-555-0199","email":"email1@example.com"},"create_bolt_account":false}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Nonce:
+      - 9eed86110fc3324d21eb1a7b7b49bcce
+      X-Publishable-Key:
+      - "<PUBLISHABLE_KEY>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Jun 2022 06:33:47 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=4e77cc55-49e5-47c8-8624-719c2ef6e393; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62a1944a-5d737c676195d8cf7ac6d242
+      X-Device-Id:
+      - 271bc2a83ebca356b705b026ef629c2f9b01844e9043c9b6e5fc547c92dd23b8
+      X-Envoy-Upstream-Service-Time:
+      - '1473'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"transaction":{"id":"TA4YNeZ1vJhk8","type":"cc_payment","processor":"vantiv","date":1654756426090,"reference":"PTZZ-FXCQ-6JQ8","status":"pending","from_consumer":{"id":"CA5aWzc5QZ9Dt","first_name":"John","last_name":"Doe","phones":[{"id":"","number":"+1
+        5555550199","country_code":"1","status":"","priority":""}],"emails":[{"id":"","address":"email1@example.com","status":"","priority":""}],"email_verified":false,"platform_account_status":"none"},"to_consumer":{"id":"CAgqtmLcWPErV","first_name":"Daniele","last_name":"Palombo","phones":[{"id":"PAkJjgMi179yV","number":"5555555555","country_code":"1","status":"pending","priority":"primary"}],"emails":[{"id":"EAmCbHaM6E7v8","address":"danielepalombo@nebulab.com","status":"active","priority":"primary"}],"email_verified":false,"platform_account_status":"none"},"from_credit_card":{"id":"CAfKQjvw51ecY","last4":"1004","bin":"411111","expiration":1685577600000,"network":"visa","token_type":"bolt","priority":"listed","display_network":"Visa","icon_asset_path":"img/issuer-logos/visa.png","status":"active"},"amount":{"amount":11000,"currency":"USD","currency_symbol":"$"},"authorization":{"auth":"84077158081825190","reason":"none","status":"succeeded"},"captures":null,"merchant_division":{"id":"MA9hYSVYJ12VA","merchant_id":"MA5Ho7ftc4HPz","public_id":"Rq4qB1QajYLn","description":"Daniele
+        Palombo (Nebulab)","display_name":"Solidus","logo":{"domain":"img-sandbox.bolt.com","resource":""},"platform":"none","hook_url":"https://solidus-bolt-demo.herokuapp.com/webhooks/bolt","hook_type":"bolt","is_universal_merchant_api":true,"is_webhooks_v2":true,"shipping_url":"","tax_url":"","debug_url":"https://asdf.ngrok.com/webhooks","product_info_url":"https://d1e8-106-73-12-66.jp.ngrok.io/webhooks/bolt","confirmation_redirect_url":""},"transaction_properties":{"avs_result":"20","cvv_result":"M"},"indemnification_decision":"not_indemnified","indemnification_reason":"direct_payments","risk_score":0,"splits":[{"amount":{"amount":11000,"currency":"USD","currency_symbol":"$"},"type":"net"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"processing_fee"},{"amount":{"amount":0,"currency":"USD","currency_symbol":"$"},"type":"bolt_fee"}],"review_ticket":{"request_deadline":1655044426090}},"did_create_bolt_account":false}'
+  recorded_at: Thu, 09 Jun 2022 06:33:47 GMT
+- request:
+    method: post
+    uri: https://api-sandbox.bolt.com/v1/merchant/track_shipment
+    body:
+      encoding: UTF-8
+      string: '{"transaction_reference":"PTZZ-FXCQ-6JQ8","tracking_number":"MockBolt6085","carrier":"MockBoltShipping","items":[{"reference":"SKU-1","name":"Product
+        #1 - 9917","description":"As seen on TV!","total_amount":{"amount":"10.0","currency":"USD","currency_symbol":"$"},"unit_price":{"amount":"10.0","currency":"USD","currency_symbol":"$"},"tax_amount":{"amount":"0.0","currency":"USD","currency_symbol":"$"},"quantity":1,"sku":"SKU-1"}],"is_non_bolt_order":false}'
+    headers:
+      X-Nonce:
+      - f0a640d3ad8695af2ee6e8236f286797
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Jun 2022 06:33:48 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=846de4d7-6cb4-4833-bef7-f4009afbcba8; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62a1944c-433ad9504f36217835b72c0e
+      X-Device-Id:
+      - 743840d730c9b8b2138540991199b2775549aea606945af9bb9c084f98d14a64
+      X-Envoy-Upstream-Service-Time:
+      - '30'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 09 Jun 2022 06:33:48 GMT
+recorded_with: VCR 6.0.0
