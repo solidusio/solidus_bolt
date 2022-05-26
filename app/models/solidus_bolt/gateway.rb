@@ -12,7 +12,8 @@ module SolidusBolt
         order: order,
         create_bolt_account: payment_source.create_bolt_account,
         credit_card: credit_card_params(payment_source),
-        payment_method: payment_source.payment_method
+        payment_method: payment_source.payment_method,
+        repeat: payment_source.card_id.present?
       )
 
       unless payment_source.card_id
@@ -97,7 +98,8 @@ module SolidusBolt
         create_bolt_account: payment_source.create_bolt_account,
         credit_card: credit_card_params(payment_source),
         payment_method: payment_source.payment_method,
-        auto_capture: true
+        auto_capture: true,
+        repeat: payment_source.card_id.present?
       )
 
       unless payment_source.card_id
