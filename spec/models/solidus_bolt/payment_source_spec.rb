@@ -15,6 +15,7 @@ RSpec.describe SolidusBolt::PaymentSource, type: :model do
 
       it 'is invalid' do
         expect(payment_source.valid?).to be(false)
+        expect(payment_source.errors.messages.first.to_a).to eq([:payment_method_id, ["can't be blank"]])
       end
     end
   end
