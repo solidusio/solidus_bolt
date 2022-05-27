@@ -34,4 +34,30 @@ RSpec.describe SolidusBolt::ShipmentDecorator do
       expect(items.count).to eq(order.line_items.count)
     end
   end
+
+  describe '#update_bolt_tracking_info' do
+    before { allow(SolidusBolt::Orders::TrackShipmentService).to receive(:call) }
+
+    context 'when tracking is nil' do
+      it 'enqueues SolidusBolt::ShipmentTrackingJob' do
+        create(:shipment, order: order, id: rand(1..10), tracking: nil)
+        order.shipments.reload
+        shipment = order.shipments.last
+
+        shipment.tracking = 'MockBolt1678'
+        expect { shipment.save }.to have_enqueued_job(SolidusBolt::ShipmentTrackingJob)
+      end
+    end
+
+    context 'when tracking has a value' do
+      it 'does not enqueue SolidusBolt::ShipmentTrackingJob' do
+        create(:shipment, order: order, id: rand(1..10), tracking: 'MockBolt1678')
+        order.shipments.reload
+        shipment = order.shipments.last
+
+        shipment.tracking = 'MockBolt1123'
+        expect { shipment.save }.not_to have_enqueued_job(SolidusBolt::ShipmentTrackingJob)
+      end
+    end
+  end
 end
