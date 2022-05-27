@@ -1,0 +1,179 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.bolttk.com/public_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/text; charset=utf-8
+      Content-Length:
+      - '44'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 27 May 2022 01:21:14 GMT
+      X-Amzn-Requestid:
+      - 7b70e1fd-961f-40fd-9446-3a89df0f7e8b
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Amzn-Remapped-Content-Length:
+      - '44'
+      X-Amzn-Remapped-Connection:
+      - close
+      X-Amz-Apigw-Id:
+      - SwsdpEMDyK4FijQ=
+      Cache-Control:
+      - public, max-age=604800
+      X-Powered-By:
+      - Express
+      X-Amzn-Trace-Id:
+      - Root=1-6290278a-2890879c7ddc675525d42b77
+      X-Amzn-Remapped-Date:
+      - Fri, 27 May 2022 01:21:14 GMT
+      Via:
+      - 1.1 485f314a42a9f55627218967d20fdc00.cloudfront.net (CloudFront), 1.1 2e99c50ac852ccefe05bd3b68d4909c8.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO50-C2
+      - LAX53-P2
+      Etag:
+      - W/"2c-qVZerSDDiabAHoqCi/o+02DcdQI"
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Id:
+      - b-O3gGRUeqyMad9aRHkxBnz2BFwalHLpsTEsvRGsRUfwsDCRbY6wgQ==
+    body:
+      encoding: UTF-8
+      string: SnTw15miTFwqwPnqn95Xurm049JaNGWdKX38id7/Lik=
+  recorded_at: Fri, 27 May 2022 01:21:16 GMT
+- request:
+    method: post
+    uri: https://sandbox.bolttk.com/token
+    body:
+      encoding: UTF-8
+      string: '{"payload":"l/Il03Vep+HUkn88taHFkSMnEdj4WPGWmd3uvPNV1QIxH7835TESDOKVIerd\nlrVThrdKLzs=\n","nonce":"OTk5NTQ5NDc1MjM5ODIxMTQxMDYxNjA1\n","public_key":"jOscXiiZCsn+nfXFetBF+3On0nAWgedP87ZbJUKizDw=\n"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '273'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 27 May 2022 01:21:15 GMT
+      X-Amzn-Requestid:
+      - f28e7979-4a07-43ec-8b15-812a6cf941da
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Amzn-Remapped-Content-Length:
+      - '273'
+      X-Amzn-Remapped-Connection:
+      - close
+      X-Amz-Apigw-Id:
+      - SwsdwG2JSK4FfnA=
+      Etag:
+      - W/"111-fZgqj32IEqBDcQsfCHq8rrciGSM"
+      X-Powered-By:
+      - Express
+      X-Amzn-Trace-Id:
+      - Root=1-6290278b-76ed3dff7037111608060f88
+      X-Amzn-Remapped-Date:
+      - Fri, 27 May 2022 01:21:15 GMT
+      Via:
+      - 1.1 0b40a98675b17834ad886e4848be9fac.cloudfront.net (CloudFront), 1.1 10084ccafdc318e0abba7148b0b1b088.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Pop:
+      - LAX50-C2
+      - LAX53-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Id:
+      - GmtBlEUlLcW3PoRZpojCVF6Jbp0o9P3nLhF26lrjqcbA-AlI4rb9iA==
+    body:
+      encoding: UTF-8
+      string: '{"payload":"kUxaezR5BA0rfSQDZJvKeef1LoKfrqcDdTffnEL7yNBhjKNpwVbXEh6itUzwMjM0Yho4D6l7i+gtZD79NpVZj+cZBp/yLpn7L0K7UYNDx8CY0H+llNP2RaMXagtJlflNJmMhCZDeEn1rvjT0lp7h9DzwkJj8JWFwdzWtQpi4/SQspM6oeTFQt0wCQwagC59blZ1ZoTa1GuvfZ5B23YYak5eG","nonce":"YQZgpOK9JIE+DWPEpVJ6qmfsAd537xWS"}'
+  recorded_at: Fri, 27 May 2022 01:21:18 GMT
+- request:
+    method: post
+    uri: https://api-sandbox.bolt.com/v1/account/payment_methods
+    body:
+      encoding: UTF-8
+      string: token=dd91981c00bf1ef9b35635791b1f7ec2400370e4e6932642eab8b0c0e9c69ffe&expiry=1653615375209&last4=1004&bin=411111&network=visa&expiration=2023-05&token_type=bolt
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Fri, 27 May 2022 01:21:16 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '89'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=ec159e75-4352-4580-b358-e5d4c3b81eb3; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-6290278c-4592b1167557adc17312092f
+      X-Device-Id:
+      - 7e0addac93a4a4d979631fa9db8eb92307de52e4518b8ea68ef395ec3d787a51
+      X-Envoy-Upstream-Service-Time:
+      - '30'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"result":{"success":false},"errors":[{"code":18,"message":"This action
+        is forbidden."}]}'
+  recorded_at: Fri, 27 May 2022 01:21:18 GMT
+recorded_with: VCR 6.1.0

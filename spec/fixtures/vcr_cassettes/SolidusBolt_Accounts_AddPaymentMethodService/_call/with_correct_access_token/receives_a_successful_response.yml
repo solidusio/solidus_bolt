@@ -1,0 +1,186 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.bolttk.com/public_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/text; charset=utf-8
+      Content-Length:
+      - '44'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 27 May 2022 01:22:52 GMT
+      X-Amzn-Requestid:
+      - 6e67c3fa-2faa-4d27-98cf-eae66247a79f
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Amzn-Remapped-Content-Length:
+      - '44'
+      X-Amzn-Remapped-Connection:
+      - close
+      X-Amz-Apigw-Id:
+      - Swss-E7PSK4FRMg=
+      Cache-Control:
+      - public, max-age=604800
+      X-Powered-By:
+      - Express
+      X-Amzn-Trace-Id:
+      - Root=1-629027ec-1577ed8b1c8565a00c51f566
+      X-Amzn-Remapped-Date:
+      - Fri, 27 May 2022 01:22:52 GMT
+      Via:
+      - 1.1 8eabaca8b591c36a72bf060174c30de0.cloudfront.net (CloudFront), 1.1 d3e9860c1306f02cb57e75ed57120ee4.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Pop:
+      - LAX3-C3
+      - SFO53-C1
+      Etag:
+      - W/"2c-qVZerSDDiabAHoqCi/o+02DcdQI"
+      X-Cache:
+      - Hit from cloudfront
+      X-Amz-Cf-Id:
+      - moxxeKiCgPkLM9AgZFLyIfBTdcWZj_uUdZHyigZl4xUlQSrEcaNfBw==
+      Age:
+      - '10248'
+    body:
+      encoding: UTF-8
+      string: SnTw15miTFwqwPnqn95Xurm049JaNGWdKX38id7/Lik=
+  recorded_at: Fri, 27 May 2022 04:13:42 GMT
+- request:
+    method: post
+    uri: https://sandbox.bolttk.com/token
+    body:
+      encoding: UTF-8
+      string: '{"payload":"ozqCU+YXxDkFIQp2zw0pulQkXfU/dpf59QXvSHa2pUo1yUjUwttqL650MNgQ\nsP5lG91prkw=\n","nonce":"NjQyOTU4ODQ0MDMxMjg3OTIxMDkwODkx\n","public_key":"jOscXiiZCsn+nfXFetBF+3On0nAWgedP87ZbJUKizDw=\n"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '273'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 27 May 2022 04:13:41 GMT
+      X-Amzn-Requestid:
+      - b89d579a-63f0-43c6-804e-1a18c1057b19
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Amzn-Remapped-Content-Length:
+      - '273'
+      X-Amzn-Remapped-Connection:
+      - close
+      X-Amz-Apigw-Id:
+      - SxFuWEcUSK4FnyQ=
+      Etag:
+      - W/"111-PRPLyOwXPsHO6NigYBg7NsQfkFI"
+      X-Powered-By:
+      - Express
+      X-Amzn-Trace-Id:
+      - Root=1-62904ff5-72966a4d2c07518f628289b1
+      X-Amzn-Remapped-Date:
+      - Fri, 27 May 2022 04:13:41 GMT
+      Via:
+      - 1.1 f1f23e31a920ab1b12fcfa84d5ce673e.cloudfront.net (CloudFront), 1.1 8e223aee1ca3f4c950e8d2a26c8a546a.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Pop:
+      - LAX3-C3
+      - LAX3-C3
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Id:
+      - zUzsEfy9vo-kSfAaOsiZj57CowGwRHQkCa0gfQTMROPbQw4CtmuHPw==
+    body:
+      encoding: UTF-8
+      string: '{"payload":"VWz3TIN+POVXuivVuniYAYP82RH53x6quytq2B4b8br5n/mzsfz8js6XK0UnU7X+MUNgA4Q8fXPDk/zbevE8U1oD9X/CBcbhr1kRwDLeS4AaXePLj8neNw08Hvk9X2B7aEA3wb/0wq7QMLJ5IdPy9ov6a2L+Y/illqYnFL+7VhUT5v4LasJRsi5LCKSSXgSyGG/vzwuLnd3LZp8OxdZQm6Sn","nonce":"8x+N/b70wLMS51Dz20aUk5rrwx1ypFLr"}'
+  recorded_at: Fri, 27 May 2022 04:13:43 GMT
+- request:
+    method: post
+    uri: https://api-sandbox.bolt.com/v1/account/payment_methods
+    body:
+      encoding: UTF-8
+      string: '{"token":"18df980c6cb5f0ef82fb4d94cb387850c6bd95bf0007ecd7d5b30eb9d3cf7b24","expiry":1653625721294,"last4":"1004","bin":"411111","network":"visa","number":"4111111111111004","expiration":"2023-05","token_type":"bolt","postal_code":"10001","billing_address":{"street_address1":"10
+        Lovely Street","street_address2":"Northwest","locality":"Herndon","region":"AL","postal_code":"10001","country_code":"US","first_name":"John","last_name":"Von
+        Doe","phone":"555-555-0199","email":"example@email.com"}}'
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 27 May 2022 04:13:45 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '448'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=4c60e1bc-6e97-46da-84fd-630629d95e06; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62904ff6-4869236607b99e0d321cfe06
+      X-Device-Id:
+      - fa967cb5b28a9e0141522609a88d1441becbb924282f68649f290a25af1e968f
+      X-Envoy-Upstream-Service-Time:
+      - '2842'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"id":"CAeHu5S7Yjyek","type":"card","last4":"1004","billing_address":{"id":"AAecNe4HcX5WG","street_address1":"10
+        Lovely Street","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"example@email.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023}'
+  recorded_at: Fri, 27 May 2022 04:13:47 GMT
+recorded_with: VCR 6.1.0
