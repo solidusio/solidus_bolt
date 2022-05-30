@@ -8,6 +8,10 @@
     <li>
       <%= link_to t('spree.admin.bolt.create_merchant_account'), SolidusBolt::BoltConfiguration::REGISTER_URL, class: 'btn btn-primary', target: '_blank' %>
     </li>
+  <% else %>
+    <li>
+      <%= link_to 'Configure Webhooks', new_admin_bolt_webhook_path, class: 'btn btn-primary' %>
+    </li>
   <% end %>
 <% end %>
 
