@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 31 May 2022 01:24:31 GMT
+      - Tue, 31 May 2022 01:23:36 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -33,18 +33,18 @@ http_interactions:
       Public-Key-Pins-Report-Only:
       - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
       Set-Cookie:
-      - trk=6ed2577d-8b6e-40d7-b914-5f99f4232557; Path=/; Max-Age=31536000; HttpOnly;
+      - trk=0049c155-2eb5-44fd-9a20-c73a847baa68; Path=/; Max-Age=31536000; HttpOnly;
         Secure; SameSite=None
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Bolt-Api-Version:
       - '2022-01-01'
       X-Bolt-Trace-Id:
-      - Root=1-62956e4f-1a1d5d9371616b3e0bd6cead
+      - Root=1-62956e18-5aef499c7a23d91d0b98ba02
       X-Device-Id:
-      - a86166e54134f40be90bf98bdf9f1fcac49d23ac4259202b5038010473c636ba
+      - ade588f38215c8bd482908a0a3d00e03cfd2c3207c04ea86f1d04a9a83be77a8
       X-Envoy-Upstream-Service-Time:
-      - '36'
+      - '141'
       Server:
       - envoy
     body:
@@ -78,60 +78,5 @@ http_interactions:
         Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"example@email.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CAeZyt3phevU4","type":"card","last4":"1004","billing_address":{"id":"AAaGXye8QrAc1","street_address1":"10
         Lovely Street","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
         Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"example@email.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CAgP9uNSEZBNL","type":"card","last4":"1111","network":"visa","default":false,"exp_month":4,"exp_year":2098}],"has_bolt_account":true}'
-  recorded_at: Tue, 31 May 2022 01:24:31 GMT
-- request:
-    method: post
-    uri: https://api-sandbox.bolt.com/v1/account/addresses
-    body:
-      encoding: UTF-8
-      string: '{"street_address1":"6420","street_address2":"Northwest","locality":"Herndon","region":"AL","postal_code":"10005","country_code":"US","first_name":"John","last_name":"Von
-        Doe","phone":"555-555-0199","email":"email2@example.com"}'
-    headers:
-      Authorization:
-      - "<BEARER AUTHORIZATION>"
-      Content-Type:
-      - application/json
-      X-Api-Key:
-      - "<API_KEY>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 31 May 2022 01:24:32 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      Content-Length:
-      - '320'
-      Connection:
-      - keep-alive
-      Public-Key-Pins-Report-Only:
-      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
-      Set-Cookie:
-      - trk=26fa7207-763a-4620-a372-ac05b017834f; Path=/; Max-Age=31536000; HttpOnly;
-        Secure; SameSite=None
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      X-Bolt-Api-Version:
-      - '2022-01-01'
-      X-Bolt-Trace-Id:
-      - Root=1-62956e50-70f9b1fb090f35a065a34527
-      X-Device-Id:
-      - fa03959d09d885b5e85ab84c0070c6ce61dedeadc49829e6aef673d767a766df
-      X-Envoy-Upstream-Service-Time:
-      - '64'
-      Server:
-      - envoy
-    body:
-      encoding: UTF-8
-      string: '{"id":"SAfjEyWzmuxRs","street_address1":"6420","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10005","country_code":"US","name":"John
-        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com","default":false}'
-  recorded_at: Tue, 31 May 2022 01:24:32 GMT
+  recorded_at: Tue, 31 May 2022 01:23:36 GMT
 recorded_with: VCR 6.1.0

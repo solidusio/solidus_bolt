@@ -13,10 +13,25 @@ module SolidusBolt
       end
 
       def call
+        return if address_already_uploaded?
+
         add_address
       end
 
       private
+
+      def bolt_addresses
+        @bolt_addresses ||= SolidusBolt::Accounts::DetailService.call(access_token: access_token)['addresses']
+      end
+
+      def address_already_uploaded?
+        bolt_addresses.any? do |bolt_address|
+          bolt_address['street_address1'] == address.address1 &&
+          bolt_address['locality'] == address.city &&
+          bolt_address['region'] == address.state&.abbr &&
+          bolt_address['postal_code'] == address.zipcode
+        end
+      end
 
       def add_address
         handle_result(HTTParty.post("#{api_base_url}/#{api_version}/account/addresses", build_options))

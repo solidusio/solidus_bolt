@@ -53,17 +53,26 @@ RSpec.describe "Spree::CheckoutController", type: :request do
 
   describe 'PATCH /checkout/update/confirm' do
     let(:order) { FactoryBot.create(:order_with_totals) }
+    let(:payment) { create(:payment, amount: order.total, order: order) }
+    let(:session) { { bolt_access_token: access_token } }
+    let(:access_token) { nil }
 
     before do
       # use test preparation from solidusio/solidus/frontend/spec/controllers/spree/checkout_controller_spec.rb
       # because Spree::TestingSupport::OrderWalkthrough.up_to(:confirm) doesn't work
       order.update! user: user
       order.update(state: 'confirm')
-      create(:payment, amount: order.total, order: order)
+      payment
       order.create_proposed_shipments
       order.payments.reload
 
+      # request calls Gateway#authorize - need to stub it to test our action
+      allow(SolidusBolt::Transactions::AuthorizeService).to receive(:call).and_return({ 'transaction' => {} })
       allow(SolidusBolt::Accounts::AddAddressService).to receive(:call)
+
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return(session)
+      # rubocop:enable RSpec/AnyInstance
 
       patch '/checkout/update/confirm'
     end
@@ -72,8 +81,33 @@ RSpec.describe "Spree::CheckoutController", type: :request do
       expect(response).to redirect_to spree.order_path(order)
     end
 
-    it 'calls the service to add addresses' do
-      expect(SolidusBolt::Accounts::AddAddressService).to have_received(:call).twice
+    context 'with logged in Bolt user and Bolt payment' do
+      let(:access_token) { 'accesstoken' }
+      let(:payment) { create(:bolt_payment, amount: order.total, order: order) }
+
+      it 'calls the service to add addresses' do
+        user.addresses.each do |address|
+          expect(SolidusBolt::Accounts::AddAddressService).to have_received(:call).with(
+            order: order, address: address, access_token: 'accesstoken'
+          )
+        end
+      end
+    end
+
+    context 'with logged in Bolt user' do
+      let(:access_token) { 'accesstoken' }
+
+      it 'skips the service call to add addresses' do
+        expect(SolidusBolt::Accounts::AddAddressService).not_to have_received(:call)
+      end
+    end
+
+    context 'with Bolt payment' do
+      let(:payment) { create(:bolt_payment, amount: order.total, order: order) }
+
+      it 'skips the service call to add addresses' do
+        expect(SolidusBolt::Accounts::AddAddressService).not_to have_received(:call)
+      end
     end
   end
 end

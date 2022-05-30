@@ -19,10 +19,21 @@ RSpec.describe SolidusBolt::Accounts::AddAddressService, :vcr, :bolt_configurati
 
     context 'with correct access_token' do
       let(:access_token) { ENV['BOLT_ACCESS_TOKEN'] }
+      let(:address) { build(:address, address1: '6420') }
 
       it 'receives a successful response' do
         expect(add_address).to match hash_including('id')
         expect(add_address['street_address1']).to eq(address.address1)
+      end
+    end
+
+    context 'with existing address' do
+      let(:access_token) { ENV['BOLT_ACCESS_TOKEN'] }
+
+      let(:address) { build(:address, address1: 'PO Box 1337', zipcode: '10001') }
+
+      it 'skips the add_address call' do
+        expect(add_address).to be(nil)
       end
     end
   end
