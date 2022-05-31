@@ -48,7 +48,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
       create(
         :bolt_configuration,
         bearer_token: '',
-        environment: nil,
         merchant_public_id: '',
         merchant_id: '',
         api_key: '',
