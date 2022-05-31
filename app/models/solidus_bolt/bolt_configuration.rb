@@ -37,10 +37,9 @@ module SolidusBolt
     end
 
     def embed_js
-      if BoltConfiguration.environments[environment].zero?
-        'https://connect.bolt.com/embed.js'
-      else
-        'https://connect-sandbox.bolt.com/embed.js'
+      case BoltConfiguration.environments[environment]
+      when 0 then 'https://connect.bolt.com/embed.js'
+      else 'https://connect-sandbox.bolt.com/embed.js'
       end
     end
 

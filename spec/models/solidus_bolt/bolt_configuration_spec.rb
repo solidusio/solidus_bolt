@@ -102,6 +102,13 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
 
       it { expect(config.embed_js).to eq('https://connect-sandbox.bolt.com/embed.js') }
     end
+
+    context 'when initialized for the first time' do
+      described_class.destroy_all
+      let(:config) { described_class.fetch }
+
+      it { expect(config.embed_js).to eq('https://connect-sandbox.bolt.com/embed.js') }
+    end
   end
 
   describe 'validations' do
