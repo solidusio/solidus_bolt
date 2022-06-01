@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Tue, 31 May 2022 01:20:12 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '89'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=1a93c681-6c5d-4637-b241-f89d4aee20d6; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62956d4c-70b90ea629e9228431b92000
+      X-Device-Id:
+      - 9e1083e0992b47d0076132182970216f7f1cca11ab0c8cbbd21b6273287199c7
+      X-Envoy-Upstream-Service-Time:
+      - '32'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"result":{"success":false},"errors":[{"code":18,"message":"This action
+        is forbidden."}]}'
+  recorded_at: Tue, 31 May 2022 01:20:12 GMT
+recorded_with: VCR 6.1.0

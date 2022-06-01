@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 May 2022 01:24:31 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=6ed2577d-8b6e-40d7-b914-5f99f4232557; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62956e4f-1a1d5d9371616b3e0bd6cead
+      X-Device-Id:
+      - a86166e54134f40be90bf98bdf9f1fcac49d23ac4259202b5038010473c636ba
+      X-Envoy-Upstream-Service-Time:
+      - '36'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"profile":{"first_name":"asdasd","last_name":"fsfasdf","email":"paulodalberti@nebulab.com","phone":"","name":"asdasd
+        fsfasdf"},"addresses":[{"id":"SAM3dnUUNSbQ","street_address1":"PO Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email1@example.com","default":true},{"id":"SA728NNovMq9H","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10003","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com","default":false},{"id":"SAhkRT5iEmfuW","street_address1":"125
+        E Anderson St","locality":"Savannah","region":"GA","region_code":"GA","postal_code":"31401","country_code":"US","name":"asdasd
+        fsfasdf","first_name":"asdasd","last_name":"fsfasdf","phone_number":"2138739655","email_address":"paulodalberti@nebulab.com","default":false}],"payment_methods":[{"id":"CAmPJ4VxVomvF","type":"card","last4":"1004","billing_address":{"id":"AA3NQrvuvWVH1","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email1@example.com"},"network":"visa","default":true,"exp_month":5,"exp_year":2023},{"id":"CAenwUpogeBSY","type":"card","last4":"1004","billing_address":{"id":"AA655ttsE5Htm","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email1@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CA7kkwvW31AoT","type":"card","last4":"1111","billing_address":{"id":"AA2PPbJDDiPtB","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email1@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CA3TiBuJ4g67n","type":"card","last4":"1004","billing_address":{"id":"AA5cLNYqwZyju","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10003","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CA3BEgomxDJa5","type":"card","last4":"1004","billing_address":{"id":"AAiTJHw4UuWHZ","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10005","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email3@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CA2pgKkgs8Dos","type":"card","last4":"1004","billing_address":{"id":"AAm26afVomLeX","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10003","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CA49oJyzVdLpw","type":"card","last4":"1004","billing_address":{"id":"AAixhuCPHkQAK","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10005","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email3@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CA5GPxSBpjzie","type":"card","last4":"1004","billing_address":{"id":"AA4JgwX9yDRUR","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email1@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CAhGYDjM3THGj","type":"card","last4":"1004","billing_address":{"id":"AA5h6pHzyG4rq","street_address1":"PO
+        Box 1337","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10003","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CAeHu5S7Yjyek","type":"card","last4":"1004","billing_address":{"id":"AAecNe4HcX5WG","street_address1":"10
+        Lovely Street","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"example@email.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CAeZyt3phevU4","type":"card","last4":"1004","billing_address":{"id":"AAaGXye8QrAc1","street_address1":"10
+        Lovely Street","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10001","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"example@email.com"},"network":"visa","default":false,"exp_month":5,"exp_year":2023},{"id":"CAgP9uNSEZBNL","type":"card","last4":"1111","network":"visa","default":false,"exp_month":4,"exp_year":2098}],"has_bolt_account":true}'
+  recorded_at: Tue, 31 May 2022 01:24:31 GMT
+- request:
+    method: post
+    uri: https://api-sandbox.bolt.com/v1/account/addresses
+    body:
+      encoding: UTF-8
+      string: '{"street_address1":"6420","street_address2":"Northwest","locality":"Herndon","region":"AL","postal_code":"10005","country_code":"US","first_name":"John","last_name":"Von
+        Doe","phone":"555-555-0199","email":"email2@example.com"}'
+    headers:
+      Authorization:
+      - "<BEARER AUTHORIZATION>"
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 May 2022 01:24:32 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '320'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=26fa7207-763a-4620-a372-ac05b017834f; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62956e50-70f9b1fb090f35a065a34527
+      X-Device-Id:
+      - fa03959d09d885b5e85ab84c0070c6ce61dedeadc49829e6aef673d767a766df
+      X-Envoy-Upstream-Service-Time:
+      - '64'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"id":"SAfjEyWzmuxRs","street_address1":"6420","street_address2":"Northwest","locality":"Herndon","region":"AL","region_code":"AL","postal_code":"10005","country_code":"US","name":"John
+        Von Doe","first_name":"John","last_name":"Von Doe","phone_number":"555-555-0199","email_address":"email2@example.com","default":false}'
+  recorded_at: Tue, 31 May 2022 01:24:32 GMT
+recorded_with: VCR 6.1.0
