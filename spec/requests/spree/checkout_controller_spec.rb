@@ -52,6 +52,8 @@ RSpec.describe "Spree::CheckoutController", type: :request do
   end
 
   describe 'PATCH /checkout/update/confirm' do
+    subject(:confirm_order) { patch '/checkout/update/confirm' }
+
     let(:order) { FactoryBot.create(:order_with_totals) }
     let(:payment) { create(:payment, amount: order.total, order: order) }
     let(:session) { { bolt_access_token: access_token } }
@@ -68,16 +70,14 @@ RSpec.describe "Spree::CheckoutController", type: :request do
 
       # request calls Gateway#authorize - need to stub it to test our action
       allow(SolidusBolt::Transactions::AuthorizeService).to receive(:call).and_return({ 'transaction' => {} })
-      allow(SolidusBolt::Accounts::AddAddressService).to receive(:call)
 
       # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return(session)
       # rubocop:enable RSpec/AnyInstance
-
-      patch '/checkout/update/confirm'
     end
 
     it 'redirects to completion route' do
+      confirm_order
       expect(response).to redirect_to spree.order_path(order)
     end
 
@@ -85,28 +85,28 @@ RSpec.describe "Spree::CheckoutController", type: :request do
       let(:access_token) { 'accesstoken' }
       let(:payment) { create(:bolt_payment, amount: order.total, order: order) }
 
-      it 'calls the service to add addresses' do
-        user.addresses.each do |address|
-          expect(SolidusBolt::Accounts::AddAddressService).to have_received(:call).with(
-            order: order, address: address, access_token: 'accesstoken'
-          )
-        end
+      it 'calls the job to add addresses' do
+        expect { confirm_order }.to(have_enqueued_job(SolidusBolt::AddAddressJob).twice.with { |hash|
+          expect(hash[:order]).to eq(order)
+          expect(hash[:access_token]).to eq(access_token)
+          expect(user.addresses).to include(hash[:address])
+        })
       end
     end
 
     context 'with logged in Bolt user' do
       let(:access_token) { 'accesstoken' }
 
-      it 'skips the service call to add addresses' do
-        expect(SolidusBolt::Accounts::AddAddressService).not_to have_received(:call)
+      it 'skips the job call to add addresses' do
+        expect { confirm_order }.not_to have_enqueued_job(SolidusBolt::AddAddressJob)
       end
     end
 
     context 'with Bolt payment' do
       let(:payment) { create(:bolt_payment, amount: order.total, order: order) }
 
-      it 'skips the service call to add addresses' do
-        expect(SolidusBolt::Accounts::AddAddressService).not_to have_received(:call)
+      it 'skips the job call to add addresses' do
+        expect { confirm_order }.not_to have_enqueued_job(SolidusBolt::AddAddressJob)
       end
     end
   end
