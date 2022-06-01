@@ -7,7 +7,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
       'bearer_token',
       'environment',
       'merchant_public_id',
-      'merchant_id',
+      'division_public_id',
       'api_key',
       'signing_secret',
       'publishable_key',
@@ -50,7 +50,7 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
         bearer_token: '',
         environment: nil,
         merchant_public_id: '',
-        merchant_id: '',
+        division_public_id: '',
         api_key: '',
         signing_secret: '',
         publishable_key: ''

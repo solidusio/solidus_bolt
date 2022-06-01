@@ -7,7 +7,7 @@ RSpec.configure do |config|
     solidus_bolt_configuration.bearer_token = ENV['BOLT_BEARER_TOKEN']
     solidus_bolt_configuration.environment = 'sandbox'
     solidus_bolt_configuration.merchant_public_id = ENV['BOLT_MERCHANT_PUBLIC_ID']
-    solidus_bolt_configuration.merchant_id = ENV['BOLT_MERCHANT_ID']
+    solidus_bolt_configuration.division_public_id = ENV['BOLT_DIVISION_PUBLIC_ID']
     solidus_bolt_configuration.api_key = ENV['BOLT_API_KEY']
     solidus_bolt_configuration.signing_secret = ENV['BOLT_SIGNING_SECRET']
     solidus_bolt_configuration.publishable_key = ENV['BOLT_PUBLISHABLE_KEY']

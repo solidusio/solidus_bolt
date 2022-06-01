@@ -7,6 +7,8 @@ module SolidusBolt
     after_commit :update_bolt_config_credentials
 
     REGISTER_URL = 'https://merchant.bolt.com/register'
+    EVENTS = %w[all payment credit capture void auth pending rejected_irreversible rejected_reversible no_op
+                failed_payment newsletter_subscription risk_insights credit_card_deleted].freeze
 
     enum environment: { production: 0, sandbox: 1, staging: 2 }
 

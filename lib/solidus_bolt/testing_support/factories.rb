@@ -5,7 +5,7 @@ FactoryBot.define do
     bearer_token { SecureRandom.hex }
     environment { 'sandbox' }
     merchant_public_id { SecureRandom.hex }
-    merchant_id { SecureRandom.hex }
+    division_public_id { SecureRandom.hex }
     api_key { SecureRandom.hex }
     signing_secret { SecureRandom.hex }
     publishable_key { SecureRandom.hex }

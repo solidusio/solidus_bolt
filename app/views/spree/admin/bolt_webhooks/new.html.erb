@@ -1,0 +1,22 @@
+<% admin_breadcrumb(plural_resource_name(SolidusBolt::BoltConfiguration)) %>
+
+<%= form_for :bolt_webhook, url: admin_bolt_webhook_path do |f| %>
+  <fieldset class="form-group no-border-bottom no-border-top">
+    <div class="row">
+      <div id="general_fields" class="col-9">
+        <div class="row">
+          <div class="col-12">
+            <%= f.label :event %>
+            <%= f.select :event, SolidusBolt::BoltConfiguration::EVENTS %><br />
+            <%= f.label :webhook_url %>
+            <%= f.text_field :webhook_url, class: 'fullwidth', value: 'https://domain.com/webhooks/bolt' %>
+          </div>
+        </div>
+        <div class="row p-2 justify-content-center">
+          <%= f.submit 'Create', class: 'btn btn-primary', data: { disable_with: 'Creating..' } %>
+          <%= link_to 'Cancel', admin_bolt_path, class: 'button' %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
