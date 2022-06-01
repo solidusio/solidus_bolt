@@ -48,7 +48,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
       create(
         :bolt_configuration,
         bearer_token: '',
-        environment: nil,
         merchant_public_id: '',
         division_public_id: '',
         api_key: '',
@@ -99,6 +98,13 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
 
     context 'when staging envornment' do
       let(:config) { create(:bolt_configuration, environment: 'staging') }
+
+      it { expect(config.embed_js).to eq('https://connect-sandbox.bolt.com/embed.js') }
+    end
+
+    context 'when initialized for the first time' do
+      described_class.destroy_all
+      let(:config) { described_class.fetch }
 
       it { expect(config.embed_js).to eq('https://connect-sandbox.bolt.com/embed.js') }
     end
