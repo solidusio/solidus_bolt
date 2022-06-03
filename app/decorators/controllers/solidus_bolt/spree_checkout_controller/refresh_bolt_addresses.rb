@@ -5,7 +5,7 @@ module SolidusBolt
     module RefreshBoltAddresses
       def before_address
         SolidusBolt::Users::SyncAddressesService.call(
-          user: spree_current_user, access_token: session[:bolt_access_token]
+          user: spree_current_user, access_token: SolidusBolt::Users::RefreshAccessTokenService.call(session: session)
         )
 
         super
