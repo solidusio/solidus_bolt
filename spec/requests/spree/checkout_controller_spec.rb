@@ -85,6 +85,8 @@ RSpec.describe "Spree::CheckoutController", type: :request do
       let(:access_token) { 'accesstoken' }
       let(:payment) { create(:bolt_payment, amount: order.total, order: order) }
 
+      before { allow(SolidusBolt::Users::RefreshAccessTokenService).to receive(:call).and_return(access_token) }
+
       it 'calls the job to add addresses' do
         expect { confirm_order }.to(have_enqueued_job(SolidusBolt::AddAddressJob).twice.with { |hash|
           expect(hash[:order]).to eq(order)

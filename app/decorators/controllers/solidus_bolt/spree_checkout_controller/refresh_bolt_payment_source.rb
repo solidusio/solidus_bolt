@@ -5,7 +5,7 @@ module SolidusBolt
     module RefreshBoltPaymentSource
       def before_payment
         SolidusBolt::Users::SyncPaymentSourcesService.call(
-          user: spree_current_user, access_token: session[:bolt_access_token]
+          user: spree_current_user, access_token: SolidusBolt::Users::RefreshAccessTokenService.call(session: session)
         )
 
         super
