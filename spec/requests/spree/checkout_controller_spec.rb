@@ -69,7 +69,9 @@ RSpec.describe "Spree::CheckoutController", type: :request do
       order.payments.reload
 
       # request calls Gateway#authorize - need to stub it to test our action
-      allow(SolidusBolt::Transactions::AuthorizeService).to receive(:call).and_return({ 'transaction' => {} })
+      allow(SolidusBolt::Transactions::AuthorizeService).to(receive(:call).and_return({
+        'transaction' => { 'from_credit_card' => { 'id' => 'CreditCardId' } }
+      }))
 
       # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return(session)

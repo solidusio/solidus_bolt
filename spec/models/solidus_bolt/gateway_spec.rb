@@ -19,9 +19,14 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
   describe '#authorize' do
     subject(:authorize) { described_class.new.authorize(nil, payment_source, gateway_options) }
 
-    let(:response) { { 'transaction' => { 'reference' => 'fakereference' } } }
+    let(:response) { { 'transaction' => { 'reference' => 'fakereference', 'from_credit_card' => { 'id' => '1234' } } } }
 
     before { allow(SolidusBolt::Transactions::AuthorizeService).to receive(:call).and_return(response) }
+
+    it 'updates the card_id of the payment_source' do
+      authorize
+      expect(payment_source.reload.card_id).to eq('1234')
+    end
 
     it 'returns an active merchant billing response' do
       expect(authorize).to be_an_instance_of(ActiveMerchant::Billing::Response)
@@ -103,11 +108,16 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
   end
 
   describe '#purchase' do
-    subject(:purchase) { described_class.new.authorize(nil, payment_source, gateway_options) }
+    subject(:purchase) { described_class.new.purchase(nil, payment_source, gateway_options) }
 
-    let(:response) { { 'transaction' => { 'reference' => 'fakereference' } } }
+    let(:response) { { 'transaction' => { 'reference' => 'fakereference', 'from_credit_card' => { 'id' => '1234' } } } }
 
     before { allow(SolidusBolt::Transactions::AuthorizeService).to receive(:call).and_return(response) }
+
+    it 'updates the card_id of the payment_source' do
+      purchase
+      expect(payment_source.reload.card_id).to eq('1234')
+    end
 
     it 'returns an active merchant billing response' do
       expect(purchase).to be_an_instance_of(ActiveMerchant::Billing::Response)

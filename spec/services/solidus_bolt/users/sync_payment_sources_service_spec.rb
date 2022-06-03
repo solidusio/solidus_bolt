@@ -8,15 +8,18 @@ RSpec.describe SolidusBolt::Users::SyncPaymentSourcesService, :vcr, :bolt_config
   end
 
   let(:user) { create(:user) }
+  let(:bolt_payment_method) { create(:bolt_payment_method) }
 
   describe '#call' do
+    before { bolt_payment_method }
+
     it 'creates a new payment source with card ID' do
       expect { sync_payment_sources }.to change { SolidusBolt::PaymentSource.count }.by(1)
       bolt_payment_source = SolidusBolt::PaymentSource.last
       expect(bolt_payment_source.card_id).to be_present
-      expect(bolt_payment_source.card_last4).to be_present
       expect(bolt_payment_source.card_expiration).to be_present
-      expect(bolt_payment_source.user_id).to eq(user.id)
+      expect(bolt_payment_source.payment_method_id).to eq(bolt_payment_method.id)
+      expect(user.wallet_payment_sources.last.payment_source).to eq(bolt_payment_source)
     end
   end
 end

@@ -12,8 +12,13 @@ module SolidusBolt
         order: order,
         create_bolt_account: payment_source.create_bolt_account,
         credit_card: credit_card_params(payment_source),
-        payment_method: payment_source.payment_method
+        payment_method: payment_source.payment_method,
+        repeat: payment_source.card_id.present?
       )
+
+      unless payment_source.card_id
+        payment_source.update(card_id: authorization_response['transaction']['from_credit_card']['id'])
+      end
 
       ActiveMerchant::Billing::Response.new(true, 'Transaction approved', payment_source.attributes,
         authorization: authorization_response['transaction']['reference'])
@@ -93,8 +98,13 @@ module SolidusBolt
         create_bolt_account: payment_source.create_bolt_account,
         credit_card: credit_card_params(payment_source),
         payment_method: payment_source.payment_method,
-        auto_capture: true
+        auto_capture: true,
+        repeat: payment_source.card_id.present?
       )
+
+      unless payment_source.card_id
+        payment_source.update(card_id: authorization_response['transaction']['from_credit_card']['id'])
+      end
 
       ActiveMerchant::Billing::Response.new(true, 'Transaction approved and captured', payment_source.attributes,
         authorization: authorization_response['transaction']['reference'])

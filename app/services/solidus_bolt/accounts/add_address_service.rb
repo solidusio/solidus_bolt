@@ -38,19 +38,7 @@ module SolidusBolt
       end
 
       def address_body
-        country = address.country
-        {
-          street_address1: address.address1,
-          street_address2: address.address2,
-          locality: address.city,
-          region: address.state&.abbr,
-          postal_code: address.zipcode,
-          country_code: country.iso,
-          first_name: Spree::Address::Name.new(address.name).first_name,
-          last_name: Spree::Address::Name.new(address.name).last_name,
-          phone: address.phone,
-          email: order.email
-        }.to_json
+        address.bolt_address(order.email).to_json
       end
 
       def build_options
