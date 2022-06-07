@@ -46,8 +46,8 @@ module SolidusBolt
     end
 
     def account_js
-      if BoltConfiguration.environments[environment].zero?
-        'https://connect.bolt.com/account.js'
+      case BoltConfiguration.environments[environment]
+      when 0 then 'https://connect.bolt.com/account.js'
       else
         'https://connect-sandbox.bolt.com/account.js'
       end
