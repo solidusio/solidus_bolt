@@ -110,6 +110,26 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
+  describe '#account_js' do
+    context 'when production environment' do
+      let(:config) { create(:bolt_configuration, environment: 'production') }
+
+      it { expect(config.account_js).to eq('https://connect.bolt.com/account.js') }
+    end
+
+    context 'when sandbox environment' do
+      let(:config) { create(:bolt_configuration) }
+
+      it { expect(config.account_js).to eq('https://connect-sandbox.bolt.com/account.js') }
+    end
+
+    context 'when staging environment' do
+      let(:config) { create(:bolt_configuration, environment: 'staging') }
+
+      it { expect(config.account_js).to eq('https://connect-sandbox.bolt.com/account.js') }
+    end
+  end
+
   describe 'validations' do
     it 'raises an error when there is an existing record and a new record is created' do
       create(:bolt_configuration)
