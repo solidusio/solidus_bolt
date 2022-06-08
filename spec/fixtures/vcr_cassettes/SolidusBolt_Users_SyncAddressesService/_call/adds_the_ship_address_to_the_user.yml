@@ -49,10 +49,10 @@ http_interactions:
       - envoy
     body:
       encoding: UTF-8
-      string: '{"profile":{"first_name":"Daniele","last_name":"Palombo","email":"danielepalombo+bolt3@nebulab.com","phone":"+393337290394","name":"Daniele
-        Palombo"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
-        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Daniele
-        Palombo","first_name":"Daniele","last_name":"Palombo","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
+      string: '{"profile":{"first_name":"Danny","last_name":"dove","email":"dannydove+bolt3@gmail.com","phone":"987654321","name":"Danny
+        dove"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
+        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Danny
+        dove","first_name":"Danny","last_name":"dove","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
   recorded_at: Fri, 20 May 2022 11:28:41 GMT
 - request:
     method: get
@@ -103,10 +103,10 @@ http_interactions:
       - envoy
     body:
       encoding: UTF-8
-      string: '{"profile":{"first_name":"Daniele","last_name":"Palombo","email":"danielepalombo+bolt3@nebulab.com","phone":"+393337290394","name":"Daniele
-        Palombo"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
-        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Daniele
-        Palombo","first_name":"Daniele","last_name":"Palombo","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
+      string: '{"profile":{"first_name":"Danny","last_name":"dove","email":"dannydove+bolt3@gmail.com","phone":"987654321","name":"Danny
+        dove"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
+        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Danny
+        dove","first_name":"Danny","last_name":"dove","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
   recorded_at: Fri, 20 May 2022 11:28:42 GMT
 - request:
     method: get
@@ -157,9 +157,9 @@ http_interactions:
       - envoy
     body:
       encoding: UTF-8
-      string: '{"profile":{"first_name":"Daniele","last_name":"Palombo","email":"danielepalombo+bolt3@nebulab.com","phone":"+393337290394","name":"Daniele
-        Palombo"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
-        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Daniele
-        Palombo","first_name":"Daniele","last_name":"Palombo","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
+      string: '{"profile":{"first_name":"Danny","last_name":"dove","email":"dannydove+bolt3@gmail.com","phone":"987654321","name":"Danny
+        dove"},"addresses":[{"id":"SA98t82gH2Grd","street_address1":"380 DEGRAW
+        ST","locality":"Brooklyn","region":"NEW YORK","region_code":"NY","postal_code":"11231","country_code":"US","name":"Danny
+        dove","first_name":"Danny","last_name":"dove","default":true}],"payment_methods":[{"id":"CA3tqG8Xg2RwS","type":"card","last4":"1111","network":"visa","default":true,"exp_month":11,"exp_year":2022}],"has_bolt_account":true}'
   recorded_at: Fri, 20 May 2022 11:28:43 GMT
 recorded_with: VCR 6.1.0
