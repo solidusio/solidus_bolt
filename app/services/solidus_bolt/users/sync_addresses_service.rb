@@ -17,7 +17,6 @@ module SolidusBolt
         bolt_addresses.each do |bolt_address|
           default = bolt_address['default']
           address = convert_to_solidus(bolt_address)
-          address[:phone] = user_info['profile']['phone']
           user.save_in_address_book(address, default, :shipping)
           user.save_in_address_book(address, default, :billing)
         end
@@ -42,7 +41,7 @@ module SolidusBolt
           zipcode: bolt_address['postal_code'],
           name: bolt_address['name'],
           country: country,
-          phone: user_info['profile']
+          phone: bolt_address['phone_number'] || user_info['profile']['phone']
         }
       end
     end
