@@ -7,4 +7,5 @@ Spree::Core::Engine.routes.draw do
   end
 
   post '/webhooks/bolt', to: '/solidus_bolt/webhooks#update'
+  post '/api/accounts/bolt', to: '/solidus_bolt/accounts#create'
 end
