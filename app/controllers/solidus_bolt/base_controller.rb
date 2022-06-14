@@ -13,7 +13,7 @@ module SolidusBolt
     def verify_bolt_request
       hmac_header = request.headers['X-Bolt-Hmac-Sha256']
       signing_secret = SolidusBolt::BoltConfiguration.fetch&.signing_secret || ''
-      computed_hmac = Base64.encode64(OpenSSL::HMAC.digest("SHA256", signing_secret, params[:webhook].to_json)).strip
+      computed_hmac = Base64.encode64(OpenSSL::HMAC.digest("SHA256", signing_secret, permitted_params.to_json)).strip
 
       return render json: { error: 'Unauthorized request' }, status: :unauthorized unless hmac_header == computed_hmac
     end

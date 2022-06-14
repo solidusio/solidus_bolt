@@ -4,16 +4,16 @@ require 'spec_helper'
 
 RSpec.describe SolidusBolt::WebhooksController, type: :request do
   describe '#update' do
-    subject(:endpoint_call) { post '/webhooks/bolt', params: params, headers: { 'X-Bolt-Hmac-Sha256' => bolt_hash } }
+    subject(:endpoint_call) do
+      post '/webhooks/bolt', params: params, headers: { 'X-Bolt-Hmac-Sha256' => bolt_hash }, as: :json
+    end
 
-    let(:bolt_hash) { "yrjqA4qD4DoLUyH8aQZ1hVv75sJlCvULL7vI43PP8K4=" }
-    let(:params) { {} }
+    let(:bolt_hash) { "IvjuqQlACvmK3zaBqfMZI+9rf8ukq7VT2Sgjo+nVwl4=" }
+    let(:params) { { webhook: {} } }
     let(:payment) { create(:bolt_payment, response_code: 'V2YW-NYNR-2MYM') }
 
     context 'when valid' do
-      let(:expected_params) do
-        ActionController::Parameters.new({ controller: 'solidus_bolt/webhooks', action: 'update' })
-      end
+      let(:expected_params) { ActionController::Parameters.new({}) }
 
       before do
         allow(::SolidusBolt::Sorter).to receive(:call)
@@ -32,10 +32,13 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
     context 'when webhook type is `capture`' do
       let(:params) do
         {
-          type: 'capture',
-          data: { reference: payment.response_code, captures: [{ amount: { amount: 1000 } }] }
+          webhook: {
+            type: 'capture',
+            data: { reference: payment.response_code, captures: [{ amount: { amount: 1000 } }] }
+          }
         }
       end
+      let(:bolt_hash) { "UlgQupKN61uY+5G126Ue0CvOPLtuHux36GZrAA1LKyo=" }
 
       before do
         allow(SolidusBolt::Payments::CaptureSyncService).to receive(:call).with(payment: payment, capture_amount: 1000)
@@ -50,7 +53,8 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
     end
 
     context 'when webhook type is `void`' do
-      let(:params) { { type: 'void', data: { reference: payment.response_code } } }
+      let(:params) { { webhook: { type: 'void', data: { reference: payment.response_code } } } }
+      let(:bolt_hash) { "W4+7RvJLQaBkLdddmCnAy59QFPrF3No2olkTcfdNmVE=" }
 
       before do
         allow(SolidusBolt::Payments::VoidSyncService).to receive(:call).with(payment: payment)
@@ -66,14 +70,17 @@ RSpec.describe SolidusBolt::WebhooksController, type: :request do
       let(:transaction_id) { 'AAAA-BBBB-CCCC' }
       let(:params) do
         {
-          type: 'credit',
-          data: {
-            reference: transaction_id,
-            source_transaction: { reference: payment.response_code },
-            requested_refund_amount: { amount: 1000 }
+          webhook: {
+            type: 'credit',
+            data: {
+              reference: transaction_id,
+              source_transaction: { reference: payment.response_code },
+              requested_refund_amount: { amount: 1000 }
+            }
           }
         }
       end
+      let(:bolt_hash) { "My7opJkmglzXpNi1rn/UDmPeaeDHoSm2ebuWwBYJrW0=" }
 
       before do
         allow(SolidusBolt::Payments::CreditSyncService).to receive(:call).with(
