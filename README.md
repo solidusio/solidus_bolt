@@ -13,7 +13,7 @@ Add solidus_bolt to your Gemfile:
 gem 'solidus_bolt'
 ```
 
-Bundle your dependencies and run the installation generator:
+Bundle your dependencies and run the installation generator (before running the following command, we recommend setting up the environment variables and seeds as described in the sections below): 
 
 ```shell
 bin/rails generate solidus_bolt:install
@@ -36,6 +36,23 @@ BOLT_PUBLISHABLE_KEY
 ```
 
 Alternatively you can setup the Bolt Configuration manually by visiting `/admin/bolt`
+
+### Using solidus_bolt Seeds
+
+Provided you setup the environment variables, you can simplify the setup of a Bolt application by running the [gem's seeds](https://github.com/nebulab/solidus_bolt/blob/master/db/seeds.rb). This will automatically create the following:
+
+- BoltConfiguration
+- AuthenticationMethod
+- PaymentMethod
+
+You can run solidus_bolt's seeds either by running 
+```shell
+bin/rails db:seed:solidus_bolt
+``` 
+or by adding the following line to your seed file: 
+```ruby
+SolidusBolt::Engine.load_seed if defined?(SolidusBolt)
+```
 
 ### Creating a new Payment Method
 
@@ -70,7 +87,7 @@ The final (not recommended) option is to not select any `Preference Source` at s
 
 3. Scroll to **Merchant API**.
 
-4. Add your webhook endpoints.
+4. Add your webhook endpoints (by default it's your store's url plus `/webhooks/bolt`)
 
 Important use cases include:
 
