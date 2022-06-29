@@ -4,7 +4,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
   let(:column_list) {
     [
       'id',
-      'bearer_token',
       'environment',
       'merchant_public_id',
       'division_public_id',
@@ -47,7 +46,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     it 'is true for a record with empty fields' do
       create(
         :bolt_configuration,
-        bearer_token: '',
         merchant_public_id: '',
         division_public_id: '',
         api_key: '',
