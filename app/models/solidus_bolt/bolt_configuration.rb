@@ -6,7 +6,8 @@ module SolidusBolt
   class BoltConfiguration < ApplicationRecord
     after_commit :update_bolt_config_credentials
 
-    REGISTER_URL = 'https://merchant.bolt.com/register'
+    PRODUCTION_REGISTER_URL = 'https://merchant.bolt.com/register?platform=solidus'
+    SANDBOX_REGISTER_URL = 'https://merchant-sandbox.bolt.com/register?platform=solidus'
     EVENTS = %w[all payment credit capture void auth pending rejected_irreversible rejected_reversible no_op
                 failed_payment newsletter_subscription risk_insights credit_card_deleted].freeze
 

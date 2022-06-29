@@ -3,10 +3,12 @@
 <% content_for :page_actions do %>
   <% if SolidusBolt::BoltConfiguration.config_empty? %>
     <li>
-      <p>Don't have a <%= image_tag "bolt_logo_standard.png", alt: "Bolt", width: "40" %> Merchant account yet?</p>
-    </li>
-    <li>
-      <%= link_to t('spree.admin.bolt.create_merchant_account'), SolidusBolt::BoltConfiguration::REGISTER_URL, class: 'btn btn-primary', target: '_blank' %>
+      <%= raw t(
+        'spree.admin.bolt.register_merchant_account',
+        production_link: link_to(t('spree.admin.bolt.production'), SolidusBolt::BoltConfiguration::PRODUCTION_REGISTER_URL, target: '_blank'),
+        sandbox_link: link_to(t('spree.admin.bolt.sandbox'), SolidusBolt::BoltConfiguration::SANDBOX_REGISTER_URL, target: '_blank'),
+        bolt_image: image_tag("bolt_logo_standard.png", alt: "Bolt", width: "40")
+        ) %>
     </li>
   <% else %>
     <li>
