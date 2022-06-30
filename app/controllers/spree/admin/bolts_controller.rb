@@ -29,7 +29,6 @@ module Spree
         params
           .require(:solidus_bolt_bolt_configuration)
           .permit(
-            :bearer_token,
             :environment,
             :merchant_public_id,
             :division_public_id,

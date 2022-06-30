@@ -13,7 +13,7 @@ Add solidus_bolt to your Gemfile:
 gem 'solidus_bolt'
 ```
 
-Bundle your dependencies and run the installation generator (before running the following command, we recommend setting up the environment variables and seeds as described in the sections below): 
+Bundle your dependencies and run the installation generator (before running the following command, we recommend setting up the environment variables and seeds as described in the sections below):
 
 ```shell
 bin/rails generate solidus_bolt:install
@@ -26,7 +26,6 @@ bin/rails generate solidus_bolt:install
 Many of the API calls handled by this gem use the variables set in Bolt Configuration. Since this extension's seeds automatically generate a Bolt Configuration, the easiest and safest way to configure it would be by setting the following environment variables:
 
 ```
-BOLT_BEARER_TOKEN
 BOLT_ENVIRONMENT
 BOLT_MERCHANT_PUBLIC_ID
 BOLT_DIVISION_PUBLIC_ID
@@ -45,11 +44,11 @@ Provided you setup the environment variables, you can simplify the setup of a Bo
 - AuthenticationMethod
 - PaymentMethod
 
-You can run solidus_bolt's seeds either by running 
+You can run solidus_bolt's seeds either by running
 ```shell
 bin/rails db:seed:solidus_bolt
-``` 
-or by adding the following line to your seed file: 
+```
+or by adding the following line to your seed file:
 ```ruby
 SolidusBolt::Engine.load_seed if defined?(SolidusBolt)
 ```

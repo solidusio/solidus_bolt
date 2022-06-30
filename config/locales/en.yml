@@ -12,6 +12,8 @@ en:
         configuration_not_found: 'No Bolt Configuration found'
         edit_configuration: 'Edit Bolt Configuration'
         updated_successfully: 'Bolt Configuration Updated Successfully'
-        create_merchant_account: 'Create Merchant Account'
+        register_merchant_account: Create a %{production_link} or %{sandbox_link} merchant account with %{bolt_image}
+        production: Production
+        sandbox: Sandbox
       tab:
         bolt: 'Bolt'

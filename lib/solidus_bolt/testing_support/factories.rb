@@ -2,7 +2,6 @@
 
 FactoryBot.define do
   factory :bolt_configuration, class: SolidusBolt::BoltConfiguration do
-    bearer_token { SecureRandom.hex }
     environment { 'sandbox' }
     merchant_public_id { SecureRandom.hex }
     division_public_id { SecureRandom.hex }

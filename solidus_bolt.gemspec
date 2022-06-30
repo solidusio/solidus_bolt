@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'coffee-rails'
   spec.add_dependency 'deface'
   spec.add_dependency 'httparty'
+  spec.add_dependency 'multi_json'
   spec.add_dependency 'omniauth-bolt'
   spec.add_dependency 'rails', ['>0.a', '< 7.a']
   spec.add_dependency 'solidus_auth_devise'
