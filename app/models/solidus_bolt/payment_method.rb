@@ -26,6 +26,12 @@ module SolidusBolt
       bolt_config.environment_url
     end
 
+    def try_void(payment)
+      return false unless payment.source.can_void?(payment)
+
+      gateway.void(payment.response_code, originator: payment)
+    end
+
     private
 
     def bolt_config
