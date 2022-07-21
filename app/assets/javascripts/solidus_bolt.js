@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     if(boltContainer.dataset["boltUserSignedIn"] != "true") {
       accountCheckbox = boltEmbedded.create("account_checkbox");
       accountCheckbox.on("change", checked => createBoltAccount = checked);
+    } else {
+      createBoltAccount = true;
     }
     cardButton.addEventListener("click", () => {
       const submitButton = document.getElementById("bolt-submit-button")
