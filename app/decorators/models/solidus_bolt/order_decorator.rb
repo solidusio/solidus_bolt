@@ -7,6 +7,7 @@ module SolidusBolt
         total_amount: display_total.cents,
         order_reference: number,
         currency: currency,
+        shipments: bolt_shipments_payload,
         items: line_items.map do |line_item|
           {
             sku: line_item.sku,
@@ -34,6 +35,10 @@ module SolidusBolt
     end
 
     private
+
+    def bolt_shipments_payload
+      shipments.map(&:bolt_shipment)
+    end
 
     def cents(float)
       (float * 100).to_i

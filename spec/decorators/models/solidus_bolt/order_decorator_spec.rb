@@ -9,6 +9,7 @@ RSpec.describe SolidusBolt::OrderDecorator do
         total_amount: (order.total * 100).to_i,
         order_reference: order.number,
         currency: 'USD',
+        shipments: array_including(hash_including(:reference)),
         items: [{
           sku: order.line_items.first.sku,
           name: order.line_items.first.name,
@@ -16,7 +17,8 @@ RSpec.describe SolidusBolt::OrderDecorator do
           quantity: 1
         }]
       }
-      expect(order.bolt_cart).to eq(result)
+
+      expect(order.bolt_cart).to match hash_including(result)
     end
   end
 
