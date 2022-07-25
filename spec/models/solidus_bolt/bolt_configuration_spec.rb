@@ -5,8 +5,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     [
       'id',
       'environment',
-      'merchant_public_id',
-      'division_public_id',
       'api_key',
       'signing_secret',
       'publishable_key',
@@ -46,8 +44,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     it 'is true for a record with empty fields' do
       create(
         :bolt_configuration,
-        merchant_public_id: '',
-        division_public_id: '',
         api_key: '',
         signing_secret: '',
         publishable_key: ''
@@ -58,6 +54,20 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     it 'is false for a record with data' do
       create(:bolt_configuration)
       expect(described_class).not_to be_config_empty
+    end
+  end
+
+  describe '#merchant_public_id' do
+    it 'returns the merchant_public_id' do
+      bolt_configuration = create(:bolt_configuration, publishable_key: 'abc.def.ghi')
+      expect(bolt_configuration.merchant_public_id).to eq('abc')
+    end
+  end
+
+  describe '#division_public_id' do
+    it 'returns the division_public_id' do
+      bolt_configuration = create(:bolt_configuration, publishable_key: 'abc.def.ghi')
+      expect(bolt_configuration.division_public_id).to eq('def')
     end
   end
 
