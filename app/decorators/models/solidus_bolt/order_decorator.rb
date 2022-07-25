@@ -5,6 +5,7 @@ module SolidusBolt
     def bolt_cart
       {
         total_amount: display_total.cents,
+        tax_amount: display_tax_total.cents,
         order_reference: number,
         currency: currency,
         shipments: bolt_shipments_payload,
