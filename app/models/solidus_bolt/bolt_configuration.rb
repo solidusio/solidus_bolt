@@ -15,6 +15,14 @@ module SolidusBolt
 
     validate :config_can_be_created, on: :create
 
+    def merchant_public_id
+      publishable_key.split('.').first
+    end
+
+    def division_public_id
+      publishable_key.split('.').second
+    end
+
     def self.fetch
       first_or_create
     end

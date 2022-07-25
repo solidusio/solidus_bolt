@@ -57,6 +57,20 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     end
   end
 
+  describe '#merchant_public_id' do
+    it 'returns the merchant_public_id' do
+      bolt_configuration = create(:bolt_configuration, publishable_key: 'abc.def.ghi')
+      expect(bolt_configuration.merchant_public_id).to eq('abc')
+    end
+  end
+
+  describe '#division_public_id' do
+    it 'returns the division_public_id' do
+      bolt_configuration = create(:bolt_configuration, publishable_key: 'abc.def.ghi')
+      expect(bolt_configuration.division_public_id).to eq('def')
+    end
+  end
+
   describe '#environment_url' do
     context 'when production envornment' do
       let(:config) { create(:bolt_configuration, environment: 'production') }
