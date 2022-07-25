@@ -30,8 +30,6 @@ module Spree
           .require(:solidus_bolt_bolt_configuration)
           .permit(
             :environment,
-            :merchant_public_id,
-            :division_public_id,
             :api_key,
             :signing_secret,
             :publishable_key

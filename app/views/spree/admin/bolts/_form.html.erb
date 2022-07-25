@@ -6,10 +6,6 @@
         <div class="col-12">
           <%= f.label :environment %>
           <%= f.select :environment, %w[production sandbox staging] %><br />
-          <%= f.label 'Merchant Public Id' %><br />
-          <%= f.text_field :merchant_public_id, class: 'fullwidth' %>
-          <%= f.label 'Division Public Id' %><br />
-          <%= f.text_field :division_public_id, class: 'fullwidth' %>
           <%= f.label :api_key %><br />
           <%= f.text_field :api_key, class: 'fullwidth' %>
           <%= f.label :signing_secret %><br />

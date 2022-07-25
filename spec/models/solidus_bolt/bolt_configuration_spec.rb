@@ -5,8 +5,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     [
       'id',
       'environment',
-      'merchant_public_id',
-      'division_public_id',
       'api_key',
       'signing_secret',
       'publishable_key',
@@ -46,8 +44,6 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
     it 'is true for a record with empty fields' do
       create(
         :bolt_configuration,
-        merchant_public_id: '',
-        division_public_id: '',
         api_key: '',
         signing_secret: '',
         publishable_key: ''

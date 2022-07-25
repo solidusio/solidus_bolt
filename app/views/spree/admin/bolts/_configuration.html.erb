@@ -2,7 +2,7 @@
   <table class="index">
     <thead>
       <tr>
-        <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:merchant_public_id) %></th>
+        <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:publishable_key) %></th>
         <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:environment) %></th>
         <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:created_at) %></th>
         <th><%= SolidusBolt::BoltConfiguration.human_attribute_name(:updated_at) %></th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @bolt_configuration.merchant_public_id %></td>
+        <td><%= @bolt_configuration.publishable_key %></td>
         <td><%= @bolt_configuration.environment %></td>
         <td>
           <%= @bolt_configuration.created_at.to_s(:long) %>

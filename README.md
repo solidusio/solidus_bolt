@@ -27,8 +27,6 @@ Many of the API calls handled by this gem use the variables set in Bolt Configur
 
 ```
 BOLT_ENVIRONMENT
-BOLT_MERCHANT_PUBLIC_ID
-BOLT_DIVISION_PUBLIC_ID
 BOLT_API_KEY
 BOLT_SIGNING_SECRET
 BOLT_PUBLISHABLE_KEY

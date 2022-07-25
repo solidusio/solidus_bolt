@@ -20,7 +20,6 @@ VCR.configure do |config|
 
   config.filter_sensitive_data('<PUBLISHABLE_KEY>') { SolidusBolt::BoltConfiguration.fetch.publishable_key }
   config.filter_sensitive_data('<API_KEY>') { SolidusBolt::BoltConfiguration.fetch.api_key }
-  config.filter_sensitive_data('<DIVISION_ID>') { SolidusBolt::BoltConfiguration.fetch.division_public_id }
 
   # Let's you set default VCR record mode with VCR_RECORDE_MODE=all for re-recording
   # episodes. :once is VCR default
