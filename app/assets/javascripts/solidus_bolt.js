@@ -16,6 +16,8 @@ const tokenize = async (paymentField, paymentMethodId, frontend) => {
     if (result["token"]) {
       updateOrder(result, paymentMethodId, frontend)
     } else {
+      const submitButton = document.getElementById("bolt-submit-button")
+      submitButton.disabled = false;
       console.log(`error ${result["type"]}: ${result["message"]}`);
     }
   });
