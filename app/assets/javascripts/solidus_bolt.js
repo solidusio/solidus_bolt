@@ -31,6 +31,11 @@ const redirectToNextStep = (frontend) => {
   }
 }
 
+async function getResponseText(response) {
+  const text = await response.text();
+  return text;
+}
+
 const updateOrder = async (card, paymentMethodId, frontend) => {
   await fetch(`/api/checkouts/${Spree.current_order_id}`, {
     method: 'PATCH',
@@ -39,6 +44,7 @@ const updateOrder = async (card, paymentMethodId, frontend) => {
       'X-Spree-Order-Token': Spree.current_order_token
     },
     body: JSON.stringify({
+      'state': 'payment',
       'order': {
         'payments_attributes': [{
           'payment_method_id': paymentMethodId,
@@ -55,8 +61,14 @@ const updateOrder = async (card, paymentMethodId, frontend) => {
       }
     })
   })
-  .then(() => {
-    redirectToNextStep(frontend)
+  .then((response) => {
+    if(response.ok) {
+      redirectToNextStep(frontend)
+    } else {
+      getResponseText(response).then(text => {
+        console.error(text);
+      });
+    }
   })
   .catch((response) => {
     console.log('Error updating order')
