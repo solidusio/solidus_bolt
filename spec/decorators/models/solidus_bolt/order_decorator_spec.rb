@@ -7,6 +7,7 @@ RSpec.describe SolidusBolt::OrderDecorator do
     it 'returns a hash with line items and price' do
       result = {
         total_amount: (order.total * 100).to_i,
+        tax_amount: (order.tax_total * 100).to_i,
         order_reference: order.number,
         currency: 'USD',
         shipments: array_including(hash_including(:reference)),
