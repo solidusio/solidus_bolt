@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-sandbox.bolt.com/v1/merchant/callbacks?division_id=<DIVISION_PUBLIC_ID>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 27 Jul 2022 18:10:11 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '157'
+      Connection:
+      - keep-alive
+      Public-Key-Pins-Report-Only:
+      - max-age=2592000;pin-sha256="OGAVOYhLZd3ADKYGFZOED1c5m1ObMlRv9PyIWrO4Nd0=";pin-sha256="RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=";pin-sha256="IXHYSIdST+XY22J5ivybYkntMIfjA5P6pMKX2hWG1BE=";report-uri="https://77aa1bd121ef22d50247a23390ce6cff.report-uri.io/r/default/hpkp/reportOnly"
+      Set-Cookie:
+      - trk=f47ec1df-c6f5-460c-baf3-2ff506846dd2; Path=/; Max-Age=31536000; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Bolt-Api-Version:
+      - '2022-01-01'
+      X-Bolt-Trace-Id:
+      - Root=1-62e17f83-46d90f8f25fd210e0420dbdb
+      X-Device-Id:
+      - cc0e49b483c9bdb9dce4a6f35b9fcfb75194e19da94e18882fac74a192a8fc71
+      X-Envoy-Upstream-Service-Time:
+      - '29'
+      Server:
+      - envoy
+    body:
+      encoding: UTF-8
+      string: '{"callback_urls":[{"url":"http://localhost:3000/bolt_logout","type":"oauth_logout"},{"url":"http://localhost:3000/users/auth/bolt","type":"oauth_redirect"}]}'
+  recorded_at: Wed, 27 Jul 2022 18:10:11 GMT
+recorded_with: VCR 6.1.0
