@@ -1,0 +1,24 @@
+<% admin_breadcrumb(plural_resource_name(SolidusBolt::BoltConfiguration)) %>
+
+<%= form_for :bolt_callback_urls, url: admin_bolt_callback_urls_path, method: :patch do |f| %>
+  <fieldset class="form-group no-border-bottom no-border-top">
+    <div class="row">
+      <div id="general_fields" class="col-9">
+        <div class="row">
+          <div class="col-12">
+            <%= f.label :oauth_redirect %>
+            <%= f.text_field :oauth_redirect, class: 'fullwidth', value: @oauth_redirect || 'https://domain.com/webhooks/bolt' %>
+          </div>
+          <div class="col-12">
+            <%= f.label :oauth_logout %>
+            <%= f.text_field :oauth_logout, class: 'fullwidth', value: @oauth_logout || 'https://domain.com/webhooks/bolt' %>
+          </div>
+        </div>
+        <div class="row p-2 justify-content-center">
+          <%= f.submit 'Update', class: 'btn btn-primary', data: { disable_with: 'Creating..' } %>
+          <%= link_to 'Cancel', admin_bolt_path, class: 'button' %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
