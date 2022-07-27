@@ -62,12 +62,22 @@ RSpec.describe SolidusBolt::BoltConfiguration, type: :model do
       bolt_configuration = create(:bolt_configuration, publishable_key: 'abc.def.ghi')
       expect(bolt_configuration.merchant_public_id).to eq('abc')
     end
+
+    it 'returns nil if publishable_key is nil' do
+      bolt_configuration = create(:bolt_configuration, publishable_key: nil)
+      expect(bolt_configuration.division_public_id).to be_nil
+    end
   end
 
   describe '#division_public_id' do
     it 'returns the division_public_id' do
       bolt_configuration = create(:bolt_configuration, publishable_key: 'abc.def.ghi')
       expect(bolt_configuration.division_public_id).to eq('def')
+    end
+
+    it 'returns nil if publishable_key is nil' do
+      bolt_configuration = create(:bolt_configuration, publishable_key: nil)
+      expect(bolt_configuration.division_public_id).to be_nil
     end
   end
 

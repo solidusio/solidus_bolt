@@ -7,7 +7,7 @@ RSpec.configure do |config|
     solidus_bolt_configuration.environment = 'sandbox'
     solidus_bolt_configuration.api_key = ENV['BOLT_API_KEY']
     solidus_bolt_configuration.signing_secret = ENV['BOLT_SIGNING_SECRET']
-    solidus_bolt_configuration.publishable_key = ENV['BOLT_PUBLISHABLE_KEY']
+    solidus_bolt_configuration.publishable_key = ENV['BOLT_PUBLISHABLE_KEY'] || 'abc.def.ghi'
 
     solidus_bolt_configuration.save!
 
