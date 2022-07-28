@@ -3,11 +3,11 @@
 module Spree
   module Admin
     class BoltCallbackUrlsController < Spree::Admin::BaseController
-      def new
+      def edit
         callback_urls = SolidusBolt::MerchantConfiguration::GetCallbackUrlsService.call
 
-        @oauth_logout = callback_urls['callback_urls'].find { |c| c['type'] == 'oauth_logout' }['url']
-        @oauth_redirect = callback_urls['callback_urls'].find { |c| c['type'] == 'oauth_redirect' }['url']
+        @oauth_logout = callback_urls['callback_urls'].find { |c| c['type'] == 'oauth_logout' }&.dig('url')
+        @oauth_redirect = callback_urls['callback_urls'].find { |c| c['type'] == 'oauth_redirect' }&.dig('url')
       end
 
       def update
@@ -17,7 +17,7 @@ module Spree
         )
         flash[:success] = "Successfully updated callback urls."
 
-        redirect_to new_admin_bolt_callback_urls_path
+        redirect_to edit_admin_bolt_callback_urls_path
       rescue SolidusBolt::ServerError => e
         flash[:error] = e.message
 
