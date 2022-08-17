@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe SolidusBolt::MerchantConfiguration::SetCallbackUrlsService, :vcr, :bolt_configuration do
-  subject(:api) { described_class.new(params) }
+  subject(:api) { described_class.new(**params) }
 
   let(:params) {
     {
