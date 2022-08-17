@@ -8,7 +8,8 @@ RSpec.describe SolidusBolt::MerchantConfiguration::SetCallbackUrlsService, :vcr,
   let(:params) {
     {
       oauth_redirect: 'http://localhost:3000/users/auth/bolt',
-      oauth_logout: 'http://localhost:3000//user/spree_user/logout'
+      oauth_logout: 'http://localhost:3000/user/spree_user/logout',
+      get_account: 'http://localhost:3000/api/accounts/bolt'
     }
   }
 
