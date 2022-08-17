@@ -7,11 +7,15 @@
         <div class="row">
           <div class="col-12">
             <%= f.label :oauth_redirect %>
-            <%= f.text_field :oauth_redirect, class: 'fullwidth', value: @oauth_redirect || 'https://domain.com/webhooks/bolt' %>
+            <%= f.text_field :oauth_redirect, class: 'fullwidth', value: @oauth_redirect || 'https://domain.com/users/auth/bolt' %>
           </div>
           <div class="col-12">
             <%= f.label :oauth_logout %>
-            <%= f.text_field :oauth_logout, class: 'fullwidth', value: @oauth_logout || 'https://domain.com/webhooks/bolt' %>
+            <%= f.text_field :oauth_logout, class: 'fullwidth', value: @oauth_logout || 'https://domain.com/bolt_logout' %>
+          </div>
+          <div class="col-12">
+            <%= f.label :get_account %>
+            <%= f.text_field :get_account, class: 'fullwidth', value: @get_account || 'https://domain.com/api/accounts/bolt' %>
           </div>
         </div>
         <div class="row p-2 justify-content-center">

@@ -8,12 +8,14 @@ module Spree
 
         @oauth_logout = callback_urls['callback_urls'].find { |c| c['type'] == 'oauth_logout' }&.dig('url')
         @oauth_redirect = callback_urls['callback_urls'].find { |c| c['type'] == 'oauth_redirect' }&.dig('url')
+        @get_account = callback_urls['callback_urls'].find { |c| c['type'] == 'get_account' }&.dig('url')
       end
 
       def update
         SolidusBolt::MerchantConfiguration::SetCallbackUrlsService.call(
           oauth_logout: params[:bolt_callback_urls][:oauth_logout],
-          oauth_redirect: params[:bolt_callback_urls][:oauth_redirect]
+          oauth_redirect: params[:bolt_callback_urls][:oauth_redirect],
+          get_account: params[:bolt_callback_urls][:get_account]
         )
         flash[:success] = "Successfully updated callback urls."
 
