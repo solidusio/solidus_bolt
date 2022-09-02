@@ -28,6 +28,14 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
       expect(payment_source.reload.card_id).to eq('1234')
     end
 
+    it 'receives the billing_address on the credit_card' do
+      authorize
+
+      expect(SolidusBolt::Transactions::AuthorizeService).to have_received(:call).with(
+        hash_including(credit_card: hash_including(:country_code, :email))
+      )
+    end
+
     it 'returns an active merchant billing response' do
       expect(authorize).to be_an_instance_of(ActiveMerchant::Billing::Response)
     end
@@ -117,6 +125,14 @@ RSpec.describe SolidusBolt::Gateway, type: :model do
     it 'updates the card_id of the payment_source' do
       purchase
       expect(payment_source.reload.card_id).to eq('1234')
+    end
+
+    it 'receives the billing_address on the credit_card' do
+      purchase
+
+      expect(SolidusBolt::Transactions::AuthorizeService).to have_received(:call).with(
+        hash_including(credit_card: hash_including(:country_code, :email))
+      )
     end
 
     it 'returns an active merchant billing response' do
