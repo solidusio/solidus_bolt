@@ -73,8 +73,15 @@ module SolidusBolt
       def add_omniauth_middleware
         bolt_middleware_initializer = <<~BOLT_PROVIDER
           Rails.application.config.middleware.use OmniAuth::Builder do
-            provider :bolt, publishable_key: SolidusBolt::BoltConfiguration.fetch.publishable_key,
-                      api_key: SolidusBolt::BoltConfiguration.fetch.api_key
+            bolt_configuration = SolidusBolt::BoltConfiguration.fetch
+
+            if bolt_configuration&.publishable_key.present? && bolt_configuration&.api_key.present?
+              provider :bolt, publishable_key: bolt_configuration.publishable_key,
+                        api_key: bolt_configuration.api_key
+            else
+              Rails.logger.warn 'Bolt configuration missing'
+            end
+          rescue StandardError
           end
         BOLT_PROVIDER
         append_file 'config/initializers/solidus_social.rb', bolt_middleware_initializer
