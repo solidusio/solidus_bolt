@@ -1,7 +1,7 @@
 # Solidus Bolt
 
-[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_bolt.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_bolt)
-[![codecov](https://codecov.io/gh/solidusio-contrib/solidus_bolt/branch/master/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_bolt)
+[![CircleCI](https://circleci.com/gh/solidusio/solidus_bolt.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_bolt)
+[![codecov](https://codecov.io/gh/solidusio/solidus_bolt/branch/master/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_bolt)
 
 <!-- Explain what your extension does. -->
 
