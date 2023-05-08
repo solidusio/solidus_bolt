@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'multi_json'
   spec.add_dependency 'omniauth-bolt'
   spec.add_dependency 'rails'
-  spec.add_dependency 'solidus_core', ['>= 2.0.0', '< 4']
+  spec.add_dependency 'solidus_core', ['>= 2.0.0', '< 5']
   spec.add_dependency 'solidus_social'
   spec.add_dependency 'solidus_support', '~> 0.5'
   spec.add_dependency 'tweetnacl'
