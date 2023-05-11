@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'solidus_core', ['>= 2.0.0', '< 5']
   spec.add_dependency 'solidus_social'
   spec.add_dependency 'solidus_support', '~> 0.5'
+  spec.add_dependency 'faraday-retry'
   spec.add_dependency 'tweetnacl'
 
   spec.add_development_dependency 'net-smtp'
