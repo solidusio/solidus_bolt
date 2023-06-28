@@ -24,6 +24,8 @@ module SolidusBolt
           'bolt_config_credentials',
           ::SolidusBolt::Engine.bolt_config_credentials_hash
         )
+      rescue ActiveRecord::ConnectionNotEstablished
+        # do nothing
       end
 
       Spree::PermittedAttributes.source_attributes.concat(%i[
