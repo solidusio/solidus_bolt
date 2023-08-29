@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
   spec.license = 'Apache-2.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/nebulab/solidus_bolt'
-  spec.metadata['changelog_uri'] = 'https://github.com/nebulab/solidus_bolt/blob/master/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = 'https://github.com/solidusio/solidus_bolt'
+  spec.metadata['changelog_uri'] = 'https://github.com/solidusio/solidus_bolt/blob/main/CHANGELOG.md'
 
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5')
 

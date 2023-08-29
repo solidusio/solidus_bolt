@@ -1,7 +1,7 @@
 # Solidus Bolt
 
 [![CircleCI](https://circleci.com/gh/solidusio/solidus_bolt.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_bolt)
-[![codecov](https://codecov.io/gh/solidusio/solidus_bolt/branch/master/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_bolt)
+[![codecov](https://codecov.io/gh/solidusio/solidus_bolt/branch/main/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_bolt)
 
 <!-- Explain what your extension does. -->
 
@@ -36,7 +36,7 @@ Alternatively you can setup the Bolt Configuration manually by visiting `/admin/
 
 ### Using solidus_bolt Seeds
 
-Provided you setup the environment variables, you can simplify the setup of a Bolt application by running the [gem's seeds](https://github.com/nebulab/solidus_bolt/blob/master/db/seeds.rb). This will automatically create the following:
+Provided you setup the environment variables, you can simplify the setup of a Bolt application by running the [gem's seeds](https://github.com/solidusio/solidus_bolt/blob/main/db/seeds.rb). This will automatically create the following:
 
 - BoltConfiguration
 - AuthenticationMethod
