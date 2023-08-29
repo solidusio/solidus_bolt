@@ -8,6 +8,7 @@ module SolidusBolt
         session[:bolt_expiration_time] = @expiration_time
         session[:bolt_refresh_token] = @refresh_token
         session[:bolt_refresh_token_scope] = @refresh_token_scope
+        session[:bolt_scope] = @scope
       end
     end
 

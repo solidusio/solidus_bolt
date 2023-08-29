@@ -25,6 +25,7 @@ module SolidusBolt
         session[:bolt_expiration_time] = Time.now.utc + response['expires_in']
         session[:bolt_refresh_token] = response['refresh_token']
         session[:bolt_refresh_token_scope] = response['refresh_token_scope']
+        session[:bolt_scope] = response['scope']
         session[:bolt_access_token] = response['access_token']
       end
 
