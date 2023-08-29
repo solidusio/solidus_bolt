@@ -127,6 +127,10 @@ module SolidusBolt
         card_params[k.gsub('card_', '').to_sym] = v unless v.nil?
       end
 
+      card_params.merge!(
+        payment_source.payments.first.order.billing_address.bolt_address(payment_source.payments.first.order.email)
+      )
+
       card_params
     end
   end
