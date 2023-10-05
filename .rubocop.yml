@@ -1,6 +1,9 @@
 require:
   - solidus_dev_support/rubocop
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
 AllCops:
   NewCops: disable
 

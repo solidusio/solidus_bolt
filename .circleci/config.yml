@@ -5,19 +5,37 @@ orbs:
   # run specs against Solidus supported versions only without the need
   # to change this configuration every time a Solidus version is released
   # or goes EOL.
-  solidusio_extensions: solidusio/extensions@0.2.27
+  solidusio_extensions: solidusio/extensions@volatile
 
 jobs:
   run-specs-with-postgres:
-    executor: solidusio_extensions/postgres
+    parameters:
+      ruby_version:
+        type: string
+        default: "3.2"
+    executor:
+      name: solidusio_extensions/postgres
+      ruby_version: << parameters.ruby_version >>
     steps:
       - solidusio_extensions/run-tests
   run-specs-with-mysql:
-    executor: solidusio_extensions/mysql
+    parameters:
+      ruby_version:
+        type: string
+        default: "3.2"
+    executor:
+      name: solidusio_extensions/mysql
+      ruby_version: << parameters.ruby_version >>
     steps:
       - solidusio_extensions/run-tests
   lint-code:
-    executor: solidusio_extensions/sqlite-memory
+    parameters:
+      ruby_version:
+        type: string
+        default: "3.2"
+    executor:
+      name: solidusio_extensions/sqlite-memory
+      ruby_version: << parameters.ruby_version >>
     steps:
       - solidusio_extensions/lint-code
 
@@ -25,9 +43,12 @@ workflows:
   "Run specs on supported Solidus versions":
     jobs:
       - run-specs-with-postgres
-      - run-specs-with-mysql
-      - lint-code
-
+      - run-specs-with-mysql:
+          name: "Run specs with MySQL and Ruby 3.1"
+          ruby_version: "3.1"
+      - lint-code:
+          name: "Lint code with Ruby 3.0"
+          ruby_version: "3.0"
   "Weekly run specs against main":
     triggers:
       - schedule:
@@ -38,4 +59,6 @@ workflows:
                 - main
     jobs:
       - run-specs-with-postgres
-      - run-specs-with-mysql
+      - run-specs-with-mysql:
+          name: "Run specs with MySQL and Ruby 3.1 on main"
+          ruby_version: "3.1"
