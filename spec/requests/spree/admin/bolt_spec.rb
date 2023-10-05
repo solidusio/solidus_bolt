@@ -19,7 +19,7 @@ RSpec.describe "Spree::Admin::Bolts", type: :request do
     end
 
     it 'creates a new SolidusBolt::BoltConfiguration record if no records are present' do
-      expect { get '/admin/bolt' }.to change { SolidusBolt::BoltConfiguration.count }.by(1)
+      expect { get '/admin/bolt' }.to change(SolidusBolt::BoltConfiguration, :count).by(1)
     end
   end
 

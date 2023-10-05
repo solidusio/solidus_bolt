@@ -15,7 +15,7 @@ module SolidusBolt
       signing_secret = SolidusBolt::BoltConfiguration.fetch&.signing_secret || ''
       computed_hmac = Base64.encode64(OpenSSL::HMAC.digest("SHA256", signing_secret, permitted_params.to_json)).strip
 
-      return render json: { error: 'Unauthorized request' }, status: :unauthorized unless hmac_header == computed_hmac
+      render json: { error: 'Unauthorized request' }, status: :unauthorized unless hmac_header == computed_hmac
     end
   end
 end
