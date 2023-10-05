@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'net-smtp'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'solidus_dev_support', '~> 2.5'
+  spec.add_development_dependency 'solidus_dev_support', '~> 2.7'
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'
 end
