@@ -29,6 +29,8 @@ else
   gem 'sqlite3'
 end
 
+gem 'solidus_social', github: 'solidusio-contrib/solidus_social', ref: 'eb542f3052430c208089366fc9ae458a9fe2d9a1'
+
 gemspec
 
 # Use a local Gemfile to include development dependencies that might not be
